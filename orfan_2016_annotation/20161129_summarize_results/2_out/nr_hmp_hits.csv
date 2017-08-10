@@ -1,0 +1,8 @@
+cluster,db,tool,s_description
+1217,nr,blastp,unknown [Veillonella sp. CAG:933]
+1217,nr,hmmsearch,unknown [Veillonella sp. CAG:933]
+532,nr,hmmsearch,hypothetical protein [Megamonas rupellensis]
+565b,nr,blastp,hypothetical protein H257_12751 [Aphanomyces astaci]
+565b,nr,hmmsearch,putative replication protein [Phytophthora parasitica virus]gi|755573261|gb|AJK30621.1| putative replication protein [Phytophthora parasitica virus]gi|755573265|gb|AJK30624.1| putative replication protein [Phytophthora parasitica virus]
+956b,nr,blastp,hypothetical protein [Chlamydia trachomatis]
+956b,nr,hmmsearch,hypothetical protein [Chlamydia trachomatis]
