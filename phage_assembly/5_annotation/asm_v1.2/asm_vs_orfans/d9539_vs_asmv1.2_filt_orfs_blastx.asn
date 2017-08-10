@@ -1,0 +1,365 @@
+Seq-annot ::= {
+  desc {
+    user {
+      type str "Hist Seqalign",
+      data {
+        {
+          label str "Hist Seqalign",
+          data bool TRUE
+        }
+      }
+    },
+    user {
+      type str "Blast Type",
+      data {
+        {
+          label str "blastx",
+          data int 3
+        }
+      }
+    },
+    user {
+      type str "Blast Database Title",
+      data {
+        {
+          label str "n/a",
+          data bool FALSE
+        }
+      }
+    }
+  },
+  data align {
+    {
+      type partial,
+      dim 2,
+      score {
+        {
+          id str "score",
+          value int 22
+        },
+        {
+          id str "blast_score",
+          value int 22
+        },
+        {
+          id str "e_value",
+          value real { 416162487531166, 10, -14 }
+        },
+        {
+          id str "bit_score",
+          value real { 130826229502258, 10, -13 }
+        },
+        {
+          id str "num_ident",
+          value int 5
+        },
+        {
+          id str "comp_adjustment_method",
+          value int 2
+        },
+        {
+          id str "num_positives",
+          value int 8
+        },
+        {
+          id str "hsp_percent_coverage",
+          value real { 432165605095541, 10, -14 }
+        },
+        {
+          id str "pc_ident",
+          value real { 416666666666667, 10, -15 }
+        },
+        {
+          id str "seq_evalue",
+          value real { 416162487531166, 10, -14 }
+        },
+        {
+          id str "seq_bit_score",
+          value real { 130826229502258, 10, -13 }
+        },
+        {
+          id str "seq_total_bit_score",
+          value real { 130826229502258, 10, -13 }
+        },
+        {
+          id str "seq_percent_coverage",
+          value int 11
+        },
+        {
+          id str "seq_percent_identity",
+          value int 42
+        },
+        {
+          id str "seq_hspnum",
+          value int 1
+        },
+        {
+          id str "seq_align_totlen",
+          value real { 12, 10, 0 }
+        }
+      },
+      segs std {
+        {
+          dim 2,
+          ids {
+            local str "Query_104203",
+            local str "Query_104209"
+          },
+          loc {
+            int {
+              from 7,
+              to 42,
+              strand minus,
+              id local str "Query_104203"
+            },
+            int {
+              from 215,
+              to 226,
+              strand unknown,
+              id local str "Query_104209"
+            }
+          }
+        }
+      }
+    },
+    {
+      type partial,
+      dim 2,
+      score {
+        {
+          id str "score",
+          value int 317
+        },
+        {
+          id str "blast_score",
+          value int 317
+        },
+        {
+          id str "sum_n",
+          value int 3
+        },
+        {
+          id str "e_value",
+          value real { 261324535279744, 10, -65 }
+        },
+        {
+          id str "bit_score",
+          value real { 126716497845845, 10, -12 }
+        },
+        {
+          id str "num_ident",
+          value int 60
+        },
+        {
+          id str "comp_adjustment_method",
+          value int 2
+        },
+        {
+          id str "num_positives",
+          value int 63
+        },
+        {
+          id str "hsp_percent_coverage",
+          value real { 208821656050955, 10, -13 }
+        },
+        {
+          id str "pc_ident",
+          value real { 9375, 10, -4 }
+        },
+        {
+          id str "seq_evalue",
+          value real { 261324535279744, 10, -65 }
+        },
+        {
+          id str "seq_bit_score",
+          value real { 126716497845845, 10, -12 }
+        },
+        {
+          id str "seq_total_bit_score",
+          value real { 222602866987337, 10, -12 }
+        },
+        {
+          id str "seq_percent_coverage",
+          value int 99
+        },
+        {
+          id str "seq_percent_identity",
+          value int 94
+        },
+        {
+          id str "seq_hspnum",
+          value int 3
+        },
+        {
+          id str "seq_align_totlen",
+          value real { 108, 10, 0 }
+        }
+      },
+      segs std {
+        {
+          dim 2,
+          ids {
+            local str "Query_104203",
+            local str "Query_104210"
+          },
+          loc {
+            int {
+              from 1,
+              to 192,
+              strand minus,
+              id local str "Query_104203"
+            },
+            int {
+              from 124,
+              to 187,
+              strand unknown,
+              id local str "Query_104210"
+            }
+          }
+        }
+      }
+    },
+    {
+      type partial,
+      dim 2,
+      score {
+        {
+          id str "score",
+          value int 164
+        },
+        {
+          id str "blast_score",
+          value int 164
+        },
+        {
+          id str "sum_n",
+          value int 3
+        },
+        {
+          id str "e_value",
+          value real { 261324535279744, 10, -65 }
+        },
+        {
+          id str "bit_score",
+          value real { 677809627304899, 10, -13 }
+        },
+        {
+          id str "num_ident",
+          value int 31
+        },
+        {
+          id str "comp_adjustment_method",
+          value int 2
+        },
+        {
+          id str "num_positives",
+          value int 32
+        },
+        {
+          id str "hsp_percent_coverage",
+          value real { 106910828025478, 10, -13 }
+        },
+        {
+          id str "pc_ident",
+          value real { 96875, 10, -5 }
+        }
+      },
+      segs std {
+        {
+          dim 2,
+          ids {
+            local str "Query_104203",
+            local str "Query_104210"
+          },
+          loc {
+            int {
+              from 218,
+              to 313,
+              strand minus,
+              id local str "Query_104203"
+            },
+            int {
+              from 83,
+              to 114,
+              strand unknown,
+              id local str "Query_104210"
+            }
+          }
+        }
+      }
+    },
+    {
+      type partial,
+      dim 2,
+      score {
+        {
+          id str "score",
+          value int 61
+        },
+        {
+          id str "blast_score",
+          value int 61
+        },
+        {
+          id str "sum_n",
+          value int 3
+        },
+        {
+          id str "e_value",
+          value real { 261324535279744, 10, -65 }
+        },
+        {
+          id str "bit_score",
+          value real { 281054064110026, 10, -13 }
+        },
+        {
+          id str "num_ident",
+          value int 12
+        },
+        {
+          id str "comp_adjustment_method",
+          value int 2
+        },
+        {
+          id str "num_positives",
+          value int 12
+        },
+        {
+          id str "hsp_percent_coverage",
+          value real { 432165605095541, 10, -14 }
+        },
+        {
+          id str "pc_ident",
+          value real { 1, 10, 0 }
+        }
+      },
+      segs std {
+        {
+          dim 2,
+          ids {
+            local str "Query_104203",
+            local str "Query_104210"
+          },
+          loc {
+            int {
+              from 183,
+              to 218,
+              strand minus,
+              id local str "Query_104203"
+            },
+            int {
+              from 115,
+              to 126,
+              strand unknown,
+              id local str "Query_104210"
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+

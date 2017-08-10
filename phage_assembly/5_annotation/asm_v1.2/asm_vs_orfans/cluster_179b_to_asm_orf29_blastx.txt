@@ -1,0 +1,47 @@
+# blastx
+# Iteration: 0
+# Query: GB3LKKR01C2BL0 [13],GB3LKKR01CVNVS,GB3LKKR02HVZGF,GB3LKKR02F3WFH,GB3LKKR01C0TKF,GB3LKKR02J2NFP,GB3LKKR02ILNZ7,GB3LKKR02GQ6WW,GB3LKKR01AW46P,GB3LKKR01BTYUH,GB3LKKR02GJWB2,GB3LKKR01A7U1M,contig11005
+# RID: PRUEFGZW114
+# Database: n/a
+# Fields: query id, subject ids, % identity, % positives, query/sbjct frames, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+GB3LKKR01C2BL0	orf29	86.842	93.42	1/0	76	10	0	4	231	114	189	1.88e-45	141
+# blastx
+# Iteration: 0
+# Query: GB3LKKR01EB2BL e=0.0248953 length=304 nreads=1typ
+# RID: PRUEFGZW114
+# Database: n/a
+# Fields: query id, subject ids, % identity, % positives, query/sbjct frames, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+GB3LKKR01EB2BL	orf29	78.182	89.09	3/0	55	12	0	3	167	137	191	9.28e-29	93.6
+# blastx
+# Iteration: 0
+# Query: GB3LKKR02ITVHK e=0.00027901 length=401 nreads=1typ
+# RID: PRUEFGZW114
+# Database: n/a
+# Fields: query id, subject ids, % identity, % positives, query/sbjct frames, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 2 hits found
+GB3LKKR02ITVHK	orf29	83.824	88.24	3/0	68	11	0	33	236	124	191	1.51e-39	125
+GB3LKKR02ITVHK	orf29	73.684	84.21	1/0	19	5	0	1	57	113	131	6.18e-07	32.7
+# blastx
+# Iteration: 0
+# Query: GB3LKKR02JWM4O e=0.0257857 length=187 nreads=1typ
+# RID: PRUEFGZW114
+# Database: n/a
+# Fields: query id, subject ids, % identity, % positives, query/sbjct frames, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 2 hits found
+GB3LKKR02JWM4O	orf29	75.000	86.54	2/0	52	13	0	2	157	140	191	5.15e-26	85.5
+GB3LKKR02JWM4O	orf29	41.667	50.00	1/0	12	7	0	121	156	474	485	1.3	14.2
+# blastx
+# Iteration: 0
+# Query: GB3LKKR02IKPFQ e=0.000293243 length=469 nreads=1typ
+# RID: PRUEFGZW114
+# Database: n/a
+# Fields: query id, subject ids, % identity, % positives, query/sbjct frames, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 2 hits found
+GB3LKKR02IKPFQ	orf29	77.358	86.79	1/0	53	12	0	1	159	113	165	1.25e-27	90.1
+GB3LKKR02IKPFQ	orf29	25.000	50.00	1/0	16	12	0	103	150	581	596	6.4	12.3
+
+
+
+

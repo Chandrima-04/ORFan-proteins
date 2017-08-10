@@ -1,0 +1,26 @@
+Processing d9539_asm_v1.2_orf
+mkdir -p 2_blast/
+blastp -num_threads 8 -max_target_seqs 10 -outfmt 11 -db /scratch/maubar/blastdb/nr/nr -query 1_orf/d9539_asm_v1.2_orf.fa -out 2_blast/d9539_asm_v1.2_orf_blastp_vs_nr.asn
+mkdir -p 2_blast/
+blast_formatter -archive 2_blast/d9539_asm_v1.2_orf_blastp_vs_nr.asn -html -out 2_blast/d9539_asm_v1.2_orf_blastp_vs_nr.html
+mkdir -p 2_blast/
+blast_formatter -archive 2_blast/d9539_asm_v1.2_orf_blastp_vs_nr.asn -outfmt '6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen sgi staxids sscinames scomnames qcovs' -out 2_blast/d9539_asm_v1.2_orf_blastp_vs_nr.tsv
+mkdir -p 2_blast/
+blastp -num_threads 8 -max_target_seqs 10 -outfmt 11 -db /scratch/maubar/blastdb/env_nr/env_nr -query 1_orf/d9539_asm_v1.2_orf.fa -out 2_blast/d9539_asm_v1.2_orf_blastp_vs_env_nr.asn
+mkdir -p 2_blast/
+blast_formatter -archive 2_blast/d9539_asm_v1.2_orf_blastp_vs_env_nr.asn -html -out 2_blast/d9539_asm_v1.2_orf_blastp_vs_env_nr.html
+mkdir -p 2_blast/
+blast_formatter -archive 2_blast/d9539_asm_v1.2_orf_blastp_vs_env_nr.asn -outfmt '6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen sgi staxids sscinames scomnames qcovs' -out 2_blast/d9539_asm_v1.2_orf_blastp_vs_env_nr.tsv
+mkdir -p 2_blast/
+blastp -num_threads 8 -max_target_seqs 10 -outfmt 11 -db /scratch/maubar/blastdb/hmp/pep/hmp_pep -query 1_orf/d9539_asm_v1.2_orf.fa -out 2_blast/d9539_asm_v1.2_orf_blastp_vs_hmp_pep.asn
+mkdir -p 2_blast/
+blast_formatter -archive 2_blast/d9539_asm_v1.2_orf_blastp_vs_hmp_pep.asn -html -out 2_blast/d9539_asm_v1.2_orf_blastp_vs_hmp_pep.html
+mkdir -p 2_blast/
+blast_formatter -archive 2_blast/d9539_asm_v1.2_orf_blastp_vs_hmp_pep.asn -outfmt '6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen sgi staxids sscinames scomnames qcovs' -out 2_blast/d9539_asm_v1.2_orf_blastp_vs_hmp_pep.tsv
+mkdir -p 2_blast/
+blastp -num_threads 8 -max_target_seqs 10 -outfmt 11 -db /scratch/maubar/blastdb/metahit/pep/metahit_pep -query 1_orf/d9539_asm_v1.2_orf.fa -out 2_blast/d9539_asm_v1.2_orf_blastp_vs_metahit_pep.asn
+mkdir -p 2_blast/
+blast_formatter -archive 2_blast/d9539_asm_v1.2_orf_blastp_vs_metahit_pep.asn -html -out 2_blast/d9539_asm_v1.2_orf_blastp_vs_metahit_pep.html
+mkdir -p 2_blast/
+blast_formatter -archive 2_blast/d9539_asm_v1.2_orf_blastp_vs_metahit_pep.asn -outfmt '6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen sgi staxids sscinames scomnames qcovs' -out 2_blast/d9539_asm_v1.2_orf_blastp_vs_metahit_pep.tsv
+

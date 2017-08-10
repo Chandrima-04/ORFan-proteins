@@ -1,0 +1,15 @@
+-m
+5e10
+-l
+600
+--k-step
+2
+--k-max
+101
+--input-cmd
+cat ../2_qf/4_phix_rm/d9539_amplicon1_qf_pe.fq.gz ../2_qf/4_phix_rm/d9539_amplicon1_qf_se.fq.gz
+--cpu-only
+-t
+16
+-o
+megahit

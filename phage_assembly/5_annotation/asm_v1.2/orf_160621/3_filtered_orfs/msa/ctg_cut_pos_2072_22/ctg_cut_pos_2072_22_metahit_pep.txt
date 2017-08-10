@@ -1,0 +1,6 @@
+GL0027812_MH0033_[Complete]_[mRNA]_locus=C3777442_1:3115:4119:+
+GL0047060_MH0039_[Complete]_[mRNA]_locus=scaffold84037_1:2109:3113:+
+GL0107161_V1_[Complete]_[mRNA]_locus=scaffold79364_1:2773:3777:+
+GL0091141_MH0014_[Lack_5'-end]_[mRNA]_locus=scaffold53332_2:98:1024:-
+GL0019907_MH0046_[Complete]_[mRNA]_locus=scaffold87326_1:2645:3718:+
+GL0006639_V1_[Complete]_[mRNA]_locus=scaffold43540_3:187:1260:-

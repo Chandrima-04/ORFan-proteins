@@ -1,0 +1,51 @@
+
+clip: \
+    --adaptor-clip no \
+    --match 10 \
+    --max-errors 1 \
+    --clip-ambiguous yes \
+    --quality 5 \
+    --qoffset 33 \
+    --length 50 \
+    --homopolymers yes \
+    --trim-start 0 \
+    --trim-end 0 \
+    --revcom no \
+    --fasta no \
+    --gzip yes \
+    --rejects no \
+    --out-separate yes \
+    1_nesoni/d9539_amplicon1_qf \
+    pairs: \
+    ../reads/1_140428_000000000-A7VRF_P1141_1005_1.fastq.gz \
+    ../reads/1_140428_000000000-A7VRF_P1141_1005_2.fastq.gz
+
+from /home/maubar/results/sonnhammer_d9539/amplicon1/3_new_asm/2_qf
+
+nesoni 0.126
+
+(> d9539_amplicon1_qf    3,640,011 read-pairs
+(> d9539_amplicon1_qf            0 read-1 adaptors clipped at start
+(> d9539_amplicon1_qf            0 read-1 adaptors clipped at end
+(> d9539_amplicon1_qf          226 read-1 too short after quality clip
+(> d9539_amplicon1_qf            0 read-1 too short after adaptor clip
+(> d9539_amplicon1_qf            1 read-1 homopolymers
+(> d9539_amplicon1_qf    3,639,784 read-1 kept
+(> d9539_amplicon1_qf      301.000 read-1 average input length
+(> d9539_amplicon1_qf      261.022 read-1 average output length
+(> d9539_amplicon1_qf            0 read-2 adaptors clipped at start
+(> d9539_amplicon1_qf            0 read-2 adaptors clipped at end
+(> d9539_amplicon1_qf        2,556 read-2 too short after quality clip
+(> d9539_amplicon1_qf            0 read-2 too short after adaptor clip
+(> d9539_amplicon1_qf           41 read-2 homopolymers
+(> d9539_amplicon1_qf    3,637,414 read-2 kept
+(> d9539_amplicon1_qf      301.000 read-2 average input length
+(> d9539_amplicon1_qf      249.256 read-2 average output length
+(> d9539_amplicon1_qf    3,637,234 pairs kept after clipping
+(> d9539_amplicon1_qf        2,730 reads kept after clipping
+
+ started 25 May 2015 10:44 AM
+finished 25 May 2015 11:06 AM
+run time 0:21:14
+
+peak memory used 52488 kb

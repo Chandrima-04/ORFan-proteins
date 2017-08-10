@@ -1,0 +1,12 @@
+query_id,db,s_description,pct_id,q_cov,s_description,q_len,s_len
+d9539_asm_v1.2_11,hmp_pep,BACEGG_02723 hypothetical protein [Bacteroides eggerthii DSM 20697],40.323,15,BACEGG_02723 hypothetical protein [Bacteroides eggerthii DSM 20697],421,368
+d9539_asm_v1.2_11,nr,hypothetical protein [Eel River basin pequenovirus],27.404,48,hypothetical protein [Eel River basin pequenovirus],421,277
+d9539_asm_v1.2_11,nr,hypothetical protein [Bacteroides eggerthii],40.323,15,hypothetical protein [Bacteroides eggerthii],421,368
+d9539_asm_v1.2_22,hmp_pep,HMPREF1059_03256 hypothetical protein [Parabacteroides distasonis CL09T03C24],28.930999999999997,40,HMPREF1059_03256 hypothetical protein [Parabacteroides distasonis CL09T03C24],361,284
+d9539_asm_v1.2_22,nr,putative replication initiation protein [Alistipes finegoldii CAG:68],27.386,61,putative replication initiation protein [Alistipes finegoldii CAG:68],361,320
+d9539_asm_v1.2_29,hmp_pep,HMPREF1059_03257 hypothetical protein [Parabacteroides distasonis CL09T03C24],26.214000000000002,31,HMPREF1059_03257 hypothetical protein [Parabacteroides distasonis CL09T03C24],647,538
+d9539_asm_v1.2_29,nr,putative major capsid protein [Eel River basin pequenovirus],28.796,29,putative major capsid protein [Eel River basin pequenovirus],647,523
+d9539_asm_v1.2_29,nr,putative uncharacterized protein [Alistipes finegoldii CAG:68],31.746,27,putative uncharacterized protein [Alistipes finegoldii CAG:68],647,338
+d9539_asm_v1.2_30,nr,hypothetical protein [Ruegeria sp. ANG-S4],29.545,87,hypothetical protein [Ruegeria sp. ANG-S4],97,308
+d9539_asm_v1.2_30,nr,"OPT family small oligopeptide transporter, partial [Trichoderma harzianum]",37.313,64,"OPT family small oligopeptide transporter, partial [Trichoderma harzianum]",97,725
+d9539_asm_v1.2_30,nr,cysteinyl-tRNA synthetase [Chlamydia trachomatis],31.522,93,cysteinyl-tRNA synthetase [Chlamydia trachomatis],97,531

@@ -1,0 +1,2 @@
+GL0047061_MH0039_[Complete]_[mRNA]_locus=scaffold84037_1:3106:5049:+
+GL0107162_V1_[Complete]_[mRNA]_locus=scaffold79364_1:3770:5716:+

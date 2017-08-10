@@ -1,0 +1,71 @@
+# LAST version 572
+#
+# a=7 b=1 A=7 B=1 e=23 d=15 x=22 y=9 z=22 D=1e+06 E=5.15119e+06
+# R=01 u=2 s=2 T=0 m=10 l=1 n=10 k=1 i=8192 w=1000 t=0.910239 g=1 j=3 Q=0
+# crassphage/last_idx/crassphage
+# Reference sequences=1 normal letters=97065
+# lambda=1.09602 K=0.335388
+#
+#    A  C  G  T
+# A  1 -1 -1 -1
+# C -1  1 -1 -1
+# G -1 -1  1 -1
+# T -1 -1 -1  1
+#
+# Coordinates are 0-based.  For - strand matches, coordinates
+# in the reverse complement of the 2nd sequence are used.
+#
+# name start alnSize strand seqSize alignment
+#
+# batch 0
+# Query sequences=1
+# LAST version 572
+#
+# a=7 b=1 A=7 B=1 e=23 d=15 x=22 y=9 z=22 D=1e+06 E=5.15119e+06
+# R=01 u=2 s=2 T=0 m=10 l=1 n=10 k=1 i=8192 w=1000 t=0.910239 g=1 j=3 Q=0
+# crassphage/last_idx/crassphage
+# Reference sequences=1 normal letters=97065
+# lambda=1.09602 K=0.335388
+#
+#    A  C  G  T
+# A  1 -1 -1 -1
+# C -1  1 -1 -1
+# G -1 -1  1 -1
+# T -1 -1 -1  1
+#
+# Coordinates are 0-based.  For - strand matches, coordinates
+# in the reverse complement of the 2nd sequence are used.
+#
+# name start alnSize strand seqSize alignment
+#
+# batch 0
+# batch 1
+# batch 2
+# batch 3
+# batch 4
+# batch 5
+# batch 6
+# batch 7
+# batch 8
+# batch 9
+# batch 10
+# batch 11
+# batch 12
+# batch 13
+# batch 14
+# batch 15
+# batch 16
+# batch 17
+# batch 18
+# batch 19
+# batch 20
+# batch 21
+# batch 22
+# batch 23
+# batch 24
+# batch 25
+# batch 26
+# batch 27
+# batch 28
+# batch 29
+# Query sequences=132

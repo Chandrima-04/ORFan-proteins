@@ -1,0 +1,7 @@
+GL0047057_MH0039_[Complete]_[mRNA]_locus=scaffold84037_1:69:1334:+
+GL0107158_V1_[Complete]_[mRNA]_locus=scaffold79364_1:730:1995:+
+GL0016161_MH0077_[Complete]_[mRNA]_locus=scaffold9705_3:39:1304:+
+GL0027809_MH0033_[Complete]_[mRNA]_locus=C3777442_1:1078:2343:+
+GL0019903_MH0046_[Complete]_[mRNA]_locus=scaffold87326_1:369:1613:+
+GL0006643_V1_[Lack_5'-end]_[mRNA]_locus=scaffold43540_3:2329:3525:-
+GL0103048_V1_[Complete]_[mRNA]_locus=scaffold45917_2:981:2261:+

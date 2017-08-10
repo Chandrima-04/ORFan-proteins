@@ -1,0 +1,4 @@
+s_id,s_accession,q_id,q_accession,e_value,bitscore,bias,best_dmn_e_value,best_dmn_score,best_dmn_bias,dne_exp,dne_reg,dne_clu,dne_ov,dne_env,dne_dom,dne_rep,dne_inc,description,db
+Phage_F,PF02305.14,d9539_asm_v1.2_29,-,3.4e-08,32.6,0.1,1.6e-06,27.0,0.0,2.2,2,0,0,2,2,2,2,Capsid protein (F protein),pfam
+Big_4,PF07532.8,d9539_asm_v1.2_29,-,1.3,8.7,4.4,3.9,7.1,0.2,2.3,2,0,0,2,2,2,0,Bacterial Ig-like domain (group 4),pfam
+vFam_4031,-,d9539_asm_v1.2_14,-,0.015,13.2,0.2,0.16,9.9,0.4,2.0,1,1,1,2,2,2,0,-,vfam

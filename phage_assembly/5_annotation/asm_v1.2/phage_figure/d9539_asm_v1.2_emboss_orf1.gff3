@@ -1,0 +1,10 @@
+##gff-version 3
+d9539_asm_v1.2	EMBOSS_getorf	CDS	25	105	.	+	0	ID=d9539_asm_v1.2_1
+d9539_asm_v1.2	EMBOSS_getorf	CDS	130	237	.	+	0	ID=d9539_asm_v1.2_3
+d9539_asm_v1.2	EMBOSS_getorf	CDS	215	388	.	+	0	ID=d9539_asm_v1.2_5
+d9539_asm_v1.2	EMBOSS_getorf	CDS	393	1655	.	+	0	ID=d9539_asm_v1.2_11
+d9539_asm_v1.2	EMBOSS_getorf	CDS	1603	2124	.	+	0	ID=d9539_asm_v1.2_14
+d9539_asm_v1.2	EMBOSS_getorf	CDS	2179	2388	.	+	0	ID=d9539_asm_v1.2_16
+d9539_asm_v1.2	EMBOSS_getorf	CDS	2351	3433	.	+	0	ID=d9539_asm_v1.2_22
+d9539_asm_v1.2	EMBOSS_getorf	CDS	3429	5369	.	+	0	ID=d9539_asm_v1.2_29
+d9539_asm_v1.2	EMBOSS_getorf	CDS	5374	5664	.	+	0	ID=d9539_asm_v1.2_30

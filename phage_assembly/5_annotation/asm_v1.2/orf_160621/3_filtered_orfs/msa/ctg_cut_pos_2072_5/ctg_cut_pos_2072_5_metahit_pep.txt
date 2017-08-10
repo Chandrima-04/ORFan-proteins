@@ -1,0 +1,2 @@
+GL0012681_MH0069_[Lack_3'-end]_[mRNA]_locus=C6797415_1:3:281:-
+GL0019902_MH0046_[Complete]_[mRNA]_locus=scaffold87326_1:169:366:+

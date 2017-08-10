@@ -1,0 +1,21 @@
+#                                                               --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name        accession  query name           accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#------------------- ---------- -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+vFam_6703            -          d9539_asm_v1.2_4     -             0.0047   14.8   0.6    0.0047   14.8   0.6   1.4   2   0   0   2   2   2   1 -
+vFam_3843            -          d9539_asm_v1.2_6     -                5.5    4.9  14.7      0.03   12.1   4.1   2.2   2   1   0   2   2   2   0 -
+vFam_419             -          d9539_asm_v1.2_6     -                8.2    3.4  11.2       1.2    6.1   7.6   1.4   1   1   1   2   2   2   0 -
+vFam_4031            -          d9539_asm_v1.2_14    -              0.015   13.2   0.2      0.16    9.9   0.4   2.0   1   1   1   2   2   2   0 -
+vFam_6281            -          d9539_asm_v1.2_18    -               0.58    7.8   3.7      0.59    7.8   3.7   1.0   1   0   0   1   1   1   0 -
+vFam_6275            -          d9539_asm_v1.2_23    -               0.96    7.0   8.1      0.99    6.9   8.1   1.2   1   0   0   1   1   1   0 -
+vFam_6703            -          d9539_asm_v1.2_31    -               0.14   10.2   7.7      0.23    9.4   7.3   1.7   1   1   0   1   1   1   0 -
+vFam_1242            -          d9539_asm_v1.2_47    -               0.11    9.7  11.3     0.025   11.7   0.3   2.0   2   0   0   2   2   2   0 -
+#
+# Program:         hmmscan
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SCAN
+# Query file:      1_orf/d9539_asm_v1.2_orf.fa
+# Target file:     /scratch/maubar/hmmerdb/vFam-A/vFam-A_2014.hmm
+# Option settings: hmmscan -o 2_hmmscan/d9539_asm_v1.2_orf_hmmscan_vFamA.out --tblout 2_hmmscan/d9539_asm_v1.2_orf_hmmscan_vFamA.tbl --domtblout 2_hmmscan/d9539_asm_v1.2_orf_hmmscan_vFamA.domtbl --cpu 16 /scratch/maubar/hmmerdb/vFam-A/vFam-A_2014.hmm 1_orf/d9539_asm_v1.2_orf.fa 
+# Current dir:     /scratch/maubar/d9539_asm_orfs_v1.2_20160428
+# Date:            Thu Apr 28 15:05:02 2016
+# [ok]

@@ -1,0 +1,44 @@
+# blastn
+# Iteration: 0
+# Query: GB3LKKR01C2BL0 [13],GB3LKKR01CVNVS,GB3LKKR02HVZGF,GB3LKKR02F3WFH,GB3LKKR01C0TKF,GB3LKKR02J2NFP,GB3LKKR02ILNZ7,GB3LKKR02GQ6WW,GB3LKKR01AW46P,GB3LKKR01BTYUH,GB3LKKR02GJWB2,GB3LKKR01A7U1M,contig11005
+# RID: PRTEKEUZ114
+# Database: n/a
+# Fields: query id, subject ids, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+GB3LKKR01C2BL0	d9539_asm_v1.2	86.087	230	28	3	4	231	3768	3995	2.41e-68	244
+# blastn
+# Iteration: 0
+# Query: GB3LKKR01EB2BL e=0.0248953 length=304 nreads=1typ
+# RID: PRTEKEUZ114
+# Database: n/a
+# Fields: query id, subject ids, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+GB3LKKR01EB2BL	d9539_asm_v1.2	83.125	160	23	3	1	158	3835	3992	6.42e-38	143
+# blastn
+# Iteration: 0
+# Query: GB3LKKR02ITVHK e=0.00027901 length=401 nreads=1typ
+# RID: PRTEKEUZ114
+# Database: n/a
+# Fields: query id, subject ids, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+GB3LKKR02ITVHK	d9539_asm_v1.2	84.681	235	35	1	4	237	3768	4002	5.36e-65	233
+# blastn
+# Iteration: 0
+# Query: GB3LKKR02JWM4O e=0.0257857 length=187 nreads=1typ
+# RID: PRTEKEUZ114
+# Database: n/a
+# Fields: query id, subject ids, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+GB3LKKR02JWM4O	d9539_asm_v1.2	90.506	158	15	0	1	158	3845	4002	5.84e-58	209
+# blastn
+# Iteration: 0
+# Query: GB3LKKR02IKPFQ e=0.000293243 length=469 nreads=1typ
+# RID: PRTEKEUZ114
+# Database: n/a
+# Fields: query id, subject ids, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+GB3LKKR02IKPFQ	d9539_asm_v1.2	100.000	162	0	0	1	162	3765	3926	3.46e-85	300
+
+
+
+

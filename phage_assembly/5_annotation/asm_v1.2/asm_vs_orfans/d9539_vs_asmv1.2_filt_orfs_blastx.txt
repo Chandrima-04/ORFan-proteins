@@ -1,0 +1,73 @@
+BLASTX 2.3.1+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro
+A. Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and
+David J. Lipman (1997), "Gapped BLAST and PSI-BLAST: a new
+generation of protein database search programs", Nucleic
+Acids Res. 25:3389-3402.
+
+
+RID: JZAGF006114
+
+
+Query= GB3LKKR01D9539 e=0.329412 length=554 nreads=1typ
+
+Length=314
+
+
+                                                                   Score     E
+Sequences producing significant alignments:                       (Bits)  Value
+
+Query_104209  d9539_asm_v1.2_22 [2351 - 3433]                      13.1    4.2  
+Query_104210  d9539_asm_v1.2_29 [3429 - 5369]                      126     3e-51
+
+ALIGNMENTS
+>Query_104209 d9539_asm_v1.2_22 [2351 - 3433]
+Length=361
+
+ Score = 13.1 bits (22),  Expect = 4.2, Method: Compositional matrix adjust.
+ Identities = 5/12 (42%), Positives = 6/12 (50%), Gaps = 0/12 (0%)
+ Frame = -2
+
+Query  43   KFLSVNADTYLG  8
+            KF+S     Y G
+Sbjct  216  KFVSPGVGDYFG  227
+
+
+>Query_104210 d9539_asm_v1.2_29 [3429 - 5369]
+Length=647
+
+ Score = 126 bits (317),  Expect(3) = 3e-51, Method: Compositional matrix adjust.
+ Identities = 60/64 (94%), Positives = 60/64 (94%), Gaps = 0/64 (0%)
+ Frame = -2
+
+Query  193  CCFFSQIMPFNHRAALPNSLMSWFRIANSPIFNYSDNPLPSGGVLFKSSPKFLSVNADTY  14
+              FFSQIMPFNHRAALPNSLMSW RIANSPIFNYS NPLPSGGVLFKSSPKFLSVNADTY
+Sbjct  125  AAFFSQIMPFNHRAALPNSLMSWLRIANSPIFNYSGNPLPSGGVLFKSSPKFLSVNADTY  184
+
+Query  13   LGYW  2
+            LGYW
+Sbjct  185  LGYW  188
+
+
+ Score = 67.8 bits (164),  Expect(3) = 3e-51, Method: Compositional matrix adjust.
+ Identities = 31/32 (97%), Positives = 32/32 (100%), Gaps = 0/32 (0%)
+ Frame = -1
+
+Query  314  KMRVNSSKFDMNDLTYNFIPGVVDNKGGGAYT  219
+            +MRVNSSKFDMNDLTYNFIPGVVDNKGGGAYT
+Sbjct  84   EMRVNSSKFDMNDLTYNFIPGVVDNKGGGAYT  115
+
+
+ Score = 28.1 bits (61),  Expect(3) = 3e-51, Method: Compositional matrix adjust.
+ Identities = 12/12 (100%), Positives = 12/12 (100%), Gaps = 0/12 (0%)
+ Frame = -3
+
+Query  219  SFMYPRSGTAAF  184
+            SFMYPRSGTAAF
+Sbjct  116  SFMYPRSGTAAF  127
+
+
+
+
+
+

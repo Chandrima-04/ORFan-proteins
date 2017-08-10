@@ -1,0 +1,1821 @@
+TBLASTX 2.2.29+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+
+Database: Nucleotide collection (nt)
+           29,433,050 sequences; 84,812,993,326 total letters
+
+
+
+Query= contig.00007
+
+Length=5746
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value  N
+
+gi|685042152|emb|LN590677.1|  Cyprinus carpio genome assembly com...  54.2    7e-07  2
+gi|685042174|emb|LN590699.1|  Cyprinus carpio genome assembly com...  52.4    8e-07  2
+gi|685042175|emb|LN590700.1|  Cyprinus carpio genome assembly com...  54.2    1e-06  2
+gi|685042185|emb|LN590710.1|  Cyprinus carpio genome assembly com...  53.3    1e-06  2
+gi|685042193|emb|LN590718.1|  Cyprinus carpio genome assembly com...  50.6    2e-06  3
+gi|689613583|emb|LM085694.1|  Schistosoma curassoni genome assemb...  36.8    2e-06  5
+gi|685042158|emb|LN590683.1|  Cyprinus carpio genome assembly com...  53.3    2e-06  2
+gi|685042177|emb|LN590702.1|  Cyprinus carpio genome assembly com...  51.5    2e-06  2
+gi|685042162|emb|LN590687.1|  Cyprinus carpio genome assembly com...  51.9    3e-06  2
+gi|685042178|emb|LN590703.1|  Cyprinus carpio genome assembly com...  52.4    3e-06  2
+gi|685042161|emb|LN590686.1|  Cyprinus carpio genome assembly com...  50.6    4e-06  3
+gi|685042187|emb|LN590712.1|  Cyprinus carpio genome assembly com...  51.5    5e-06  2
+gi|685042184|emb|LN590709.1|  Cyprinus carpio genome assembly com...  51.5    6e-06  2
+gi|685042180|emb|LN590705.1|  Cyprinus carpio genome assembly com...  50.6    1e-05  2
+gi|685042165|emb|LN590690.1|  Cyprinus carpio genome assembly com...  50.6    1e-05  2
+gi|685042189|emb|LN590714.1|  Cyprinus carpio genome assembly com...  54.2    2e-05  2
+gi|663681403|emb|HG975522.1|  Solanum lycopersicum chromosome ch1...  42.3    3e-05  2
+gi|336180355|gb|AC244775.7|  Solanum lycopersicum strain Heinz 17...  42.3    4e-05  2
+gi|685042502|emb|LN591027.1|  Cyprinus carpio genome assembly com...  46.9    2e-04  2
+gi|663673439|emb|HG975440.1|  Solanum pennellii chromosome ch01, ...  45.1    4e-04  2
+gi|663673455|emb|HG975449.1|  Solanum pennellii chromosome ch10, ...  39.6    4e-04  2
+gi|685042314|emb|LN590839.1|  Cyprinus carpio genome assembly com...  57.9    4e-04  1
+gi|66821058|ref|XM_638966.1|  Dictyostelium discoideum AX4 RING z...  40.9    4e-04  3
+gi|17558377|ref|NM_072374.1|  Caenorhabditis elegans Protein C33G...  44.1    5e-04  2
+gi|86440125|gb|AC182111.1|  Mus musculus BAC clone RP24-415L2 fro...  40.5    5e-04  2
+gi|54697301|gb|AC149597.4|  Mus musculus BAC clone RP24-90B12 fro...  47.8    6e-04  2
+gi|690109623|emb|LM707130.1|  Protopolystoma xenopodis genome ass...  41.8    7e-04  2
+gi|685042186|emb|LN590711.1|  Cyprinus carpio genome assembly com...  50.6    9e-04  2
+gi|327530740|emb|FP245397.22|  Zebrafish DNA sequence from clone ...  39.1    9e-04  2
+
+
+>gi|685042152|emb|LN590677.1| Cyprinus carpio genome assembly common carp genome ,scaffold 
+LG7
+Length=14157913
+
+ Score = 54.2 bits (112),  Expect(2) = 7e-07
+ Identities = 22/29 (76%), Positives = 23/29 (79%), Gaps = 0/29 (0%)
+ Frame = +3/+3
+
+Query  30       SSRRRHTRSLCDWSSDVCSSDLFKSSPKF  116
+                SSRRRHT S CDWSSDVCSSDL KS   +
+Sbjct  2232462  SSRRRHTIS*CDWSSDVCSSDLTKSPQNY  2232548
+
+
+ Score = 50.6 bits (104),  Expect(2) = 7e-07
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = +2/+1
+
+Query  5660      RSEEHTSELQSHSDLVCRLLLE  5725
+                 RSEEHTSELQSH D+VCRLLLE
+Sbjct  10941010  RSEEHTSELQSHHDIVCRLLLE  10941075
+
+
+ Score = 52.4 bits (108),  Expect(2) = 4e-06
+ Identities = 22/26 (85%), Positives = 22/26 (85%), Gaps = 0/26 (0%)
+ Frame = +3/+3
+
+Query  30        SSRRRHTRSLCDWSSDVCSSDLFKSS  107
+                 SSRRRHT S CDWSSDVCSSDL K S
+Sbjct  10225881  SSRRRHTIS*CDWSSDVCSSDLQKIS  10225958
+
+
+ Score = 49.6 bits (102),  Expect(2) = 4e-06
+ Identities = 20/22 (91%), Positives = 20/22 (91%), Gaps = 0/22 (0%)
+ Frame = +3/+2
+
+Query  5658      RDRKSTRLNSSHTVISYAVFCL  5723
+                 RDRKSTRLNSSH  ISYAVFCL
+Sbjct  10941008  RDRKSTRLNSSHITISYAVFCL  10941073
+
+
+ Score = 50.6 bits (104),  Expect(2) = 8e-06
+ Identities = 20/22 (91%), Positives = 20/22 (91%), Gaps = 0/22 (0%)
+ Frame = +3/-3
+
+Query  30        SSRRRHTRSLCDWSSDVCSSDL  95
+                 SSRRRHT S CDWSSDVCSSDL
+Sbjct  10941074  SSRRRHTIS*CDWSSDVCSSDL  10941009
+
+
+ Score = 50.6 bits (104),  Expect(2) = 8e-06
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = +2/-1
+
+Query  5660      RSEEHTSELQSHSDLVCRLLLE  5725
+                 RSEEHTSELQSH D+VCRLLLE
+Sbjct  10225945  RSEEHTSELQSHHDIVCRLLLE  10225880
+
+
+ Score = 50.6 bits (104),  Expect(2) = 1e-04
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = +2/-1
+
+Query  5660     RSEEHTSELQSHSDLVCRLLLE  5725
+                RSEEHTSELQSH D+VCRLLLE
+Sbjct  2232526  RSEEHTSELQSHHDIVCRLLLE  2232461
+
+
+ Score = 46.4 bits (95),  Expect(2) = 1e-04
+ Identities = 17/21 (81%), Positives = 18/21 (86%), Gaps = 0/21 (0%)
+ Frame = +3/-2
+
+Query  36        RRRHTRSLCDWSSDVCSSDLF  98
+                 RRRHT S CDWSSDVCSSD +
+Sbjct  13365393  RRRHTIS*CDWSSDVCSSDFY  13365331
+
+
+ Score = 50.6 bits (104),  Expect(2) = 3e-04
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = -1/-1
+
+Query  94        RSEEHTSELQSHSDLVCRLLLE  29
+                 RSEEHTSELQSH D+VCRLLLE
+Sbjct  10225945  RSEEHTSELQSHHDIVCRLLLE  10225880
+
+
+ Score = 49.2 bits (101),  Expect(2) = 3e-04
+ Identities = 20/30 (67%), Positives = 23/30 (77%), Gaps = 0/30 (0%)
+ Frame = +3/+3
+
+Query  30        SSRRRHTRSLCDWSSDVCSSDLFKSSPKFL  119
+                 SSRRRHT  + DWSSDVCSSDL   +P+ L
+Sbjct  12896226  SSRRRHTILVSDWSSDVCSSDLTYGNPRSL  12896315
+
+
+ Score = 46.4 bits (95),  Expect(2) = 3e-04
+ Identities = 18/22 (82%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = +2/+2
+
+Query  5657      *RSEEHTSELQSHSDLVCRLLL  5722
+                 *+SEEHTSELQSH D+VCRLL+
+Sbjct  13365332  *KSEEHTSELQSHHDIVCRLLI  13365397
+
+
+ Score = 45.1 bits (92),  Expect(2) = 3e-04
+ Identities = 19/25 (76%), Positives = 22/25 (88%), Gaps = 0/25 (0%)
+ Frame = -1/-2
+
+Query  5722      KQKTAYEITV*LEFRRVLFRSLQHR  5648
+                 KQKTAY+I +*LEFRRVLFRSL  +
+Sbjct  10941072  KQKTAYDIVM*LEFRRVLFRSLTRK  10940998
+
+
+ Score = 50.6 bits (104),  Expect(2) = 5e-04
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = -1/+1
+
+Query  94        RSEEHTSELQSHSDLVCRLLLE  29
+                 RSEEHTSELQSH D+VCRLLLE
+Sbjct  10941010  RSEEHTSELQSHHDIVCRLLLE  10941075
+
+
+ Score = 50.6 bits (104),  Expect(2) = 5e-04
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = -1/-1
+
+Query  94       RSEEHTSELQSHSDLVCRLLLE  29
+                RSEEHTSELQSH D+VCRLLLE
+Sbjct  2232526  RSEEHTSELQSHHDIVCRLLLE  2232461
+
+
+ Score = 44.1 bits (90),  Expect(2) = 5e-04
+ Identities = 19/22 (86%), Positives = 19/22 (86%), Gaps = 0/22 (0%)
+ Frame = -3/-1
+
+Query  5723      QAEDGIRDHCVTGVQTCALPIS  5658
+                 QAEDGIR   VTGVQTCALPIS
+Sbjct  10941073  QAEDGIRYRDVTGVQTCALPIS  10941008
+
+
+ Score = 44.1 bits (90),  Expect(2) = 5e-04
+ Identities = 18/25 (72%), Positives = 23/25 (92%), Gaps = 0/25 (0%)
+ Frame = -1/+2
+
+Query  5722      KQKTAYEITV*LEFRRVLFRSLQHR  5648
+                 KQKTAY+I +*LEFRRVLFRS +++
+Sbjct  10225883  KQKTAYDIVM*LEFRRVLFRSTKNK  10225957
+
+
+>gi|685042174|emb|LN590699.1| Cyprinus carpio genome assembly common carp genome ,scaffold 
+LG22
+Length=8395091
+
+ Score = 52.4 bits (108),  Expect(2) = 8e-07
+ Identities = 22/26 (85%), Positives = 22/26 (85%), Gaps = 0/26 (0%)
+ Frame = +3/-3
+
+Query  30       SSRRRHTRSLCDWSSDVCSSDLFKSS  107
+                SSRRRHT S CDWSSDVCSSDL K S
+Sbjct  8053824  SSRRRHTIS*CDWSSDVCSSDLQKIS  8053747
+
+
+ Score = 51.5 bits (106),  Expect(2) = 8e-07
+ Identities = 21/24 (88%), Positives = 23/24 (96%), Gaps = 0/24 (0%)
+ Frame = +2/-2
+
+Query  5654     L*RSEEHTSELQSHSDLVCRLLLE  5725
+                +*RSEEHTSELQSH D+VCRLLLE
+Sbjct  6332260  V*RSEEHTSELQSHHDIVCRLLLE  6332189
+
+
+ Score = 50.6 bits (104),  Expect(2) = 5e-06
+ Identities = 20/22 (91%), Positives = 20/22 (91%), Gaps = 0/22 (0%)
+ Frame = +3/+3
+
+Query  30       SSRRRHTRSLCDWSSDVCSSDL  95
+                SSRRRHT S CDWSSDVCSSDL
+Sbjct  6332190  SSRRRHTIS*CDWSSDVCSSDL  6332255
+
+
+ Score = 50.6 bits (104),  Expect(2) = 5e-06
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = +2/+2
+
+Query  5660     RSEEHTSELQSHSDLVCRLLLE  5725
+                RSEEHTSELQSH D+VCRLLLE
+Sbjct  8053760  RSEEHTSELQSHHDIVCRLLLE  8053825
+
+
+ Score = 50.6 bits (104),  Expect(2) = 3e-04
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = -1/-2
+
+Query  94       RSEEHTSELQSHSDLVCRLLLE  29
+                RSEEHTSELQSH D+VCRLLLE
+Sbjct  6332254  RSEEHTSELQSHHDIVCRLLLE  6332189
+
+
+ Score = 44.1 bits (90),  Expect(2) = 3e-04
+ Identities = 18/25 (72%), Positives = 23/25 (92%), Gaps = 0/25 (0%)
+ Frame = -1/-2
+
+Query  5722     KQKTAYEITV*LEFRRVLFRSLQHR  5648
+                KQKTAY+I +*LEFRRVLFRS +++
+Sbjct  8053822  KQKTAYDIVM*LEFRRVLFRSTKNK  8053748
+
+
+ Score = 50.6 bits (104),  Expect(2) = 8e-04
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = -1/+2
+
+Query  94       RSEEHTSELQSHSDLVCRLLLE  29
+                RSEEHTSELQSH D+VCRLLLE
+Sbjct  8053760  RSEEHTSELQSHHDIVCRLLLE  8053825
+
+
+ Score = 42.8 bits (87),  Expect(2) = 8e-04
+ Identities = 18/21 (86%), Positives = 20/21 (95%), Gaps = 0/21 (0%)
+ Frame = -1/+2
+
+Query  5722     KQKTAYEITV*LEFRRVLFRS  5660
+                KQKTAY+I +*LEFRRVLFRS
+Sbjct  6332192  KQKTAYDIVM*LEFRRVLFRS  6332254
+
+
+>gi|685042175|emb|LN590700.1| Cyprinus carpio genome assembly common carp genome ,scaffold 
+LG10
+Length=22665327
+
+ Score = 54.2 bits (112),  Expect(2) = 1e-06
+ Identities = 21/22 (95%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = +3/+3
+
+Query  30        SSRRRHTRSLCDWSSDVCSSDL  95
+                 SSRRRHTRS CDWSSDVCSSDL
+Sbjct  14033877  SSRRRHTRS*CDWSSDVCSSDL  14033942
+
+
+ Score = 50.6 bits (104),  Expect(2) = 1e-06
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = +2/+2
+
+Query  5660      RSEEHTSELQSHSDLVCRLLLE  5725
+                 RSEEHTSELQSH D+VCRLLLE
+Sbjct  15778538  RSEEHTSELQSHHDIVCRLLLE  15778603
+
+
+ Score = 52.8 bits (109),  Expect(2) = 1e-06
+ Identities = 21/24 (88%), Positives = 21/24 (88%), Gaps = 0/24 (0%)
+ Frame = +3/-1
+
+Query  30        SSRRRHTRSLCDWSSDVCSSDLFK  101
+                 SSRRRHT S CDWSSDVCSSDL K
+Sbjct  15778602  SSRRRHTIS*CDWSSDVCSSDLLK  15778531
+
+
+ Score = 51.5 bits (106),  Expect(2) = 1e-06
+ Identities = 21/22 (95%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = +2/-3
+
+Query  5660      RSEEHTSELQSHSDLVCRLLLE  5725
+                 RSEEHTSELQSH DLVCRLLLE
+Sbjct  14033941  RSEEHTSELQSHHDLVCRLLLE  14033876
+
+
+ Score = 53.3 bits (110),  Expect(2) = 3e-05
+ Identities = 21/23 (91%), Positives = 22/23 (96%), Gaps = 0/23 (0%)
+ Frame = -1/+2
+
+Query  97        NRSEEHTSELQSHSDLVCRLLLE  29
+                 NRSEEHTSELQSH D+VCRLLLE
+Sbjct  15778535  NRSEEHTSELQSHHDIVCRLLLE  15778603
+
+
+ Score = 46.4 bits (95),  Expect(2) = 3e-05
+ Identities = 19/21 (90%), Positives = 19/21 (90%), Gaps = 0/21 (0%)
+ Frame = -3/+1
+
+Query  5723      QAEDGIRDHCVTGVQTCALPI  5661
+                 QAEDGIRD  VTGVQTCALPI
+Sbjct  14033878  QAEDGIRDRDVTGVQTCALPI  14033940
+
+
+ Score = 51.9 bits (107),  Expect(2) = 3e-04
+ Identities = 22/24 (92%), Positives = 22/24 (92%), Gaps = 0/24 (0%)
+ Frame = -1/-3
+
+Query  100       LNRSEEHTSELQSHSDLVCRLLLE  29
+                 L RSEEHTSELQSH DLVCRLLLE
+Sbjct  14033947  LFRSEEHTSELQSHHDLVCRLLLE  14033876
+
+
+ Score = 49.6 bits (102),  Expect(2) = 3e-04
+ Identities = 20/22 (91%), Positives = 20/22 (91%), Gaps = 0/22 (0%)
+ Frame = -2/+3
+
+Query  96        TDRKSTRLNSSHTVISYAVFCL  31
+                 TDRKSTRLNSSH  ISYAVFCL
+Sbjct  15778536  TDRKSTRLNSSHITISYAVFCL  15778601
+
+
+ Score = 46.4 bits (95),  Expect(2) = 3e-04
+ Identities = 18/22 (82%), Positives = 18/22 (82%), Gaps = 0/22 (0%)
+ Frame = -2/+3
+
+Query  5709      HTRSLCDWSSDVCSSDLYNTGN  5644
+                 HTRS CDWSSDVCSSDL N  N
+Sbjct  14033892  HTRS*CDWSSDVCSSDLNNLYN  14033957
+
+
+ Score = 44.1 bits (90),  Expect(2) = 3e-04
+ Identities = 18/25 (72%), Positives = 23/25 (92%), Gaps = 0/25 (0%)
+ Frame = -1/-3
+
+Query  5722      KQKTAYEITV*LEFRRVLFRSLQHR  5648
+                 KQKTAY+I +*LEFRRVLFRS++ +
+Sbjct  15778600  KQKTAYDIVM*LEFRRVLFRSVKKK  15778526
+
+
+ Score = 47.3 bits (97),  Expect(2) = 8e-04
+ Identities = 20/29 (69%), Positives = 22/29 (76%), Gaps = 0/29 (0%)
+ Frame = +1/-2
+
+Query  31        QAEDGIRDHCVTGVQTCALPICLSRRRSF  117
+                 QAEDGIR   VTGVQTCALPIC  ++  F
+Sbjct  15778601  QAEDGIRYRDVTGVQTCALPIC*KKKVRF  15778515
+
+
+ Score = 47.3 bits (97),  Expect(2) = 8e-04
+ Identities = 19/21 (90%), Positives = 19/21 (90%), Gaps = 0/21 (0%)
+ Frame = +3/-1
+
+Query  5661      DRKSTRLNSSHTVISYAVFCL  5723
+                 DRKSTRLNSSH  ISYAVFCL
+Sbjct  14033940  DRKSTRLNSSHITISYAVFCL  14033878
+
+
+>gi|685042185|emb|LN590710.1| Cyprinus carpio genome assembly common carp genome ,scaffold 
+LG26
+Length=16349257
+
+ Score = 53.3 bits (110),  Expect(2) = 1e-06
+ Identities = 21/23 (91%), Positives = 21/23 (91%), Gaps = 0/23 (0%)
+ Frame = +3/+2
+
+Query  30       SSRRRHTRSLCDWSSDVCSSDLF  98
+                SSRRRHT S CDWSSDVCSSDLF
+Sbjct  3790388  SSRRRHTIS*CDWSSDVCSSDLF  3790456
+
+
+ Score = 53.3 bits (110),  Expect(2) = 1e-06
+ Identities = 21/23 (91%), Positives = 21/23 (91%), Gaps = 0/23 (0%)
+ Frame = +3/-1
+
+Query  30       SSRRRHTRSLCDWSSDVCSSDLF  98
+                SSRRRHT S CDWSSDVCSSDLF
+Sbjct  6008758  SSRRRHTIS*CDWSSDVCSSDLF  6008690
+
+
+ Score = 50.6 bits (104),  Expect(2) = 1e-06
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = +2/+3
+
+Query  5660     RSEEHTSELQSHSDLVCRLLLE  5725
+                RSEEHTSELQSH D+VCRLLLE
+Sbjct  6008694  RSEEHTSELQSHHDIVCRLLLE  6008759
+
+
+ Score = 50.6 bits (104),  Expect(2) = 1e-06
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = +2/-2
+
+Query  5660     RSEEHTSELQSHSDLVCRLLLE  5725
+                RSEEHTSELQSH D+VCRLLLE
+Sbjct  3790452  RSEEHTSELQSHHDIVCRLLLE  3790387
+
+
+ Score = 53.3 bits (110),  Expect(2) = 1e-04
+ Identities = 21/23 (91%), Positives = 22/23 (96%), Gaps = 0/23 (0%)
+ Frame = -1/+3
+
+Query  97       NRSEEHTSELQSHSDLVCRLLLE  29
+                NRSEEHTSELQSH D+VCRLLLE
+Sbjct  6008691  NRSEEHTSELQSHHDIVCRLLLE  6008759
+
+
+ Score = 53.3 bits (110),  Expect(2) = 1e-04
+ Identities = 21/23 (91%), Positives = 22/23 (96%), Gaps = 0/23 (0%)
+ Frame = -1/-2
+
+Query  97       NRSEEHTSELQSHSDLVCRLLLE  29
+                NRSEEHTSELQSH D+VCRLLLE
+Sbjct  3790455  NRSEEHTSELQSHHDIVCRLLLE  3790387
+
+
+ Score = 43.7 bits (89),  Expect(2) = 1e-04
+ Identities = 18/22 (82%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = -1/+1
+
+Query  5722     KQKTAYEITV*LEFRRVLFRSL  5657
+                KQKTAY+I +*LEFRRVLFRS+
+Sbjct  3790390  KQKTAYDIVM*LEFRRVLFRSI  3790455
+
+
+ Score = 43.7 bits (89),  Expect(2) = 1e-04
+ Identities = 18/22 (82%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = -1/-3
+
+Query  5722     KQKTAYEITV*LEFRRVLFRSL  5657
+                KQKTAY+I +*LEFRRVLFRS+
+Sbjct  6008756  KQKTAYDIVM*LEFRRVLFRSI  6008691
+
+
+>gi|685042193|emb|LN590718.1| Cyprinus carpio genome assembly common carp genome ,scaffold 
+LG9
+Length=24322175
+
+ Score = 50.6 bits (104),  Expect(3) = 2e-06
+ Identities = 20/22 (91%), Positives = 20/22 (91%), Gaps = 0/22 (0%)
+ Frame = +3/-2
+
+Query  30        SSRRRHTRSLCDWSSDVCSSDL  95
+                 SSRRRHT S CDWSSDVCSSDL
+Sbjct  21230113  SSRRRHTIS*CDWSSDVCSSDL  21230048
+
+
+ Score = 50.6 bits (104),  Expect(3) = 2e-06
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = +2/-1
+
+Query  5660     RSEEHTSELQSHSDLVCRLLLE  5725
+                RSEEHTSELQSH D+VCRLLLE
+Sbjct  2094803  RSEEHTSELQSHHDIVCRLLLE  2094738
+
+
+ Score = 38.2 bits (77),  Expect(3) = 2e-06
+ Identities = 17/52 (33%), Positives = 30/52 (58%), Gaps = 0/52 (0%)
+ Frame = +1/-2
+
+Query  4585      VLVVLLNMLFFKNLACIRIKVVSLVFIFMAFFGMFLVLIMLFVKLLRI*VLF  4740
+                 V  VL+N+ FFK  +   I ++  VF F +    +  +I+LF+ +L + VL+
+Sbjct  18139882  VCKVLINLFFFKFYSSPCISILKCVFYFFSKLFYYFAIILLFIYILCVCVLY  18139727
+
+
+ Score = 50.6 bits (104),  Expect(2) = 1e-05
+ Identities = 20/22 (91%), Positives = 20/22 (91%), Gaps = 0/22 (0%)
+ Frame = +3/+1
+
+Query  30       SSRRRHTRSLCDWSSDVCSSDL  95
+                SSRRRHT S CDWSSDVCSSDL
+Sbjct  2094739  SSRRRHTIS*CDWSSDVCSSDL  2094804
+
+
+ Score = 50.6 bits (104),  Expect(2) = 1e-05
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = +2/+3
+
+Query  5660      RSEEHTSELQSHSDLVCRLLLE  5725
+                 RSEEHTSELQSH D+VCRLLLE
+Sbjct  21230049  RSEEHTSELQSHHDIVCRLLLE  21230114
+
+
+ Score = 51.0 bits (105),  Expect(2) = 5e-04
+ Identities = 20/23 (87%), Positives = 22/23 (96%), Gaps = 0/23 (0%)
+ Frame = -1/-1
+
+Query  97       NRSEEHTSELQSHSDLVCRLLLE  29
+                +RSEEHTSELQSH D+VCRLLLE
+Sbjct  2094806  SRSEEHTSELQSHHDIVCRLLLE  2094738
+
+
+ Score = 44.6 bits (91),  Expect(2) = 5e-04
+ Identities = 19/24 (79%), Positives = 21/24 (88%), Gaps = 0/24 (0%)
+ Frame = -1/-1
+
+Query  5722      KQKTAYEITV*LEFRRVLFRSLQH  5651
+                 KQKTAY+I +*LEFRRVLFRS  H
+Sbjct  21230111  KQKTAYDIVM*LEFRRVLFRSKLH  21230040
+
+
+>gi|689613583|emb|LM085694.1| Schistosoma curassoni genome assembly S_curassoni_Dakar ,scaffold 
+SCUD_scaffold0015119
+Length=4321
+
+ Score = 36.8 bits (74),  Expect(5) = 2e-06
+ Identities = 13/49 (27%), Positives = 26/49 (53%), Gaps = 0/49 (0%)
+ Frame = -2/-3
+
+Query  5070  EKITHLEKDTYRSSEGYGNDKQHRSYNLCKTKDQKKHRELQNRQNNHQH  4924
+             + + H  K+ +   + Y    QHR+Y+  +   Q +H + Q++ + HQH
+Sbjct  2891  QHLHHHHKNHHHQHQHYQTQHQHRNYHHQQHHHQHQHHQHQHQHHQHQH  2745
+
+
+ Score = 33.1 bits (66),  Expect(5) = 2e-06
+ Identities = 10/36 (28%), Positives = 19/36 (53%), Gaps = 0/36 (0%)
+ Frame = -2/-3
+
+Query  4713  HEEHYKNKKHPKERHENEDEAHHLDSDACQILEKQH  4606
+             H+ H++++ H + +H N  + HH   +  Q    QH
+Sbjct  2093  HQHHHQHQHHHQHQHHNHHQQHHHQHNHSQHQHHQH  1986
+
+
+ Score = 30.9 bits (61),  Expect(5) = 2e-06
+ Identities = 12/38 (32%), Positives = 18/38 (47%), Gaps = 0/38 (0%)
+ Frame = -1/-2
+
+Query  1687  HNLHLYENQNPTLGHQDDPAKHLQNRNHSKQT*FSHHE  1574
+             H+ H Y +QN    HQ    +H  N++   Q    HH+
+Sbjct  1455  HHQHQYHHQNQHHNHQHHHHQHNHNQHQHHQHQHQHHQ  1342
+
+
+ Score = 30.9 bits (61),  Expect(5) = 2e-06
+ Identities = 14/51 (27%), Positives = 19/51 (37%), Gaps = 0/51 (0%)
+ Frame = -2/-1
+
+Query  1263  HHKKTGIHYNKAL*QMTN*KQYQTSNHNQHAREERLDNQYRYKSD*NNRDH  1111
+             HH     H+N  L       QY    H  H  E + D QY+ +   +   H
+Sbjct  496   HHHHEQQHHNHQLQHQDLHHQYHLHQHQHHPHEAQHDQQYQRRHHEHQHHH  344
+
+
+ Score = 26.7 bits (52),  Expect(5) = 2e-06
+ Identities = 12/56 (21%), Positives = 22/56 (39%), Gaps = 0/56 (0%)
+ Frame = -1/-2
+
+Query  3223  QLAYSNSHQTNSPNHQQSIHSHGTAAPD*KQKTSNK*HEQSTTATLLQADHQHNRY  3056
+             Q  +++ HQ +  +H Q  H H     D + +  +  H+        Q  H H  +
+Sbjct  1728  QREHNHQHQHHHQHHHQLQHHHHQHQHDHRHQLQHHQHQNDQREHNHQHQHHHRHH  1561
+
+
+>gi|685042158|emb|LN590683.1| Cyprinus carpio genome assembly common carp genome ,scaffold 
+LG38
+Length=27918166
+
+ Score = 53.3 bits (110),  Expect(2) = 2e-06
+ Identities = 21/23 (91%), Positives = 21/23 (91%), Gaps = 0/23 (0%)
+ Frame = +3/-3
+
+Query  30       SSRRRHTRSLCDWSSDVCSSDLF  98
+                SSRRRHT S CDWSSDVCSSDLF
+Sbjct  7969901  SSRRRHTIS*CDWSSDVCSSDLF  7969833
+
+
+ Score = 50.6 bits (104),  Expect(2) = 2e-06
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = +2/-3
+
+Query  5660     RSEEHTSELQSHSDLVCRLLLE  5725
+                RSEEHTSELQSH D+VCRLLLE
+Sbjct  4629440  RSEEHTSELQSHHDIVCRLLLE  4629375
+
+
+ Score = 50.6 bits (104),  Expect(2) = 1e-05
+ Identities = 20/22 (91%), Positives = 20/22 (91%), Gaps = 0/22 (0%)
+ Frame = +3/+1
+
+Query  30       SSRRRHTRSLCDWSSDVCSSDL  95
+                SSRRRHT S CDWSSDVCSSDL
+Sbjct  4629376  SSRRRHTIS*CDWSSDVCSSDL  4629441
+
+
+ Score = 50.6 bits (104),  Expect(2) = 1e-05
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = +2/+1
+
+Query  5660     RSEEHTSELQSHSDLVCRLLLE  5725
+                RSEEHTSELQSH D+VCRLLLE
+Sbjct  7969837  RSEEHTSELQSHHDIVCRLLLE  7969902
+
+
+ Score = 51.5 bits (106),  Expect(2) = 7e-05
+ Identities = 21/36 (58%), Positives = 25/36 (69%), Gaps = 0/36 (0%)
+ Frame = +3/-3
+
+Query  30        SSRRRHTRSLCDWSSDVCSSDLFKSSPKFLSVNADT  137
+                 SSRRRHT  + DWSSDVCSSDL   +P+ L    +T
+Sbjct  16384679  SSRRRHTILVSDWSSDVCSSDLTYGNPRSLKEGTET  16384572
+
+
+ Score = 47.3 bits (97),  Expect(2) = 7e-05
+ Identities = 19/21 (90%), Positives = 19/21 (90%), Gaps = 0/21 (0%)
+ Frame = +3/-1
+
+Query  5661     DRKSTRLNSSHTVISYAVFCL  5723
+                DRKSTRLNSSH  ISYAVFCL
+Sbjct  4629439  DRKSTRLNSSHITISYAVFCL  4629377
+
+
+>gi|685042177|emb|LN590702.1| Cyprinus carpio genome assembly common carp genome ,scaffold 
+LG50
+Length=7653411
+
+ Score = 51.5 bits (106),  Expect(2) = 2e-06
+ Identities = 21/24 (88%), Positives = 21/24 (88%), Gaps = 0/24 (0%)
+ Frame = +3/-2
+
+Query  30       SSRRRHTRSLCDWSSDVCSSDLFK  101
+                SSRRRHT S CDWSSDVCSSDL K
+Sbjct  6762563  SSRRRHTIS*CDWSSDVCSSDLNK  6762492
+
+
+ Score = 50.6 bits (104),  Expect(2) = 2e-06
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = +2/-3
+
+Query  5660     RSEEHTSELQSHSDLVCRLLLE  5725
+                RSEEHTSELQSH D+VCRLLLE
+Sbjct  3995989  RSEEHTSELQSHHDIVCRLLLE  3995924
+
+
+ Score = 51.0 bits (105),  Expect(2) = 3e-06
+ Identities = 21/28 (75%), Positives = 24/28 (86%), Gaps = 0/28 (0%)
+ Frame = +2/+1
+
+Query  5642     LFPVL*RSEEHTSELQSHSDLVCRLLLE  5725
+                +F +  RSEEHTSELQSH D+VCRLLLE
+Sbjct  6862981  IFLLCLRSEEHTSELQSHHDIVCRLLLE  6863064
+
+
+ Score = 50.6 bits (104),  Expect(2) = 3e-06
+ Identities = 20/22 (91%), Positives = 20/22 (91%), Gaps = 0/22 (0%)
+ Frame = +3/+3
+
+Query  30       SSRRRHTRSLCDWSSDVCSSDL  95
+                SSRRRHT S CDWSSDVCSSDL
+Sbjct  3995925  SSRRRHTIS*CDWSSDVCSSDL  3995990
+
+
+ Score = 50.6 bits (104),  Expect(2) = 4e-05
+ Identities = 20/22 (91%), Positives = 20/22 (91%), Gaps = 0/22 (0%)
+ Frame = +3/-2
+
+Query  30       SSRRRHTRSLCDWSSDVCSSDL  95
+                SSRRRHT S CDWSSDVCSSDL
+Sbjct  6863063  SSRRRHTIS*CDWSSDVCSSDL  6862998
+
+
+ Score = 47.3 bits (97),  Expect(2) = 4e-05
+ Identities = 19/21 (90%), Positives = 19/21 (90%), Gaps = 0/21 (0%)
+ Frame = +3/-1
+
+Query  5661     DRKSTRLNSSHTVISYAVFCL  5723
+                DRKSTRLNSSH  ISYAVFCL
+Sbjct  3995988  DRKSTRLNSSHITISYAVFCL  3995926
+
+
+ Score = 50.6 bits (104),  Expect(2) = 3e-04
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = -1/-3
+
+Query  94       RSEEHTSELQSHSDLVCRLLLE  29
+                RSEEHTSELQSH D+VCRLLLE
+Sbjct  3995989  RSEEHTSELQSHHDIVCRLLLE  3995924
+
+
+ Score = 44.1 bits (90),  Expect(2) = 3e-04
+ Identities = 19/22 (86%), Positives = 19/22 (86%), Gaps = 0/22 (0%)
+ Frame = -3/-3
+
+Query  5723     QAEDGIRDHCVTGVQTCALPIS  5658
+                QAEDGIR   VTGVQTCALPIS
+Sbjct  6762562  QAEDGIRYRDVTGVQTCALPIS  6762497
+
+
+ Score = 50.6 bits (104),  Expect(2) = 4e-04
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = +2/+3
+
+Query  5660     RSEEHTSELQSHSDLVCRLLLE  5725
+                RSEEHTSELQSH D+VCRLLLE
+Sbjct  6540861  RSEEHTSELQSHHDIVCRLLLE  6540926
+
+
+ Score = 43.7 bits (89),  Expect(2) = 4e-04
+ Identities = 19/23 (83%), Positives = 19/23 (83%), Gaps = 0/23 (0%)
+ Frame = +1/+1
+
+Query  31       QAEDGIRDHCVTGVQTCALPICL  99
+                QAEDGIR   VTGVQTCALPI L
+Sbjct  3995926  QAEDGIRYRDVTGVQTCALPILL  3995994
+
+
+ Score = 51.0 bits (105),  Expect(2) = 6e-04
+ Identities = 21/24 (88%), Positives = 22/24 (92%), Gaps = 0/24 (0%)
+ Frame = -1/+1
+
+Query  100      LNRSEEHTSELQSHSDLVCRLLLE  29
+                L RSEEHTSELQSH D+VCRLLLE
+Sbjct  6762493  LLRSEEHTSELQSHHDIVCRLLLE  6762564
+
+
+ Score = 42.8 bits (87),  Expect(2) = 6e-04
+ Identities = 18/21 (86%), Positives = 20/21 (95%), Gaps = 0/21 (0%)
+ Frame = -1/+2
+
+Query  5722     KQKTAYEITV*LEFRRVLFRS  5660
+                KQKTAY+I +*LEFRRVLFRS
+Sbjct  3995927  KQKTAYDIVM*LEFRRVLFRS  3995989
+
+
+>gi|685042162|emb|LN590687.1| Cyprinus carpio genome assembly common carp genome ,scaffold 
+LG13
+Length=25164623
+
+ Score = 51.9 bits (107),  Expect(2) = 3e-06
+ Identities = 21/26 (81%), Positives = 23/26 (88%), Gaps = 0/26 (0%)
+ Frame = +2/+1
+
+Query  5648      PVL*RSEEHTSELQSHSDLVCRLLLE  5725
+                 P + RSEEHTSELQSH D+VCRLLLE
+Sbjct  15036886  PSIKRSEEHTSELQSHHDIVCRLLLE  15036963
+
+
+ Score = 51.5 bits (106),  Expect(2) = 3e-06
+ Identities = 21/36 (58%), Positives = 25/36 (69%), Gaps = 0/36 (0%)
+ Frame = +3/+1
+
+Query  30        SSRRRHTRSLCDWSSDVCSSDLFKSSPKFLSVNADT  137
+                 SSRRRHT  + DWSSDVCSSDL   +P+ L    +T
+Sbjct  13500730  SSRRRHTILVSDWSSDVCSSDLTYGNPRSLKEGTET  13500837
+
+
+ Score = 50.6 bits (104),  Expect(2) = 1e-05
+ Identities = 20/22 (91%), Positives = 20/22 (91%), Gaps = 0/22 (0%)
+ Frame = +3/-1
+
+Query  30        SSRRRHTRSLCDWSSDVCSSDL  95
+                 SSRRRHT S CDWSSDVCSSDL
+Sbjct  15036962  SSRRRHTIS*CDWSSDVCSSDL  15036897
+
+
+ Score = 50.6 bits (104),  Expect(2) = 1e-05
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = +2/-3
+
+Query  5660      RSEEHTSELQSHSDLVCRLLLE  5725
+                 RSEEHTSELQSH D+VCRLLLE
+Sbjct  10908042  RSEEHTSELQSHHDIVCRLLLE  10907977
+
+
+ Score = 50.6 bits (104),  Expect(2) = 2e-05
+ Identities = 20/22 (91%), Positives = 20/22 (91%), Gaps = 0/22 (0%)
+ Frame = +3/+2
+
+Query  30        SSRRRHTRSLCDWSSDVCSSDL  95
+                 SSRRRHT S CDWSSDVCSSDL
+Sbjct  10907978  SSRRRHTIS*CDWSSDVCSSDL  10908043
+
+
+ Score = 50.1 bits (103),  Expect(2) = 2e-05
+ Identities = 21/25 (84%), Positives = 21/25 (84%), Gaps = 0/25 (0%)
+ Frame = +3/+2
+
+Query  5649      RCCRDRKSTRLNSSHTVISYAVFCL  5723
+                 R  RDRKSTRLNSSH  ISYAVFCL
+Sbjct  15036887  RQSRDRKSTRLNSSHITISYAVFCL  15036961
+
+
+ Score = 50.6 bits (104),  Expect(2) = 5e-04
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = -1/-3
+
+Query  94        RSEEHTSELQSHSDLVCRLLLE  29
+                 RSEEHTSELQSH D+VCRLLLE
+Sbjct  10908042  RSEEHTSELQSHHDIVCRLLLE  10907977
+
+
+ Score = 45.1 bits (92),  Expect(2) = 5e-04
+ Identities = 20/25 (80%), Positives = 22/25 (88%), Gaps = 0/25 (0%)
+ Frame = -1/-3
+
+Query  5722      KQKTAYEITV*LEFRRVLFRSLQHR  5648
+                 KQKTAY+I +*LEFRRVLFRSL  R
+Sbjct  15036960  KQKTAYDIVM*LEFRRVLFRSLD*R  15036886
+
+
+>gi|685042178|emb|LN590703.1| Cyprinus carpio genome assembly common carp genome ,scaffold 
+LG6
+Length=19716050
+
+ Score = 52.4 bits (108),  Expect(2) = 3e-06
+ Identities = 22/25 (88%), Positives = 23/25 (92%), Gaps = 0/25 (0%)
+ Frame = +2/+2
+
+Query  5651      VL*RSEEHTSELQSHSDLVCRLLLE  5725
+                 VL RSEEHTSELQSH D+VCRLLLE
+Sbjct  13166495  VLLRSEEHTSELQSHHDIVCRLLLE  13166569
+
+
+ Score = 50.6 bits (104),  Expect(2) = 3e-06
+ Identities = 20/22 (91%), Positives = 20/22 (91%), Gaps = 0/22 (0%)
+ Frame = +3/+1
+
+Query  30       SSRRRHTRSLCDWSSDVCSSDL  95
+                SSRRRHT S CDWSSDVCSSDL
+Sbjct  7304638  SSRRRHTIS*CDWSSDVCSSDL  7304703
+
+
+ Score = 51.0 bits (105),  Expect(2) = 8e-06
+ Identities = 20/23 (87%), Positives = 20/23 (87%), Gaps = 0/23 (0%)
+ Frame = +3/-2
+
+Query  5655     CRDRKSTRLNSSHTVISYAVFCL  5723
+                C DRKSTRLNSSH  ISYAVFCL
+Sbjct  7304707  CSDRKSTRLNSSHITISYAVFCL  7304639
+
+
+ Score = 50.6 bits (104),  Expect(2) = 8e-06
+ Identities = 20/22 (91%), Positives = 20/22 (91%), Gaps = 0/22 (0%)
+ Frame = +3/-3
+
+Query  30        SSRRRHTRSLCDWSSDVCSSDL  95
+                 SSRRRHT S CDWSSDVCSSDL
+Sbjct  13166568  SSRRRHTIS*CDWSSDVCSSDL  13166503
+
+
+ Score = 50.6 bits (104),  Expect(2) = 1e-05
+ Identities = 20/22 (91%), Positives = 20/22 (91%), Gaps = 0/22 (0%)
+ Frame = +3/-1
+
+Query  30        SSRRRHTRSLCDWSSDVCSSDL  95
+                 SSRRRHT S CDWSSDVCSSDL
+Sbjct  12952865  SSRRRHTIS*CDWSSDVCSSDL  12952800
+
+
+ Score = 50.6 bits (104),  Expect(2) = 1e-05
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = +2/-1
+
+Query  5660     RSEEHTSELQSHSDLVCRLLLE  5725
+                RSEEHTSELQSH D+VCRLLLE
+Sbjct  7304702  RSEEHTSELQSHHDIVCRLLLE  7304637
+
+
+ Score = 51.0 bits (105),  Expect(2) = 5e-04
+ Identities = 21/24 (88%), Positives = 22/24 (92%), Gaps = 0/24 (0%)
+ Frame = -1/-1
+
+Query  100      LNRSEEHTSELQSHSDLVCRLLLE  29
+                L RSEEHTSELQSH D+VCRLLLE
+Sbjct  7304708  LLRSEEHTSELQSHHDIVCRLLLE  7304637
+
+
+ Score = 44.1 bits (90),  Expect(2) = 5e-04
+ Identities = 17/20 (85%), Positives = 17/20 (85%), Gaps = 0/20 (0%)
+ Frame = -2/-3
+
+Query  5709      HTRSLCDWSSDVCSSDLYNT  5650
+                 HT S CDWSSDVCSSDL NT
+Sbjct  13166553  HTIS*CDWSSDVCSSDLNNT  13166494
+
+
+ Score = 51.0 bits (105),  Expect(2) = 7e-04
+ Identities = 21/24 (88%), Positives = 22/24 (92%), Gaps = 0/24 (0%)
+ Frame = -1/+2
+
+Query  100       LNRSEEHTSELQSHSDLVCRLLLE  29
+                 L RSEEHTSELQSH D+VCRLLLE
+Sbjct  13166498  LLRSEEHTSELQSHHDIVCRLLLE  13166569
+
+
+ Score = 43.7 bits (89),  Expect(2) = 7e-04
+ Identities = 19/23 (83%), Positives = 21/23 (91%), Gaps = 0/23 (0%)
+ Frame = -1/+3
+
+Query  5722     KQKTAYEITV*LEFRRVLFRSLQ  5654
+                KQKTAY+I +*LEFRRVLFRS Q
+Sbjct  7304640  KQKTAYDIVM*LEFRRVLFRSEQ  7304708
+
+
+>gi|685042161|emb|LN590686.1| Cyprinus carpio genome assembly common carp genome ,scaffold 
+LG35
+Length=29126390
+
+ Score = 50.6 bits (104),  Expect(3) = 4e-06
+ Identities = 20/22 (91%), Positives = 20/22 (91%), Gaps = 0/22 (0%)
+ Frame = +3/-1
+
+Query  30        SSRRRHTRSLCDWSSDVCSSDL  95
+                 SSRRRHT S CDWSSDVCSSDL
+Sbjct  28125824  SSRRRHTIS*CDWSSDVCSSDL  28125759
+
+
+ Score = 50.6 bits (104),  Expect(3) = 4e-06
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = +2/-3
+
+Query  5660      RSEEHTSELQSHSDLVCRLLLE  5725
+                 RSEEHTSELQSH D+VCRLLLE
+Sbjct  12304839  RSEEHTSELQSHHDIVCRLLLE  12304774
+
+
+ Score = 37.7 bits (76),  Expect(3) = 4e-06
+ Identities = 18/67 (27%), Positives = 33/67 (49%), Gaps = 0/67 (0%)
+ Frame = +1/-2
+
+Query  2086      DSVFSYGFLLLFLLWKKYRFIVRRVFGHC*FPFLRHYLFILQLHVIVRLFIVLPVFIVTR  2265
+                 +S     ++  F    K  +++R++     F F+RH  + + LH+I  LF    +  V  
+Sbjct  23607148  ESYLHRSYICSFFDEPKSIYVIRQISFSFHFHFIRHSRYTISLHLIFTLFETAVIQFVHT  23606969
+
+Query  2266      FYLMFGL  2286
+                 F+L+F L
+Sbjct  23606968  FHLIFSL  23606948
+
+
+ Score = 50.6 bits (104),  Expect(2) = 1e-05
+ Identities = 20/22 (91%), Positives = 20/22 (91%), Gaps = 0/22 (0%)
+ Frame = +3/+2
+
+Query  30        SSRRRHTRSLCDWSSDVCSSDL  95
+                 SSRRRHT S CDWSSDVCSSDL
+Sbjct  12304775  SSRRRHTIS*CDWSSDVCSSDL  12304840
+
+
+ Score = 50.6 bits (104),  Expect(2) = 1e-05
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = +2/+3
+
+Query  5660      RSEEHTSELQSHSDLVCRLLLE  5725
+                 RSEEHTSELQSH D+VCRLLLE
+Sbjct  17091846  RSEEHTSELQSHHDIVCRLLLE  17091911
+
+
+ Score = 50.6 bits (104),  Expect(2) = 1e-04
+ Identities = 20/22 (91%), Positives = 20/22 (91%), Gaps = 0/22 (0%)
+ Frame = +3/-1
+
+Query  30        SSRRRHTRSLCDWSSDVCSSDL  95
+                 SSRRRHT S CDWSSDVCSSDL
+Sbjct  20813894  SSRRRHTIS*CDWSSDVCSSDL  20813829
+
+
+ Score = 50.6 bits (104),  Expect(2) = 1e-04
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = +2/+1
+
+Query  5660      RSEEHTSELQSHSDLVCRLLLE  5725
+                 RSEEHTSELQSH D+VCRLLLE
+Sbjct  20813830  RSEEHTSELQSHHDIVCRLLLE  20813895
+
+
+ Score = 47.3 bits (97),  Expect(2) = 1e-04
+ Identities = 19/23 (83%), Positives = 20/23 (87%), Gaps = 0/23 (0%)
+ Frame = +1/+3
+
+Query  31        QAEDGIRDHCVTGVQTCALPICL  99
+                 QAEDGIR   VTGVQTCALPIC+
+Sbjct  12304776  QAEDGIRYRDVTGVQTCALPICI  12304844
+
+
+ Score = 47.3 bits (97),  Expect(2) = 1e-04
+ Identities = 19/21 (90%), Positives = 19/21 (90%), Gaps = 0/21 (0%)
+ Frame = +3/-1
+
+Query  5661      DRKSTRLNSSHTVISYAVFCL  5723
+                 DRKSTRLNSSH  ISYAVFCL
+Sbjct  12304838  DRKSTRLNSSHITISYAVFCL  12304776
+
+
+ Score = 50.6 bits (104),  Expect(2) = 4e-04
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = -1/-3
+
+Query  94        RSEEHTSELQSHSDLVCRLLLE  29
+                 RSEEHTSELQSH D+VCRLLLE
+Sbjct  12304839  RSEEHTSELQSHHDIVCRLLLE  12304774
+
+
+ Score = 45.5 bits (93),  Expect(2) = 4e-04
+ Identities = 20/31 (65%), Positives = 22/31 (71%), Gaps = 0/31 (0%)
+ Frame = -3/-3
+
+Query  5723      QAEDGIRDHCVTGVQTCALPISTTPGIKLYV  5631
+                 QAEDGIR   VTGVQTCALPIS      +Y+
+Sbjct  17091909  QAEDGIRYRDVTGVQTCALPISKLLTCTIYI  17091817
+
+
+>gi|685042187|emb|LN590712.1| Cyprinus carpio genome assembly common carp genome ,scaffold 
+LG2
+Length=18998363
+
+ Score = 51.5 bits (106),  Expect(2) = 5e-06
+ Identities = 21/36 (58%), Positives = 25/36 (69%), Gaps = 0/36 (0%)
+ Frame = +3/+1
+
+Query  30       SSRRRHTRSLCDWSSDVCSSDLFKSSPKFLSVNADT  137
+                SSRRRHT  + DWSSDVCSSDL   +P+ L    +T
+Sbjct  9029047  SSRRRHTILVSDWSSDVCSSDLTYGNPRSLKEGTET  9029154
+
+
+ Score = 50.6 bits (104),  Expect(2) = 5e-06
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = +2/+1
+
+Query  5660      RSEEHTSELQSHSDLVCRLLLE  5725
+                 RSEEHTSELQSH D+VCRLLLE
+Sbjct  11618581  RSEEHTSELQSHHDIVCRLLLE  11618646
+
+
+ Score = 50.6 bits (104),  Expect(2) = 1e-05
+ Identities = 20/22 (91%), Positives = 20/22 (91%), Gaps = 0/22 (0%)
+ Frame = +3/+1
+
+Query  30      SSRRRHTRSLCDWSSDVCSSDL  95
+               SSRRRHT S CDWSSDVCSSDL
+Sbjct  892513  SSRRRHTIS*CDWSSDVCSSDL  892578
+
+
+ Score = 50.6 bits (104),  Expect(2) = 1e-05
+ Identities = 20/22 (91%), Positives = 20/22 (91%), Gaps = 0/22 (0%)
+ Frame = +3/-1
+
+Query  30        SSRRRHTRSLCDWSSDVCSSDL  95
+                 SSRRRHT S CDWSSDVCSSDL
+Sbjct  17558744  SSRRRHTIS*CDWSSDVCSSDL  17558679
+
+
+ Score = 50.6 bits (104),  Expect(2) = 1e-05
+ Identities = 20/22 (91%), Positives = 20/22 (91%), Gaps = 0/22 (0%)
+ Frame = +3/-1
+
+Query  30        SSRRRHTRSLCDWSSDVCSSDL  95
+                 SSRRRHT S CDWSSDVCSSDL
+Sbjct  11618645  SSRRRHTIS*CDWSSDVCSSDL  11618580
+
+
+ Score = 50.6 bits (104),  Expect(2) = 1e-05
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = +2/-3
+
+Query  5660     RSEEHTSELQSHSDLVCRLLLE  5725
+                RSEEHTSELQSH D+VCRLLLE
+Sbjct  8642781  RSEEHTSELQSHHDIVCRLLLE  8642716
+
+
+ Score = 50.6 bits (104),  Expect(2) = 1e-05
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = +2/+1
+
+Query  5660      RSEEHTSELQSHSDLVCRLLLE  5725
+                 RSEEHTSELQSH D+VCRLLLE
+Sbjct  17558680  RSEEHTSELQSHHDIVCRLLLE  17558745
+
+
+ Score = 50.6 bits (104),  Expect(2) = 1e-05
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = +2/-1
+
+Query  5660    RSEEHTSELQSHSDLVCRLLLE  5725
+               RSEEHTSELQSH D+VCRLLLE
+Sbjct  892577  RSEEHTSELQSHHDIVCRLLLE  892512
+
+
+ Score = 50.6 bits (104),  Expect(2) = 8e-05
+ Identities = 20/22 (91%), Positives = 20/22 (91%), Gaps = 0/22 (0%)
+ Frame = +3/+2
+
+Query  30       SSRRRHTRSLCDWSSDVCSSDL  95
+                SSRRRHT S CDWSSDVCSSDL
+Sbjct  8642717  SSRRRHTIS*CDWSSDVCSSDL  8642782
+
+
+ Score = 47.3 bits (97),  Expect(2) = 8e-05
+ Identities = 19/21 (90%), Positives = 19/21 (90%), Gaps = 0/21 (0%)
+ Frame = +3/+2
+
+Query  5661      DRKSTRLNSSHTVISYAVFCL  5723
+                 DRKSTRLNSSH  ISYAVFCL
+Sbjct  11618582  DRKSTRLNSSHITISYAVFCL  11618644
+
+
+ Score = 50.1 bits (103),  Expect(2) = 3e-04
+ Identities = 20/24 (83%), Positives = 20/24 (83%), Gaps = 0/24 (0%)
+ Frame = +3/-2
+
+Query  5652    CCRDRKSTRLNSSHTVISYAVFCL  5723
+               C  DRKSTRLNSSH  ISYAVFCL
+Sbjct  892585  CREDRKSTRLNSSHITISYAVFCL  892514
+
+
+ Score = 46.0 bits (94),  Expect(2) = 3e-04
+ Identities = 19/29 (66%), Positives = 22/29 (76%), Gaps = 0/29 (0%)
+ Frame = +1/-2
+
+Query  31        QAEDGIRDHCVTGVQTCALPICLSRRRSF  117
+                 QAEDGIR   VTGVQTCALPI +S +  +
+Sbjct  11618644  QAEDGIRYRDVTGVQTCALPILVSNKEHY  11618558
+
+
+ Score = 50.6 bits (104),  Expect(2) = 4e-04
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = -1/+1
+
+Query  94        RSEEHTSELQSHSDLVCRLLLE  29
+                 RSEEHTSELQSH D+VCRLLLE
+Sbjct  11618581  RSEEHTSELQSHHDIVCRLLLE  11618646
+
+
+ Score = 45.1 bits (92),  Expect(2) = 4e-04
+ Identities = 19/25 (76%), Positives = 22/25 (88%), Gaps = 0/25 (0%)
+ Frame = -1/+3
+
+Query  5722    KQKTAYEITV*LEFRRVLFRSLQHR  5648
+               KQKTAY+I +*LEFRRVLFRS  H+
+Sbjct  892515  KQKTAYDIVM*LEFRRVLFRSSLHQ  892589
+
+
+ Score = 51.5 bits (106),  Expect(2) = 0.001
+ Identities = 21/25 (84%), Positives = 22/25 (88%), Gaps = 0/25 (0%)
+ Frame = -1/-3
+
+Query  103      DLNRSEEHTSELQSHSDLVCRLLLE  29
+                D  RSEEHTSELQSH D+VCRLLLE
+Sbjct  8642790  DYIRSEEHTSELQSHHDIVCRLLLE  8642716
+
+
+ Score = 42.8 bits (87),  Expect(2) = 0.001
+ Identities = 18/21 (86%), Positives = 20/21 (95%), Gaps = 0/21 (0%)
+ Frame = -1/-3
+
+Query  5722      KQKTAYEITV*LEFRRVLFRS  5660
+                 KQKTAY+I +*LEFRRVLFRS
+Sbjct  17558742  KQKTAYDIVM*LEFRRVLFRS  17558680
+
+
+>gi|685042184|emb|LN590709.1| Cyprinus carpio genome assembly common carp genome ,scaffold 
+LG5
+Length=20922272
+
+ Score = 51.5 bits (106),  Expect(2) = 6e-06
+ Identities = 21/25 (84%), Positives = 21/25 (84%), Gaps = 0/25 (0%)
+ Frame = +3/-2
+
+Query  30       SSRRRHTRSLCDWSSDVCSSDLFKS  104
+                SSRRRHT S CDWSSDVCSSDL  S
+Sbjct  5157547  SSRRRHTIS*CDWSSDVCSSDLVTS  5157473
+
+
+ Score = 50.6 bits (104),  Expect(2) = 6e-06
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = +2/-2
+
+Query  5660     RSEEHTSELQSHSDLVCRLLLE  5725
+                RSEEHTSELQSH D+VCRLLLE
+Sbjct  4006924  RSEEHTSELQSHHDIVCRLLLE  4006859
+
+
+ Score = 51.0 bits (105),  Expect(2) = 8e-06
+ Identities = 21/26 (81%), Positives = 22/26 (85%), Gaps = 0/26 (0%)
+ Frame = +3/+3
+
+Query  30       SSRRRHTRSLCDWSSDVCSSDLFKSS  107
+                SSRRRHT S CDWSSDVCSSDL  +S
+Sbjct  4006860  SSRRRHTIS*CDWSSDVCSSDLKPTS  4006937
+
+
+ Score = 50.6 bits (104),  Expect(2) = 8e-06
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = +2/+3
+
+Query  5660     RSEEHTSELQSHSDLVCRLLLE  5725
+                RSEEHTSELQSH D+VCRLLLE
+Sbjct  5157483  RSEEHTSELQSHHDIVCRLLLE  5157548
+
+
+ Score = 51.9 bits (107),  Expect(2) = 3e-04
+ Identities = 20/25 (80%), Positives = 23/25 (92%), Gaps = 0/25 (0%)
+ Frame = -1/+3
+
+Query  103      DLNRSEEHTSELQSHSDLVCRLLLE  29
+                ++ RSEEHTSELQSH D+VCRLLLE
+Sbjct  5157474  EVTRSEEHTSELQSHHDIVCRLLLE  5157548
+
+
+ Score = 44.1 bits (90),  Expect(2) = 3e-04
+ Identities = 19/22 (86%), Positives = 19/22 (86%), Gaps = 0/22 (0%)
+ Frame = -3/+1
+
+Query  5723     QAEDGIRDHCVTGVQTCALPIS  5658
+                QAEDGIR   VTGVQTCALPIS
+Sbjct  4006861  QAEDGIRYRDVTGVQTCALPIS  4006926
+
+
+>gi|685042180|emb|LN590705.1| Cyprinus carpio genome assembly common carp genome ,scaffold 
+LG11
+Length=19054100
+
+ Score = 50.6 bits (104),  Expect(2) = 1e-05
+ Identities = 20/22 (91%), Positives = 20/22 (91%), Gaps = 0/22 (0%)
+ Frame = +3/-1
+
+Query  30        SSRRRHTRSLCDWSSDVCSSDL  95
+                 SSRRRHT S CDWSSDVCSSDL
+Sbjct  13923905  SSRRRHTIS*CDWSSDVCSSDL  13923840
+
+
+ Score = 50.6 bits (104),  Expect(2) = 1e-05
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = +2/-3
+
+Query  5660      RSEEHTSELQSHSDLVCRLLLE  5725
+                 RSEEHTSELQSH D+VCRLLLE
+Sbjct  13198413  RSEEHTSELQSHHDIVCRLLLE  13198348
+
+
+ Score = 50.6 bits (104),  Expect(2) = 1e-05
+ Identities = 20/22 (91%), Positives = 20/22 (91%), Gaps = 0/22 (0%)
+ Frame = +3/+2
+
+Query  30        SSRRRHTRSLCDWSSDVCSSDL  95
+                 SSRRRHT S CDWSSDVCSSDL
+Sbjct  10472966  SSRRRHTIS*CDWSSDVCSSDL  10473031
+
+
+ Score = 50.6 bits (104),  Expect(2) = 1e-05
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = +2/+1
+
+Query  5660      RSEEHTSELQSHSDLVCRLLLE  5725
+                 RSEEHTSELQSH D+VCRLLLE
+Sbjct  13923841  RSEEHTSELQSHHDIVCRLLLE  13923906
+
+
+ Score = 50.6 bits (104),  Expect(2) = 9e-05
+ Identities = 20/22 (91%), Positives = 20/22 (91%), Gaps = 0/22 (0%)
+ Frame = +3/+2
+
+Query  30        SSRRRHTRSLCDWSSDVCSSDL  95
+                 SSRRRHT S CDWSSDVCSSDL
+Sbjct  13198349  SSRRRHTIS*CDWSSDVCSSDL  13198414
+
+
+ Score = 47.3 bits (97),  Expect(2) = 9e-05
+ Identities = 19/21 (90%), Positives = 19/21 (90%), Gaps = 0/21 (0%)
+ Frame = +3/+2
+
+Query  5661      DRKSTRLNSSHTVISYAVFCL  5723
+                 DRKSTRLNSSH  ISYAVFCL
+Sbjct  13923842  DRKSTRLNSSHITISYAVFCL  13923904
+
+
+>gi|685042165|emb|LN590690.1| Cyprinus carpio genome assembly common carp genome ,scaffold 
+LG31
+Length=24603915
+
+ Score = 50.6 bits (104),  Expect(2) = 1e-05
+ Identities = 20/22 (91%), Positives = 20/22 (91%), Gaps = 0/22 (0%)
+ Frame = +3/+2
+
+Query  30       SSRRRHTRSLCDWSSDVCSSDL  95
+                SSRRRHT S CDWSSDVCSSDL
+Sbjct  9025241  SSRRRHTIS*CDWSSDVCSSDL  9025306
+
+
+ Score = 50.6 bits (104),  Expect(2) = 1e-05
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = +2/+1
+
+Query  5660     RSEEHTSELQSHSDLVCRLLLE  5725
+                RSEEHTSELQSH D+VCRLLLE
+Sbjct  9280435  RSEEHTSELQSHHDIVCRLLLE  9280500
+
+
+ Score = 50.6 bits (104),  Expect(2) = 1e-05
+ Identities = 20/22 (91%), Positives = 20/22 (91%), Gaps = 0/22 (0%)
+ Frame = +3/-2
+
+Query  30       SSRRRHTRSLCDWSSDVCSSDL  95
+                SSRRRHT S CDWSSDVCSSDL
+Sbjct  9280499  SSRRRHTIS*CDWSSDVCSSDL  9280434
+
+
+ Score = 50.6 bits (104),  Expect(2) = 1e-05
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = +2/-1
+
+Query  5660     RSEEHTSELQSHSDLVCRLLLE  5725
+                RSEEHTSELQSH D+VCRLLLE
+Sbjct  9025305  RSEEHTSELQSHHDIVCRLLLE  9025240
+
+
+ Score = 50.6 bits (104),  Expect(2) = 9e-04
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = -1/-1
+
+Query  94       RSEEHTSELQSHSDLVCRLLLE  29
+                RSEEHTSELQSH D+VCRLLLE
+Sbjct  9025305  RSEEHTSELQSHHDIVCRLLLE  9025240
+
+
+ Score = 44.1 bits (90),  Expect(2) = 9e-04
+ Identities = 19/22 (86%), Positives = 19/22 (86%), Gaps = 0/22 (0%)
+ Frame = -3/-3
+
+Query  5723     QAEDGIRDHCVTGVQTCALPIS  5658
+                QAEDGIR   VTGVQTCALPIS
+Sbjct  9280498  QAEDGIRYRDVTGVQTCALPIS  9280433
+
+
+>gi|685042189|emb|LN590714.1| Cyprinus carpio genome assembly common carp genome ,scaffold 
+LG27
+Length=16295563
+
+ Score = 54.2 bits (112),  Expect(2) = 2e-05
+ Identities = 21/24 (88%), Positives = 22/24 (92%), Gaps = 0/24 (0%)
+ Frame = +3/+3
+
+Query  30       SSRRRHTRSLCDWSSDVCSSDLFK  101
+                SSRRRHT S CDWSSDVCSSDL+K
+Sbjct  3608229  SSRRRHTIS*CDWSSDVCSSDLYK  3608300
+
+
+ Score = 46.0 bits (94),  Expect(2) = 2e-05
+ Identities = 19/22 (86%), Positives = 20/22 (91%), Gaps = 0/22 (0%)
+ Frame = +3/+2
+
+Query  5658      RDRKSTRLNSSHTVISYAVFCL  5723
+                 +DRKSTRLNSSH  ISYAVFCL
+Sbjct  11523467  KDRKSTRLNSSH*PISYAVFCL  11523532
+
+
+ Score = 52.8 bits (109),  Expect(2) = 2e-05
+ Identities = 22/24 (92%), Positives = 23/24 (96%), Gaps = 0/24 (0%)
+ Frame = +2/-1
+
+Query  5654     L*RSEEHTSELQSHSDLVCRLLLE  5725
+                L*RSEEHTSELQSH D+VCRLLLE
+Sbjct  3608299  L*RSEEHTSELQSHHDIVCRLLLE  3608228
+
+
+ Score = 46.9 bits (96),  Expect(2) = 2e-05
+ Identities = 18/23 (78%), Positives = 20/23 (87%), Gaps = 0/23 (0%)
+ Frame = +3/-3
+
+Query  30        SSRRRHTRSLCDWSSDVCSSDLF  98
+                 SSRRRHT  + DWSSDVCSSDL+
+Sbjct  11523533  SSRRRHTILVSDWSSDVCSSDLY  11523465
+
+
+ Score = 52.4 bits (108),  Expect(2) = 2e-04
+ Identities = 21/27 (78%), Positives = 21/27 (78%), Gaps = 0/27 (0%)
+ Frame = +3/-3
+
+Query  5643     YSRCCRDRKSTRLNSSHTVISYAVFCL  5723
+                Y   C DRKSTRLNSSH  ISYAVFCL
+Sbjct  7216130  YVHYCSDRKSTRLNSSHITISYAVFCL  7216050
+
+
+ Score = 44.1 bits (90),  Expect(2) = 2e-04
+ Identities = 19/24 (79%), Positives = 20/24 (83%), Gaps = 0/24 (0%)
+ Frame = +1/-1
+
+Query  31        QAEDGIRDHCVTGVQTCALPICLS  102
+                 QAEDGIR   VTGVQTCALPI +S
+Sbjct  11523532  QAEDGIRYWSVTGVQTCALPIFIS  11523461
+
+
+ Score = 50.6 bits (104),  Expect(2) = 5e-04
+ Identities = 20/22 (91%), Positives = 20/22 (91%), Gaps = 0/22 (0%)
+ Frame = +3/+2
+
+Query  30       SSRRRHTRSLCDWSSDVCSSDL  95
+                SSRRRHT S CDWSSDVCSSDL
+Sbjct  7216049  SSRRRHTIS*CDWSSDVCSSDL  7216114
+
+
+ Score = 44.6 bits (91),  Expect(2) = 5e-04
+ Identities = 19/23 (83%), Positives = 22/23 (96%), Gaps = 0/23 (0%)
+ Frame = +2/+1
+
+Query  5657      *RSEEHTSELQSHSDLVCRLLLE  5725
+                 *RSEEHTSELQS +++VCRLLLE
+Sbjct  11523466  *RSEEHTSELQSLTNIVCRLLLE  11523534
+
+
+>gi|663681403|emb|HG975522.1| Solanum lycopersicum chromosome ch10, complete genome
+Length=64837920
+
+ Score = 42.3 bits (86),  Expect(2) = 3e-05
+ Identities = 26/93 (28%), Positives = 48/93 (52%), Gaps = 0/93 (0%)
+ Frame = +1/-2
+
+Query  4870      IFMTFFRIVDIVVNLFHQVLVIILAILKLPVFLLVFGLTQIIRPVLFIVTVSLATTISIF  5049
+                 + +    I+ I++ L H +L+++L IL + +FLL   L  ++  +L IV V +   + + 
+Sbjct  36344312  LLLILILILLILLILIHVLLLLLLLILLILLFLLFLLLLLLLLLLLHIVVVVVLVYLLLL  36344133
+
+Query  5050      LKMRYFFVRFLLLGPMLVLSVVLWLLAFFVKLL  5148
+                 L         LLL  +L+L ++  LL   + LL
+Sbjct  36344132  LLFHVILFLLLLLFLLLILLLLFLLLLILLLLL  36344034
+
+
+ Score = 36.8 bits (74),  Expect(2) = 3e-05
+ Identities = 19/56 (34%), Positives = 32/56 (57%), Gaps = 0/56 (0%)
+ Frame = +1/-2
+
+Query  4588      LVVLLNMLFFKNLACIRIKVVSLVFIFMAFFGMFLVLIMLFVKLLRI*VLFGLHLL  4755
+                 L++ L ++    L  I    + L+F+F+ F  + L+LI L + LL + +L  LHLL
+Sbjct  36344474  LILPLFLILLLCLLVILFLFLHLLFLFLVFLLLLLLLIFLLLLLLHLLLLLLLHLL  36344307
+
+
+>gi|336180355|gb|AC244775.7| Solanum lycopersicum strain Heinz 1706 chromosome 10 clone hba-53d12 
+map 10, complete sequence
+Length=112734
+
+ Score = 42.3 bits (86),  Expect(2) = 4e-05
+ Identities = 26/93 (28%), Positives = 48/93 (52%), Gaps = 0/93 (0%)
+ Frame = +1/+1
+
+Query  4870   IFMTFFRIVDIVVNLFHQVLVIILAILKLPVFLLVFGLTQIIRPVLFIVTVSLATTISIF  5049
+              + +    I+ I++ L H +L+++L IL + +FLL   L  ++  +L IV V +   + + 
+Sbjct  10693  LLLILILILLILLILIHVLLLLLLLILLILLFLLFLLLLLLLLLLLHIVVVVVLVYLLLL  10872
+
+Query  5050   LKMRYFFVRFLLLGPMLVLSVVLWLLAFFVKLL  5148
+              L         LLL  +L+L ++  LL   + LL
+Sbjct  10873  LLFHVILFLLLLLFLLLILLLLFLLLLILLLLL  10971
+
+
+ Score = 36.8 bits (74),  Expect(2) = 4e-05
+ Identities = 19/56 (34%), Positives = 32/56 (57%), Gaps = 0/56 (0%)
+ Frame = +1/+1
+
+Query  4588   LVVLLNMLFFKNLACIRIKVVSLVFIFMAFFGMFLVLIMLFVKLLRI*VLFGLHLL  4755
+              L++ L ++    L  I    + L+F+F+ F  + L+LI L + LL + +L  LHLL
+Sbjct  10531  LILPLFLILLLCLLVILFLFLHLLFLFLVFLLLLLLLIFLLLLLLHLLLLLLLHLL  10698
+
+
+>gi|685042502|emb|LN591027.1| Cyprinus carpio genome assembly common carp genome ,scaffold 
+000001179
+Length=2243332
+
+ Score = 46.9 bits (96),  Expect(2) = 2e-04
+ Identities = 18/20 (90%), Positives = 18/20 (90%), Gaps = 0/20 (0%)
+ Frame = +3/+1
+
+Query  36      RRRHTRSLCDWSSDVCSSDL  95
+               RRRHT S CDWSSDVCSSDL
+Sbjct  345910  RRRHTIS*CDWSSDVCSSDL  345969
+
+
+ Score = 46.9 bits (96),  Expect(2) = 2e-04
+ Identities = 18/21 (86%), Positives = 20/21 (95%), Gaps = 0/21 (0%)
+ Frame = +2/+3
+
+Query  5663    SEEHTSELQSHSDLVCRLLLE  5725
+               +EEHTSELQSH D+VCRLLLE
+Sbjct  460605  TEEHTSELQSHHDIVCRLLLE  460667
+
+
+ Score = 46.4 bits (95),  Expect(2) = 5e-04
+ Identities = 18/20 (90%), Positives = 19/20 (95%), Gaps = 0/20 (0%)
+ Frame = +2/-3
+
+Query  5660    RSEEHTSELQSHSDLVCRLL  5719
+               RSEEHTSELQSH D+VCRLL
+Sbjct  345968  RSEEHTSELQSHHDIVCRLL  345909
+
+
+ Score = 46.0 bits (94),  Expect(2) = 5e-04
+ Identities = 18/20 (90%), Positives = 18/20 (90%), Gaps = 0/20 (0%)
+ Frame = +3/-1
+
+Query  30      SSRRRHTRSLCDWSSDVCSS  89
+               SSRRRHT S CDWSSDVCSS
+Sbjct  460666  SSRRRHTIS*CDWSSDVCSS  460607
+
+
+>gi|663673439|emb|HG975440.1| Solanum pennellii chromosome ch01, complete genome
+Length=109333515
+
+ Score = 45.1 bits (92),  Expect(2) = 4e-04
+ Identities = 28/83 (34%), Positives = 48/83 (58%), Gaps = 0/83 (0%)
+ Frame = +1/+3
+
+Query  4900      IVVNLFHQVLVIILAILKLPVFLLVFGLTQIIRPVLFIVTVSLATTISIFLKMRYFFVRF  5079
+                 +V+ L   +LV++L ++ + V LL+     ++  VLF++ V L   + + + +    V  
+Sbjct  50488392  VVLLLLVLLLVLMLLVVVVVVVLLLVIFVLLLLVVLFLLLVLLLLLVLLLVFVLLVAVVL  50488571
+
+Query  5080      LLLGPMLVLSVVLWLLAFFVKLL  5148
+                 LLL  +L+L V+L LL FFV LL
+Sbjct  50488572  LLLVLLLLLLVLLLLLLFFVLLL  50488640
+
+
+ Score = 30.4 bits (60),  Expect(2) = 4e-04
+ Identities = 19/78 (24%), Positives = 43/78 (55%), Gaps = 0/78 (0%)
+ Frame = +1/+3
+
+Query  4585      VLVVLLNMLFFKNLACIRIKVVSLVFIFMAFFGMFLVLIMLFVKLLRI*VLFGLHLLRTS  4764
+                 +L+VLL ++F   L  + + ++ L+ + +    + LVL++L + LL + +L  + LL   
+Sbjct  50488146  LLLVLLLVVFLLLLLLLLLLLLLLLLLLLLLLVLVLVLVVLLLLLLLLVLLLLVLLLLLV  50488325
+
+Query  4765      VFGMLSSMLASLFIWMSV  4818
+                 +  +L  +L  + + + V
+Sbjct  50488326  LLLLLMMLLLLVLLLLLV  50488379
+
+
+>gi|663673455|emb|HG975449.1| Solanum pennellii chromosome ch10, complete genome
+Length=82529941
+
+ Score = 39.6 bits (80),  Expect(2) = 4e-04
+ Identities = 22/75 (29%), Positives = 42/75 (56%), Gaps = 0/75 (0%)
+ Frame = +1/-3
+
+Query  4585      VLVVLLNMLFFKNLACIRIKVVSLVFIFMAFFGMFLVLIMLFVKLLRI*VLFGLHLLRTS  4764
+                 +L+VL+ +L    L  + + ++ L+ + +    + LVL++L + LL + VL  L LL   
+Sbjct  51079556  LLLVLVLLLLLLLLVLVLLLLLLLLVLVLLLLLLLLVLVLLLLLLLLVLVLLLLLLLLFL  51079377
+
+Query  4765      VFGMLSSMLASLFIW  4809
+                 +  +L  +L  LF+W
+Sbjct  51079376  LLLLLQVLLLLLFLW  51079332
+
+
+ Score = 35.9 bits (72),  Expect(2) = 4e-04
+ Identities = 19/90 (21%), Positives = 46/90 (51%), Gaps = 0/90 (0%)
+ Frame = +1/-2
+
+Query  4870      IFMTFFRIVDIVVNLFHQVLVIILAILKLPVFLLVFGLTQIIRPVLFIVTVSLATTISIF  5049
+                 +F+    +V +VVN    V+V+++  + +   ++VF +  ++    F+V V +   + I 
+Sbjct  51079278  VFVVAIVVVIVVVNAAIVVIVVVVVFVFVVAIIIVFVVVVVVVVANFVVVVVVVVVVGIV  51079099
+
+Query  5050      LKMRYFFVRFLLLGPMLVLSVVLWLLAFFV  5139
+                 + +  F V   ++  ++V+ V   ++  FV
+Sbjct  51079098  VVVVVFVVGVGIVVVVVVVIVSAVVVVVFV  51079009
+
+
+>gi|685042314|emb|LN590839.1| Cyprinus carpio genome assembly common carp genome ,scaffold 
+000000452
+Length=219647
+
+ Score = 57.9 bits (120),  Expect = 4e-04
+ Identities = 23/26 (88%), Positives = 24/26 (92%), Gaps = 0/26 (0%)
+ Frame = +3/-2
+
+Query  30      SSRRRHTRSLCDWSSDVCSSDLFKSS  107
+               SSRRRHT S CDWSSDVCSSDLFKS+
+Sbjct  169897  SSRRRHTIS*CDWSSDVCSSDLFKSA  169820
+
+
+>gi|66821058|ref|XM_638966.1| Dictyostelium discoideum AX4 RING zinc finger-containing protein 
+(bre1) mRNA, complete cds
+Length=3243
+
+ Score = 40.9 bits (83),  Expect(3) = 4e-04
+ Identities = 20/80 (25%), Positives = 48/80 (60%), Gaps = 0/80 (0%)
+ Frame = +1/-3
+
+Query  4882  FFRIVDIVVNLFHQVLVIILAILKLPVFLLVFGLTQIIRPVLFIVTVSLATTISIFLKMR  5061
+             FF ++ +VV +   V+V+++ ++ + V ++V  +  ++  V+ +V V +   +  FL + 
+Sbjct  2050  FFVLLVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVLF*FLLLF  1871
+
+Query  5062  YFFVRFLLLGPMLVLSVVLW  5121
+             Y++ +F  +  ++VL VVL+
+Sbjct  1870  YYYYQFFGVVVVVVLVVVLF  1811
+
+
+ Score = 34.1 bits (68),  Expect(3) = 4e-04
+ Identities = 11/26 (42%), Positives = 19/26 (73%), Gaps = 0/26 (0%)
+ Frame = +2/-3
+
+Query  227   CFLYFYYLFCVEC*VSFTSFLFLAAL  304
+             C+ Y+YY +C++ *+S  SFL + +L
+Sbjct  3010  CYYYYYYYYCLQR*LSLISFLKVVSL  2933
+
+
+ Score = 31.3 bits (62),  Expect(3) = 4e-04
+ Identities = 13/39 (33%), Positives = 23/39 (59%), Gaps = 0/39 (0%)
+ Frame = +1/-1
+
+Query  2176  FPFLRHYLFILQLHVIVRLFIVLPVFIVTRFYLMFGLI*  2292
+             F F+   + I  + +I  +FI++ +FI+T FY+    I*
+Sbjct  2250  FIFIFIIIIIYCIFIIYCIFIIIIIFIITIFYIFINFI*  2134
+
+
+>gi|17558377|ref|NM_072374.1| Caenorhabditis elegans Protein C33G8.2 (C33G8.2) mRNA, complete 
+cds
+Length=1173
+
+ Score = 44.1 bits (90),  Expect(2) = 5e-04
+ Identities = 28/79 (35%), Positives = 42/79 (53%), Gaps = 0/79 (0%)
+ Frame = +1/-1
+
+Query  4912  LFHQVLVIILAILKLPVFLLVFGLTQIIRPVLFIVTVSLATTISIFLKMRYFFVRFLLLG  5091
+             +F   L+II+ +L L VFLLVF +  +I  V F +   L   I  FL +      FLLL 
+Sbjct  594   IFLFFLLIIIILLFLLVFLLVFFIIIVILLVFFFLIFLLFLLIIFFLLLILLLFVFLLLL  415
+
+Query  5092  PMLVLSVVLWLLAFFVKLL  5148
+              +L+  ++L L+   + LL
+Sbjct  414   LLLIFFLLLLLIPHLLSLL  358
+
+
+ Score = 37.7 bits (76),  Expect(2) = 5e-04
+ Identities = 16/46 (35%), Positives = 30/46 (65%), Gaps = 0/46 (0%)
+ Frame = +1/-1
+
+Query  4585  VLVVLLNMLFFKNLACIRIKVVSLVFIFMAFFGMFLVLIMLFVKLL  4722
+             +L+V++ +  F  L  I   VV L+F+F+    +FL++I+LF+ +L
+Sbjct  870   ILIVIIVLFLFLVLLFIFFVVVILLFVFLFLILLFLIIIILFLIIL  733
+
+
+>gi|86440125|gb|AC182111.1| Mus musculus BAC clone RP24-415L2 from chromosome y, complete 
+sequence
+Length=162320
+
+ Score = 40.5 bits (82),  Expect(2) = 5e-04
+ Identities = 23/93 (25%), Positives = 52/93 (56%), Gaps = 0/93 (0%)
+ Frame = +1/-3
+
+Query  4870   IFMTFFRIVDIVVNLFHQVLVIILAILKLPVFLLVFGLTQIIRPVLFIVTVSLATTISIF  5049
+              + +  F ++ +++ L    L+++L +L L + L++  L  ++  ++ +V + L   + + 
+Sbjct  31047  LLLLLFLLLLLLLFLLLLFLILLLLLLLLLLLLVLLVLLVLLVLLVLLVLLVLVLVLVLV  30868
+
+Query  5050   LKMRYFFVRFLLLGPMLVLSVVLWLLAFFVKLL  5148
+              L +    + FLLL  +LVL +VL +L  F+ L+
+Sbjct  30867  LLLLLLLLFFLLLLVLLVLVLVLLVLVLFLVLV  30769
+
+
+ Score = 35.0 bits (70),  Expect(2) = 5e-04
+ Identities = 20/74 (27%), Positives = 41/74 (55%), Gaps = 0/74 (0%)
+ Frame = +1/-3
+
+Query  4585   VLVVLLNMLFFKNLACIRIKVVSLVFIFMAFFGMFLVLIMLFVKLLRI*VLFGLHLLRTS  4764
+              VLV+LL +L    L  + + ++ L+ + +    + LVL+++ + L+ + VL  +HLL   
+Sbjct  31260  VLVLLLLLLLLLLLLLLLLLLLLLLLLLLLLLVLLLVLVLVLLVLVLVLVLVLVHLLLLL  31081
+
+Query  4765   VFGMLSSMLASLFI  4806
+              +  +L  +L  L +
+Sbjct  31080  LLLLLLLLLLLLLL  31039
+
+
+>gi|54697301|gb|AC149597.4| Mus musculus BAC clone RP24-90B12 from Y, complete sequence
+Length=198224
+
+ Score = 47.8 bits (98),  Expect(2) = 6e-04
+ Identities = 29/93 (31%), Positives = 52/93 (56%), Gaps = 0/93 (0%)
+ Frame = +1/+2
+
+Query  4870  IFMTFFRIVDIVVNLFHQVLVIILAILKLPVFLLVFGLTQIIRPVLFIVTVSLATTISIF  5049
+             +F+ F  +V ++V +   VLV++L ++ + V +LV  L  ++  VL +V V +   + + 
+Sbjct  4823  LFLVFLVLVLVLVLVLVLVLVLVLVLVLVLVLVLVLVLVLVLVLVLVLVLVLVLVFLLLL  5002
+
+Query  5050  LKMRYFFVRFLLLGPMLVLSVVLWLLAFFVKLL  5148
+             L +    V  LLL  +LVL +VL +L   + LL
+Sbjct  5003  LVLVLVLVLLLLLLVLLVLLLVLLVLVLVLVLL  5101
+
+
+ Score = 27.2 bits (53),  Expect(2) = 6e-04
+ Identities = 18/74 (24%), Positives = 40/74 (54%), Gaps = 0/74 (0%)
+ Frame = +1/+3
+
+Query  4585  VLVVLLNMLFFKNLACIRIKVVSLVFIFMAFFGMFLVLIMLFVKLLRI*VLFGLHLLRTS  4764
+             +++VLL +L    L  + + ++ L+ + +    + LVL+++ V +L + +L  L LL   
+Sbjct  4500  LVLVLLLLLLLLLLLLLLLLLLLLLLLVLLVLVLVLVLVLVLVLVLLLLLLLLLLLLLLL  4679
+
+Query  4765  VFGMLSSMLASLFI  4806
+             +  +L  +L  L +
+Sbjct  4680  LLLLLLLLLVLLVL  4721
+
+
+>gi|690109623|emb|LM707130.1| Protopolystoma xenopodis genome assembly P_xenopodis_South_Africa 
+,scaffold PXEA_contig0013272
+Length=4325
+
+ Score = 41.8 bits (85),  Expect(2) = 7e-04
+ Identities = 28/92 (30%), Positives = 49/92 (53%), Gaps = 0/92 (0%)
+ Frame = +1/+3
+
+Query  4873  FMTFFRIVDIVVNLFHQVLVIILAILKLPVFLLVFGLTQIIRPVLFIVTVSLATTISIFL  5052
+             F+ F  ++  ++ L   + ++IL +L L   LL+  L  ++ P+LFI+ + L   I I L
+Sbjct  2454  FILFLLLLLPLLLLLFLLFILILLLLPLFSLLLLLLLLLLLLPLLFILLLLLFILILILL  2633
+
+Query  5053  KMRYFFVRFLLLGPMLVLSVVLWLLAFFVKLL  5148
+                   +  LLL  +L+L ++L L   F+ LL
+Sbjct  2634  LFIPLLLLLLLLLLLLLLLLLLLLFRLFLILL  2729
+
+
+ Score = 33.1 bits (66),  Expect(2) = 7e-04
+ Identities = 17/54 (31%), Positives = 32/54 (59%), Gaps = 0/54 (0%)
+ Frame = +1/+3
+
+Query  4591  VVLLNMLFFKNLACIRIKVVSLVFIFMAFFGMFLVLIMLFVKLLRI*VLFGLHL  4752
+             ++L+ +L    L  + I +  L+F +     +F+VL++L + LL + +LF LHL
+Sbjct  2199  LILIFLLVLILLLLLIIFLQFLIFTYFFLLLLFIVLLLLLLLLLLLLLLFLLHL  2360
+
+
+>gi|685042186|emb|LN590711.1| Cyprinus carpio genome assembly common carp genome ,scaffold 
+LG40
+Length=23490330
+
+ Score = 50.6 bits (104),  Expect(2) = 9e-04
+ Identities = 20/22 (91%), Positives = 20/22 (91%), Gaps = 0/22 (0%)
+ Frame = +3/-3
+
+Query  30        SSRRRHTRSLCDWSSDVCSSDL  95
+                 SSRRRHT S CDWSSDVCSSDL
+Sbjct  23107633  SSRRRHTIS*CDWSSDVCSSDL  23107568
+
+
+ Score = 50.6 bits (104),  Expect(2) = 9e-04
+ Identities = 20/22 (91%), Positives = 21/22 (95%), Gaps = 0/22 (0%)
+ Frame = +2/+3
+
+Query  5660      RSEEHTSELQSHSDLVCRLLLE  5725
+                 RSEEHTSELQSH D+VCRLLLE
+Sbjct  23107569  RSEEHTSELQSHHDIVCRLLLE  23107634
+
+
+ Score = 44.1 bits (90),  Expect(2) = 9e-04
+ Identities = 17/19 (89%), Positives = 17/19 (89%), Gaps = 0/19 (0%)
+ Frame = +3/+1
+
+Query  30       SSRRRHTRSLCDWSSDVCS  86
+                SSRRRHT S CDWSSDVCS
+Sbjct  7656370  SSRRRHTIS*CDWSSDVCS  7656426
+
+
+ Score = 44.1 bits (90),  Expect(2) = 9e-04
+ Identities = 17/19 (89%), Positives = 18/19 (95%), Gaps = 0/19 (0%)
+ Frame = +2/-2
+
+Query  5669     EHTSELQSHSDLVCRLLLE  5725
+                EHTSELQSH D+VCRLLLE
+Sbjct  7656425  EHTSELQSHHDIVCRLLLE  7656369
+
+
+>gi|327530740|emb|FP245397.22| Zebrafish DNA sequence from clone DKEY-19K12 in linkage group 
+9, complete sequence
+Length=153002
+
+ Score = 39.1 bits (79),  Expect(2) = 9e-04
+ Identities = 23/93 (25%), Positives = 53/93 (57%), Gaps = 0/93 (0%)
+ Frame = +1/+2
+
+Query  4870   IFMTFFRIVDIVVNLFHQVLVIILAILKLPVFLLVFGLTQIIRPVLFIVTVSLATTISIF  5049
+              +F+    ++ +++ L   +L+++L +L L + LL+  L  ++  +L ++ + +   + + 
+Sbjct  26663  LFLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLVFLLLLLL  26842
+
+Query  5050   LKMRYFFVRFLLLGPMLVLSVVLWLLAFFVKLL  5148
+              L +  FF+  LLL  +L+L ++L LL   + LL
+Sbjct  26843  LLLLLFFLLLLLLLLLLLLLLLLLLLLILLLLL  26941
+
+
+ Score = 35.4 bits (71),  Expect(2) = 9e-04
+ Identities = 25/89 (28%), Positives = 48/89 (54%), Gaps = 0/89 (0%)
+ Frame = +1/+2
+
+Query  4540   ILLLLSACGSNAFADVLVVLLNMLFFKNLACIRIKVVSLVFIFMAFFGMFLVLIMLFVKL  4719
+              +LLLL       F  +L++LL +LFF  L  + + ++ L+ + +    + L+L++L + L
+Sbjct  26342  LLLLLLLLLLLVFLLLLLLLLLLLFFLLLLLLLLLLLLLLLLLLLLILLLLLLLLLLLIL  26521
+
+Query  4720   LRI*VLFGLHLLRTSVFGMLSSMLASLFI  4806
+              L + +L  L LL   +  +L  +L  L +
+Sbjct  26522  LLLLLLLLLLLLLLLLLLLLLLLLLLLLL  26608
+
+
+
+Lambda      K        H
+   0.318    0.134    0.401 
+
+
+Effective search space used: 48358712487375
+
+
+  Database: Nucleotide collection (nt)
+    Posted date:  Nov 26, 2014  8:17 PM
+  Number of letters in database: 84,812,993,326
+  Number of sequences in database:  29,433,050
+
+
+
+Matrix: BLOSUM62
+Neighboring words threshold: 13
+Window for multiple hits: 40

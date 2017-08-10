@@ -1,0 +1,128 @@
+d9539_asm_v1.2_1	MH0148_GL0013503	92.593	27	2	0	1	27	1	27	2.31e-10	57.4	27	121	0	N/A	N/A	N/A	100	MH0148_GL0013503  [gene]  locus=scaffold78322_1:2441:2806:+ [Complete] codon-table.11
+d9539_asm_v1.2_3	MH0203_GL0004312	90.323	31	3	0	1	31	1	31	1.45e-10	57.8	36	86	0	N/A	N/A	N/A	86	MH0203_GL0004312  [gene]  locus=C2075218_1:1531:1791:+ [Complete] codon-table.11
+d9539_asm_v1.2_3	MH0033_GL0005948	90.323	31	3	0	1	31	1	31	1.47e-10	57.8	36	86	0	N/A	N/A	N/A	86	MH0033_GL0005948  [gene]  locus=scaffold47970_1:5460:5720:+ [Complete] codon-table.11
+d9539_asm_v1.2_3	MH0350_GL0030508	90.323	31	3	0	1	31	1	31	2.37e-10	57.4	36	86	0	N/A	N/A	N/A	86	MH0350_GL0030508  [gene]  locus=C1242055_1:4180:4440:- [Complete] codon-table.11
+d9539_asm_v1.2_3	MH0173_GL0080584	100.000	27	0	0	1	27	1	27	2.58e-10	57.4	36	86	0	N/A	N/A	N/A	75	MH0173_GL0080584  [gene]  locus=scaffold46377_3:370:630:- [Complete] codon-table.11
+d9539_asm_v1.2_3	MH0148_GL0013503	87.097	31	4	0	1	31	36	66	9.68e-10	56.2	36	121	0	N/A	N/A	N/A	86	MH0148_GL0013503  [gene]  locus=scaffold78322_1:2441:2806:+ [Complete] codon-table.11
+d9539_asm_v1.2_3	MH0105_GL0047475	83.871	31	5	0	1	31	1	31	3.80e-09	54.3	36	86	0	N/A	N/A	N/A	86	MH0105_GL0047475  [gene]  locus=scaffold1014_1:698:958:+ [Complete] codon-table.11
+d9539_asm_v1.2_3	MH0409_GL0061975	80.645	31	6	0	1	31	1	31	2.30e-08	52.0	36	86	0	N/A	N/A	N/A	86	MH0409_GL0061975  [gene]  locus=scaffold117357_3:177:437:+ [Complete] codon-table.11
+d9539_asm_v1.2_3	MH0390_GL0216351	74.194	31	8	0	1	31	1	31	2.57e-07	49.3	36	86	0	N/A	N/A	N/A	86	MH0390_GL0216351  [gene]  locus=scaffold140355_1:1446:1706:+ [Complete] codon-table.11
+d9539_asm_v1.2_3	V1.UC17-2_GL0060614	41.667	24	14	0	5	28	447	470	5.0	30.8	36	758	0	N/A	N/A	N/A	67	V1.UC17-2_GL0060614  [gene]  locus=scaffold52190_3:3:2276:- [Lack 3'-end] codon-table.11
+d9539_asm_v1.2_3	T2D-45A_GL0103682	43.750	32	18	0	4	35	70	101	5.7	30.0	36	220	0	N/A	N/A	N/A	89	T2D-45A_GL0103682  [gene]  locus=C892818_1:1:660:+ [Lack both ends] codon-table.11
+d9539_asm_v1.2_4	O2.UC60-0_GL0092321	36.735	49	29	1	5	51	8	56	0.085	34.3	52	58	0	N/A	N/A	N/A	90	O2.UC60-0_GL0092321  [gene]  locus=scaffold644_11:271:447:+ [Complete] codon-table.11
+d9539_asm_v1.2_4	MH0149_GL0099708	34.091	44	29	0	7	50	12	55	2.8	30.8	52	121	0	N/A	N/A	N/A	85	MH0149_GL0099708  [gene]  locus=scaffold11709_29:595:957:+ [Lack 3'-end] codon-table.11
+d9539_asm_v1.2_4	O2.UC15-2_GL0157600	38.889	36	22	0	15	50	20	55	7.7	30.8	52	378	0	N/A	N/A	N/A	69	O2.UC15-2_GL0157600  [gene]  locus=scaffold78371_3:7147:8283:- [Complete] codon-table.11
+d9539_asm_v1.2_4	V1.UC8-0_GL0047122	30.612	49	32	1	5	51	25	73	8.5	28.9	52	75	0	N/A	N/A	N/A	90	V1.UC8-0_GL0047122  [gene]  locus=scaffold75959_2:1:228:+ [Lack 5'-end] codon-table.11
+d9539_asm_v1.2_4	MH0222_GL0174715	38.889	36	22	0	15	50	243	278	8.6	30.8	52	601	0	N/A	N/A	N/A	69	MH0222_GL0174715  [gene]  locus=scaffold131854_2:26894:28699:- [Complete] codon-table.11
+d9539_asm_v1.2_5	MH0409_GL0061975	91.379	58	5	0	1	58	29	86	1.22e-31	113	58	86	0	N/A	N/A	N/A	100	MH0409_GL0061975  [gene]  locus=scaffold117357_3:177:437:+ [Complete] codon-table.11
+d9539_asm_v1.2_5	675950834-stool1_revised_C814893_1_gene71376	89.655	58	6	0	1	58	1	58	1.97e-31	112	58	58	0	N/A	N/A	N/A	100	675950834-stool1_revised_C814893_1_gene71376 strand:+  start:1717 stop:1893 length:177 start_codon:yes stop_codon:yes gene_type:complete [Complete] codon-table.11
+d9539_asm_v1.2_5	MH0105_GL0047475	89.655	58	6	0	1	58	29	86	2.88e-31	112	58	86	0	N/A	N/A	N/A	100	MH0105_GL0047475  [gene]  locus=scaffold1014_1:698:958:+ [Complete] codon-table.11
+d9539_asm_v1.2_5	MH0203_GL0004312	89.655	58	6	0	1	58	29	86	3.25e-31	112	58	86	0	N/A	N/A	N/A	100	MH0203_GL0004312  [gene]  locus=C2075218_1:1531:1791:+ [Complete] codon-table.11
+d9539_asm_v1.2_5	MH0033_GL0005948	89.655	58	6	0	1	58	29	86	4.35e-31	112	58	86	0	N/A	N/A	N/A	100	MH0033_GL0005948  [gene]  locus=scaffold47970_1:5460:5720:+ [Complete] codon-table.11
+d9539_asm_v1.2_5	V1.UC58-0_GL0088247	89.655	58	6	0	1	58	1	58	1.63e-30	109	58	58	0	N/A	N/A	N/A	100	V1.UC58-0_GL0088247  [gene]  locus=C1432657_1:4818:4994:- [Complete] codon-table.11
+d9539_asm_v1.2_5	159166850-stool1_revised_C1063521_1_gene104933	89.655	58	6	0	1	58	1	58	1.86e-30	109	58	58	0	N/A	N/A	N/A	100	159166850-stool1_revised_C1063521_1_gene104933 strand:+  start:4123 stop:4299 length:177 start_codon:yes stop_codon:yes gene_type:complete [Complete] codon-table.11
+d9539_asm_v1.2_5	MH0390_GL0216351	87.931	58	7	0	1	58	29	86	3.12e-30	109	58	86	0	N/A	N/A	N/A	100	MH0390_GL0216351  [gene]  locus=scaffold140355_1:1446:1706:+ [Complete] codon-table.11
+d9539_asm_v1.2_5	MH0173_GL0080584	87.931	58	7	0	1	58	29	86	1.23e-29	108	58	86	0	N/A	N/A	N/A	100	MH0173_GL0080584  [gene]  locus=scaffold46377_3:370:630:- [Complete] codon-table.11
+d9539_asm_v1.2_5	MH0379_GL0138311	86.207	58	8	0	1	58	1	58	4.60e-29	105	58	58	0	N/A	N/A	N/A	100	MH0379_GL0138311  [gene]  locus=C1279931_1:5628:5804:- [Lack 5'-end] codon-table.11
+d9539_asm_v1.2_6	V1.FI07_GL0059433	31.250	32	22	0	14	45	24	55	5.6	30.0	81	58	0	N/A	N/A	N/A	40	V1.FI07_GL0059433  [gene]  locus=C1434996_1:2214:2390:- [Lack 5'-end] codon-table.11
+d9539_asm_v1.2_6	T2D-173A_GL0019498	32.258	31	21	0	14	44	74	104	9.7	30.4	81	108	0	N/A	N/A	N/A	38	T2D-173A_GL0019498  [gene]  locus=scaffold8417_2:193:519:- [Lack 5'-end] codon-table.11
+d9539_asm_v1.2_6	T2D-102A_GL0034437	28.125	32	23	0	14	45	34	65	10.0	29.6	81	68	0	N/A	N/A	N/A	40	T2D-102A_GL0034437  [gene]  locus=scaffold60437_4:1:207:+ [Lack 5'-end] codon-table.11
+d9539_asm_v1.2_11	V1.FI30_GL0086214	91.449	421	36	0	1	421	1	421	0.0	801	421	421	0	N/A	N/A	N/A	100	V1.FI30_GL0086214  [gene]  locus=C1434676_1:3854:5119:+ [Complete] codon-table.11
+d9539_asm_v1.2_11	MH0413_GL0135533	93.824	421	26	0	1	421	1	421	0.0	794	421	421	0	N/A	N/A	N/A	100	MH0413_GL0135533  [gene]  locus=scaffold143833_1:1399:2664:- [Complete] codon-table.11
+d9539_asm_v1.2_11	V1.UC58-0_GL0088246	93.349	421	27	1	1	421	1	420	0.0	788	421	420	0	N/A	N/A	N/A	100	V1.UC58-0_GL0088246  [gene]  locus=C1432657_1:3554:4816:- [Complete] codon-table.11
+d9539_asm_v1.2_11	MH0454_GL0202593	92.162	421	33	0	1	421	1	421	0.0	786	421	421	0	N/A	N/A	N/A	100	MH0454_GL0202593  [gene]  locus=C2164004_1:2006:3271:+ [Complete] codon-table.11
+d9539_asm_v1.2_11	V1.CD49-0_GL0024252	93.112	421	28	1	1	421	1	420	0.0	785	421	420	0	N/A	N/A	N/A	100	V1.CD49-0_GL0024252  [gene]  locus=scaffold57460_1:335:1597:- [Complete] codon-table.11
+d9539_asm_v1.2_11	V1.UC42-0_GL0147535	92.874	421	29	1	1	421	1	420	0.0	783	421	420	0	N/A	N/A	N/A	100	V1.UC42-0_GL0147535  [gene]  locus=scaffold88879_1:1745:3007:- [Complete] codon-table.11
+d9539_asm_v1.2_11	MH0124_GL0053855	94.062	421	25	0	1	421	1	421	0.0	782	421	421	0	N/A	N/A	N/A	100	MH0124_GL0053855  [gene]  locus=scaffold87339_8:108:1373:- [Complete] codon-table.11
+d9539_asm_v1.2_11	V1.CD9-0_GL0011285	91.449	421	36	0	1	421	1	421	0.0	779	421	421	0	N/A	N/A	N/A	100	V1.CD9-0_GL0011285  [gene]  locus=C738604_1:24:1289:- [Complete] codon-table.11
+d9539_asm_v1.2_11	MH0358_GL0076303	91.449	421	36	0	1	421	1	421	0.0	779	421	421	0	N/A	N/A	N/A	100	MH0358_GL0076303  [gene]  locus=C916049_1:769:2034:- [Complete] codon-table.11
+d9539_asm_v1.2_11	MH0350_GL0030507	92.619	420	31	0	1	420	1	420	0.0	778	421	421	0	N/A	N/A	N/A	99	MH0350_GL0030507  [gene]  locus=C1242055_1:2913:4178:- [Complete] codon-table.11
+d9539_asm_v1.2_14	MH0350_GL0030506	83.704	135	22	0	40	174	1	135	3.28e-73	226	174	135	0	N/A	N/A	N/A	78	MH0350_GL0030506  [gene]  locus=C1242055_1:2443:2850:- [Complete] codon-table.11
+d9539_asm_v1.2_14	O2.UC35-0_GL0103272	73.333	150	40	0	25	174	5	154	2.39e-71	221	174	154	0	N/A	N/A	N/A	86	O2.UC35-0_GL0103272  [gene]  locus=C1451006_1:3105:3569:+ [Complete] codon-table.11
+d9539_asm_v1.2_14	MH0039_GL0018304	77.778	135	30	0	40	174	1	135	1.54e-69	216	174	135	0	N/A	N/A	N/A	78	MH0039_GL0018304  [gene]  locus=scaffold66015_3:960:1367:+ [Complete] codon-table.11
+d9539_asm_v1.2_14	DOM010_GL0081934	74.000	150	39	0	25	174	6	155	2.25e-69	216	174	155	0	N/A	N/A	N/A	86	DOM010_GL0081934  [gene]  locus=scaffold34317_7:1:468:+ [Lack 5'-end] codon-table.11
+d9539_asm_v1.2_14	V1.UC47-0_GL0063330	67.052	173	56	1	2	173	1	173	3.00e-69	217	174	174	0	N/A	N/A	N/A	99	V1.UC47-0_GL0063330  [gene]  locus=scaffold43834_1:73:597:+ [Complete] codon-table.11
+d9539_asm_v1.2_14	159227541-stool1_revised_scaffold12120_1_gene77397	64.596	161	57	0	14	174	4	164	1.59e-67	212	174	166	0	N/A	N/A	N/A	93	159227541-stool1_revised_scaffold12120_1_gene77397 strand:-  start:1045 stop:1545 length:501 start_codon:yes stop_codon:yes gene_type:complete [Complete] codon-table.11
+d9539_asm_v1.2_14	MH0361_GL0034086	69.079	152	47	0	23	174	3	154	2.69e-67	211	174	154	0	N/A	N/A	N/A	87	MH0361_GL0034086  [gene]  locus=scaffold44043_1:4521:4985:- [Complete] codon-table.11
+d9539_asm_v1.2_14	MH0100_GL0100933	77.037	135	31	0	40	174	1	135	4.32e-67	210	174	135	0	N/A	N/A	N/A	78	MH0100_GL0100933  [gene]  locus=C1657075_1:3921:4328:- [Complete] codon-table.11
+d9539_asm_v1.2_14	MH0148_GL0013505	78.519	135	29	0	40	174	1	135	4.97e-67	210	174	136	0	N/A	N/A	N/A	78	MH0148_GL0013505  [gene]  locus=scaffold78322_1:4136:4546:+ [Complete] codon-table.11
+d9539_asm_v1.2_14	MH0446_GL0207246	77.037	135	31	0	40	174	1	135	3.72e-66	207	174	135	0	N/A	N/A	N/A	78	MH0446_GL0207246  [gene]  locus=C1774148_1:192:599:+ [Complete] codon-table.11
+d9539_asm_v1.2_16	DOM013_GL0003401	82.857	70	12	0	1	70	1	70	2.46e-32	115	70	70	0	N/A	N/A	N/A	100	DOM013_GL0003401  [gene]  locus=scaffold65383_1:1648:1860:- [Complete] codon-table.11
+d9539_asm_v1.2_16	MH0350_GL0030505	78.571	70	15	0	1	70	1	70	2.11e-31	112	70	70	0	N/A	N/A	N/A	100	MH0350_GL0030505  [gene]  locus=C1242055_1:2179:2391:- [Complete] codon-table.11
+d9539_asm_v1.2_16	159227541-stool1_revised_scaffold12120_1_gene77396	78.571	70	15	0	1	70	1	70	2.13e-31	112	70	70	0	N/A	N/A	N/A	100	159227541-stool1_revised_scaffold12120_1_gene77396 strand:-  start:784 stop:996 length:213 start_codon:yes stop_codon:yes gene_type:complete [Complete] codon-table.11
+d9539_asm_v1.2_16	MH0148_GL0013506	77.143	70	16	0	1	70	1	70	5.96e-31	111	70	70	0	N/A	N/A	N/A	100	MH0148_GL0013506  [gene]  locus=scaffold78322_1:4598:4810:+ [Complete] codon-table.11
+d9539_asm_v1.2_16	MH0033_GL0005944	77.143	70	16	0	1	70	1	70	9.10e-31	111	70	70	0	N/A	N/A	N/A	100	MH0033_GL0005944  [gene]  locus=scaffold47970_1:1753:1965:+ [Complete] codon-table.11
+d9539_asm_v1.2_16	MH0418_GL0027848	78.571	70	15	0	1	70	1	70	1.42e-30	110	70	70	0	N/A	N/A	N/A	100	MH0418_GL0027848  [gene]  locus=C1585672_1:3377:3589:- [Complete] codon-table.11
+d9539_asm_v1.2_16	V1.FI06_GL0230838	78.571	70	15	0	1	70	1	70	2.36e-30	110	70	70	0	N/A	N/A	N/A	100	V1.FI06_GL0230838  [gene]  locus=scaffold14374_1:1564:1776:+ [Complete] codon-table.11
+d9539_asm_v1.2_16	V1.CD9-0_GL0051158	80.597	67	13	0	4	70	5	71	2.37e-30	110	70	71	0	N/A	N/A	N/A	96	V1.CD9-0_GL0051158  [gene]  locus=C754056_1:3651:3866:- [Complete] codon-table.11
+d9539_asm_v1.2_16	MH0297_GL0055869	79.104	67	14	0	1	67	1	67	9.98e-30	108	70	67	0	N/A	N/A	N/A	96	MH0297_GL0055869  [gene]  locus=C946681_1:5516:5719:- [Complete] codon-table.11
+d9539_asm_v1.2_16	MH0173_GL0109000	77.143	70	16	0	1	70	1	70	1.22e-29	108	70	70	0	N/A	N/A	N/A	100	MH0173_GL0109000  [gene]  locus=scaffold46377_2:1681:1893:- [Complete] codon-table.11
+d9539_asm_v1.2_20	T2D-20A_GL0113436	30.189	53	36	1	10	61	34	86	3.7	33.5	111	875	0	N/A	N/A	N/A	47	T2D-20A_GL0113436  [gene]  locus=scaffold9111_1:42340:44967:- [Complete] codon-table.11
+d9539_asm_v1.2_20	V1.UC54-0_GL0192849	29.268	82	40	4	24	96	51	123	4.4	33.1	111	456	0	N/A	N/A	N/A	66	V1.UC54-0_GL0192849  [gene]  locus=scaffold13213_6:261:1631:+ [Complete] codon-table.11
+d9539_asm_v1.2_20	T2D-140A_GL0063697	30.189	53	36	1	10	61	24	76	4.5	33.1	111	861	0	N/A	N/A	N/A	47	T2D-140A_GL0063697  [gene]  locus=scaffold44807_6:44036:46621:+ [Complete] codon-table.11
+d9539_asm_v1.2_20	V1.CD54-0_GL0126613	28.947	76	50	2	24	97	51	124	6.2	32.7	111	455	0	N/A	N/A	N/A	67	V1.CD54-0_GL0126613  [gene]  locus=scaffold40961_1:277754:279121:- [Complete] codon-table.11
+d9539_asm_v1.2_22	MH0398_GL0192275	90.831	349	32	0	13	361	1	349	0.0	658	361	349	0	N/A	N/A	N/A	97	MH0398_GL0192275  [gene]  locus=C1960271_1:1:1050:+ [Lack 5'-end] codon-table.11
+d9539_asm_v1.2_22	V1.FI06_GL0230839	93.713	334	21	0	28	361	1	334	0.0	646	361	334	0	N/A	N/A	N/A	93	V1.FI06_GL0230839  [gene]  locus=scaffold14374_1:1817:2821:+ [Complete] codon-table.11
+d9539_asm_v1.2_22	MH0350_GL0030504	92.814	334	24	0	28	361	1	334	0.0	642	361	334	0	N/A	N/A	N/A	93	MH0350_GL0030504  [gene]  locus=C1242055_1:1134:2138:- [Complete] codon-table.11
+d9539_asm_v1.2_22	MH0033_GL0005945	91.916	334	27	0	28	361	1	334	0.0	637	361	334	0	N/A	N/A	N/A	93	MH0033_GL0005945  [gene]  locus=scaffold47970_1:2006:3010:+ [Complete] codon-table.11
+d9539_asm_v1.2_22	MH0379_GL0138307	90.294	340	33	0	22	361	2	341	0.0	635	361	341	0	N/A	N/A	N/A	94	MH0379_GL0138307  [gene]  locus=C1279931_1:2576:3601:- [Complete] codon-table.11
+d9539_asm_v1.2_22	MH0039_GL0018306	92.515	334	25	0	28	361	1	334	0.0	635	361	334	0	N/A	N/A	N/A	93	MH0039_GL0018306  [gene]  locus=scaffold66015_3:1672:2676:+ [Complete] codon-table.11
+d9539_asm_v1.2_22	675950834-stool1_revised_C814893_1_gene71380	91.916	334	27	0	28	361	1	334	0.0	633	361	334	0	N/A	N/A	N/A	93	675950834-stool1_revised_C814893_1_gene71380 strand:+  start:3937 stop:4941 length:1005 start_codon:yes stop_codon:yes gene_type:complete [Complete] codon-table.11
+d9539_asm_v1.2_22	MH0095_GL0050324	91.317	334	29	0	28	361	1	334	0.0	632	361	334	0	N/A	N/A	N/A	93	MH0095_GL0050324  [gene]  locus=C1003303_1:3687:4691:+ [Complete] codon-table.11
+d9539_asm_v1.2_22	MH0454_GL0202595	91.018	334	30	0	28	361	1	334	0.0	632	361	334	0	N/A	N/A	N/A	93	MH0454_GL0202595  [gene]  locus=C2164004_1:4046:5050:+ [Complete] codon-table.11
+d9539_asm_v1.2_22	V1.CD38-0_GL0096425	90.120	334	33	0	28	361	1	334	0.0	628	361	334	0	N/A	N/A	N/A	93	V1.CD38-0_GL0096425  [gene]  locus=C1253879_1:58:1062:+ [Complete] codon-table.11
+d9539_asm_v1.2_23	O2.CD1-0-PT_GL0120263	31.373	51	34	1	3	53	137	186	8.8	31.2	82	318	0	N/A	N/A	N/A	62	O2.CD1-0-PT_GL0120263  [gene]  locus=scaffold3043_4:5403:6359:- [Complete] codon-table.11
+d9539_asm_v1.2_29	MH0413_GL0135536	93.354	647	43	0	1	647	1	647	0.0	1255	647	647	0	N/A	N/A	N/A	100	MH0413_GL0135536  [gene]  locus=scaffold143833_1:3436:5379:- [Complete] codon-table.11
+d9539_asm_v1.2_29	MH0039_GL0018307	93.045	647	45	0	1	647	1	647	0.0	1251	647	647	0	N/A	N/A	N/A	100	MH0039_GL0018307  [gene]  locus=scaffold66015_3:2669:4612:+ [Complete] codon-table.11
+d9539_asm_v1.2_29	MH0409_GL0129297	91.963	647	52	0	1	647	1	647	0.0	1244	647	647	0	N/A	N/A	N/A	100	MH0409_GL0129297  [gene]  locus=scaffold117357_2:969:2912:+ [Complete] codon-table.11
+d9539_asm_v1.2_29	MH0033_GL0005946	89.352	648	68	1	1	647	1	648	0.0	1214	647	648	0	N/A	N/A	N/A	100	MH0033_GL0005946  [gene]  locus=scaffold47970_1:3003:4949:+ [Complete] codon-table.11
+d9539_asm_v1.2_29	MH0136_GL0000112	89.352	648	68	1	1	647	1	648	0.0	1212	647	648	0	N/A	N/A	N/A	100	MH0136_GL0000112  [gene]  locus=C1259564_1:2065:4011:- [Complete] codon-table.11
+d9539_asm_v1.2_29	MH0100_GL0100930	89.335	647	69	0	1	647	1	647	0.0	1210	647	647	0	N/A	N/A	N/A	100	MH0100_GL0100930  [gene]  locus=C1657075_1:676:2619:- [Complete] codon-table.11
+d9539_asm_v1.2_29	159166850-stool1_revised_C1063521_1_gene104931	89.815	648	65	1	1	647	1	648	0.0	1208	647	648	0	N/A	N/A	N/A	100	159166850-stool1_revised_C1063521_1_gene104931 strand:+  start:1580 stop:3526 length:1947 start_codon:yes stop_codon:yes gene_type:complete [Complete] codon-table.11
+d9539_asm_v1.2_29	V1.FI06_GL0230840	89.352	648	68	1	1	647	1	648	0.0	1208	647	648	0	N/A	N/A	N/A	100	V1.FI06_GL0230840  [gene]  locus=scaffold14374_1:2814:4760:+ [Complete] codon-table.11
+d9539_asm_v1.2_29	763961826-stool2_revised_C698346_1_gene78348	90.895	648	58	1	1	647	1	648	0.0	1199	647	648	0	N/A	N/A	N/A	100	763961826-stool2_revised_C698346_1_gene78348 strand:+  start:1638 stop:3584 length:1947 start_codon:yes stop_codon:yes gene_type:complete [Complete] codon-table.11
+d9539_asm_v1.2_29	O2.UC38-1_GL0144643	90.123	648	63	1	1	647	1	648	0.0	1199	647	648	0	N/A	N/A	N/A	100	O2.UC38-1_GL0144643  [gene]  locus=C1315509_1:1877:3823:- [Complete] codon-table.11
+d9539_asm_v1.2_30	MH0039_GL0018308	98.969	97	1	0	1	97	1	97	5.35e-61	190	97	98	0	N/A	N/A	N/A	100	MH0039_GL0018308  [gene]  locus=scaffold66015_3:4614:4910:+ [Complete] codon-table.11
+d9539_asm_v1.2_30	159166850-stool1_revised_C1063521_1_gene104932	97.938	97	2	0	1	97	1	97	8.55e-61	189	97	98	0	N/A	N/A	N/A	100	159166850-stool1_revised_C1063521_1_gene104932 strand:+  start:3528 stop:3824 length:297 start_codon:yes stop_codon:yes gene_type:complete [Complete] codon-table.11
+d9539_asm_v1.2_30	V1.CD45-0_GL0161170	97.938	97	2	0	1	97	1	97	2.52e-60	188	97	97	0	N/A	N/A	N/A	100	V1.CD45-0_GL0161170  [gene]  locus=C1121074_1:4018:4311:- [Complete] codon-table.11
+d9539_asm_v1.2_30	MH0195_GL0054241	96.907	97	3	0	1	97	1	97	9.53e-60	187	97	97	0	N/A	N/A	N/A	100	MH0195_GL0054241  [gene]  locus=C1627992_1:3095:3388:- [Complete] codon-table.11
+d9539_asm_v1.2_30	N022A_GL0072367	95.876	97	4	0	1	97	1	97	1.89e-59	186	97	97	0	N/A	N/A	N/A	100	N022A_GL0072367  [gene]  locus=C1078314_1:1436:1729:- [Complete] codon-table.11
+d9539_asm_v1.2_30	MH0033_GL0005947	95.876	97	4	0	1	97	1	97	2.02e-59	186	97	97	0	N/A	N/A	N/A	100	MH0033_GL0005947  [gene]  locus=scaffold47970_1:4951:5244:+ [Complete] codon-table.11
+d9539_asm_v1.2_30	MH0100_GL0100929	95.876	97	4	0	1	97	1	97	2.33e-59	186	97	97	0	N/A	N/A	N/A	100	MH0100_GL0100929  [gene]  locus=C1657075_1:381:674:- [Complete] codon-table.11
+d9539_asm_v1.2_30	MH0454_GL0202592	95.876	97	4	0	1	97	1	97	3.09e-59	185	97	97	0	N/A	N/A	N/A	100	MH0454_GL0202592  [gene]  locus=C2164004_1:1235:1528:+ [Complete] codon-table.11
+d9539_asm_v1.2_30	V1.CD49-0_GL0024253	94.845	97	5	0	1	97	1	97	4.94e-59	185	97	97	0	N/A	N/A	N/A	100	V1.CD49-0_GL0024253  [gene]  locus=scaffold57460_1:2076:2369:- [Complete] codon-table.11
+d9539_asm_v1.2_30	159227541-stool1_revised_scaffold12120_1_gene77399	95.876	97	4	0	1	97	1	97	5.75e-59	185	97	97	0	N/A	N/A	N/A	100	159227541-stool1_revised_scaffold12120_1_gene77399 strand:-  start:3277 stop:3570 length:294 start_codon:yes stop_codon:yes gene_type:complete [Complete] codon-table.11
+d9539_asm_v1.2_32	MH0132_GL0095723	62.500	16	6	0	6	21	82	97	9.5	29.3	21	287	0	N/A	N/A	N/A	76	MH0132_GL0095723  [gene]  locus=scaffold29849_17:754:1617:+ [Complete] codon-table.11
+d9539_asm_v1.2_34	MH0197_GL0178002	23.077	91	70	0	62	152	160	250	0.031	40.4	155	332	0	N/A	N/A	N/A	59	MH0197_GL0178002  [gene]  locus=scaffold7430_13:1441:2439:+ [Complete] codon-table.11
+d9539_asm_v1.2_34	158742018-stool1_revised_scaffold25222_1_gene115706	30.556	72	47	2	78	149	3	71	0.62	35.0	155	90	0	N/A	N/A	N/A	46	158742018-stool1_revised_scaffold25222_1_gene115706 strand:-  start:9131 stop:9403 length:273 start_codon:yes stop_codon:yes gene_type:complete [Complete] codon-table.11
+d9539_asm_v1.2_34	T2D-14A_GL0012297	25.532	94	64	2	5	94	18	109	1.7	35.4	155	538	0	N/A	N/A	N/A	58	T2D-14A_GL0012297  [gene]  locus=scaffold19253_1:4698:6314:- [Complete] codon-table.11
+d9539_asm_v1.2_34	521095.Apar_0542	25.676	74	54	1	71	143	173	246	4.5	34.3	155	340	0	N/A	N/A	N/A	47	521095.Apar_0542 [Complete]:-  codon-table.11
+d9539_asm_v1.2_34	MH0377_GL0178757	30.882	68	46	1	3	69	22	89	5.4	33.5	155	175	0	N/A	N/A	N/A	43	MH0377_GL0178757  [gene]  locus=scaffold53694_2:2:529:+ [Lack 5'-end] codon-table.11
+d9539_asm_v1.2_34	MH0358_GL0057375	19.780	91	73	0	62	152	160	250	5.9	33.9	155	335	0	N/A	N/A	N/A	59	MH0358_GL0057375  [gene]  locus=scaffold64740_1:7821:8828:+ [Complete] codon-table.11
+d9539_asm_v1.2_34	MH0009_GL0022227	28.846	52	35	1	101	152	197	246	7.5	33.5	155	329	0	N/A	N/A	N/A	34	MH0009_GL0022227  [gene]  locus=scaffold22902_1:5015:6004:+ [Complete] codon-table.11
+d9539_asm_v1.2_34	MH0374_GL0035574	25.424	59	44	0	94	152	11	69	7.5	33.1	155	151	0	N/A	N/A	N/A	38	MH0374_GL0035574  [gene]  locus=scaffold70862_2:429:884:- [Lack 5'-end] codon-table.11
+d9539_asm_v1.2_36	159268001-stool2_revised_scaffold23596_1_gene127889	35.849	53	32	1	14	64	2	54	0.010	37.4	80	54	0	N/A	N/A	N/A	64	159268001-stool2_revised_scaffold23596_1_gene127889 strand:-  start:3 stop:164 length:162 start_codon:yes stop_codon:no gene_type:incomplete [Lack 3'-end] codon-table.11
+d9539_asm_v1.2_36	MH0329_GL0078502	42.105	38	22	0	32	69	395	432	1.3	33.9	80	458	0	N/A	N/A	N/A	48	MH0329_GL0078502  [gene]  locus=scaffold4270_1:3:1376:- [Lack 3'-end] codon-table.11
+d9539_asm_v1.2_36	V1.CD2-0-PT_GL0003080	36.735	49	22	2	29	68	331	379	1.5	33.5	80	419	0	N/A	N/A	N/A	50	V1.CD2-0-PT_GL0003080  [gene]  locus=scaffold20607_1:7207:8466:+ [Complete] codon-table.11
+d9539_asm_v1.2_36	MH0234_GL0062089	42.105	38	22	0	32	69	420	457	1.5	33.5	80	770	0	N/A	N/A	N/A	48	MH0234_GL0062089  [gene]  locus=scaffold563_5:1253:3565:+ [Complete] codon-table.11
+d9539_asm_v1.2_36	401473.BDP_2047	38.776	49	21	2	29	68	332	380	3.4	32.3	80	429	0	N/A	N/A	N/A	50	401473.BDP_2047 [Complete]:-  codon-table.11
+d9539_asm_v1.2_36	MH0106_GL0014172	30.357	56	34	1	22	77	21	71	4.6	32.0	80	332	0	N/A	N/A	N/A	70	MH0106_GL0014172  [gene]  locus=scaffold48217_2:8323:9321:- [Lack 5'-end] codon-table.11
+d9539_asm_v1.2_36	MH0160_GL0019779	30.435	46	32	0	9	54	474	519	4.6	32.0	80	538	0	N/A	N/A	N/A	58	MH0160_GL0019779  [gene]  locus=scaffold12757_9:678:2294:- [Lack 5'-end] codon-table.11
+d9539_asm_v1.2_36	MH0297_GL0061234	30.435	46	32	0	9	54	507	552	4.7	32.0	80	571	0	N/A	N/A	N/A	58	MH0297_GL0061234  [gene]  locus=scaffold9784_9:4466:6181:- [Complete] codon-table.11
+d9539_asm_v1.2_36	V1.FI11_GL0170713	46.875	32	17	0	32	63	406	437	6.3	31.6	80	756	0	N/A	N/A	N/A	40	V1.FI11_GL0170713  [gene]  locus=scaffold83120_1:2582:4852:- [Lack 5'-end] codon-table.11
+d9539_asm_v1.2_37	764143897-stool1_revised_scaffold5319_4_gene80368	40.741	27	16	0	24	50	149	175	7.0	30.8	53	358	0	N/A	N/A	N/A	51	764143897-stool1_revised_scaffold5319_4_gene80368 strand:+  start:1 stop:1077 length:1077 start_codon:no stop_codon:yes gene_type:incomplete [Lack 5'-end] codon-table.11
+d9539_asm_v1.2_40	O2.UC35-1_GL0185327	34.426	122	76	1	13	130	1	122	2.89e-11	64.7	167	125	0	N/A	N/A	N/A	71	O2.UC35-1_GL0185327  [gene]  locus=scaffold30109_2:66:443:+ [Complete] codon-table.11
+d9539_asm_v1.2_40	MH0280_GL0218843	27.941	136	98	0	1	136	31	166	1.74e-08	57.4	167	175	0	N/A	N/A	N/A	81	MH0280_GL0218843  [gene]  locus=C1485407_1:5378:5905:+ [Complete] codon-table.11
+d9539_asm_v1.2_40	T2D-78A_GL0074371	37.288	59	31	3	89	146	2	55	0.59	35.0	167	67	0	N/A	N/A	N/A	35	T2D-78A_GL0074371  [gene]  locus=scaffold17901_1:1:204:+ [Lack 5'-end] codon-table.11
+d9539_asm_v1.2_42	MH0272_GL0042408	43.750	48	22	1	58	105	215	257	1.1	36.2	161	893	0	N/A	N/A	N/A	30	MH0272_GL0042408  [gene]  locus=scaffold609_13:335:3016:- [Complete] codon-table.11
+d9539_asm_v1.2_42	MH0451_GL0103996	48.148	27	14	0	30	56	5	31	7.3	31.6	161	35	0	N/A	N/A	N/A	17	MH0451_GL0103996  [gene]  locus=scaffold53378_1:1253:1360:- [Lack 5'-end] codon-table.11
+d9539_asm_v1.2_42	V1.FI17_GL0233719	25.000	72	54	0	69	140	172	243	7.8	33.5	161	323	0	N/A	N/A	N/A	45	V1.FI17_GL0233719  [gene]  locus=C1381628_1:351:1322:+ [Complete] codon-table.11
+d9539_asm_v1.2_44	T2D-70A_GL0060579	23.438	64	48	1	26	88	48	111	6.8	32.7	162	111	0	N/A	N/A	N/A	39	T2D-70A_GL0060579  [gene]  locus=scaffold84715_1:32102:32437:- [Complete] codon-table.11
+d9539_asm_v1.2_44	MH0126_GL0066672	29.730	74	50	2	81	152	96	169	9.0	33.1	162	184	0	N/A	N/A	N/A	44	MH0126_GL0066672  [gene]  locus=scaffold29714_1:280:834:- [Complete] codon-table.11
+d9539_asm_v1.2_47	MH0206_GL0174304	46.875	32	17	0	47	78	145	176	0.79	35.0	117	201	0	N/A	N/A	N/A	27	MH0206_GL0174304  [gene]  locus=scaffold26255_1:69582:70187:+ [Complete] codon-table.11
+d9539_asm_v1.2_47	SZEY-10A_GL0078624	30.612	98	59	4	15	111	8	97	0.95	34.7	117	151	0	N/A	N/A	N/A	83	SZEY-10A_GL0078624  [gene]  locus=scaffold15870_2:2:454:- [Lack 3'-end] codon-table.11
+d9539_asm_v1.2_47	MH0378_GL0017443	35.000	40	26	0	2	41	530	569	3.9	33.5	117	685	0	N/A	N/A	N/A	34	MH0378_GL0017443  [gene]  locus=scaffold105474_1:10378:12435:- [Complete] codon-table.11
+d9539_asm_v1.2_47	MH0006_GL0140179	35.000	40	26	0	2	41	530	569	7.5	32.7	117	682	0	N/A	N/A	N/A	34	MH0006_GL0140179  [gene]  locus=scaffold221284_1:13163:15211:- [Complete] codon-table.11
+d9539_asm_v1.2_47	MH0106_GL0041710	35.000	40	26	0	2	41	530	569	8.7	32.3	117	679	0	N/A	N/A	N/A	34	MH0106_GL0041710  [gene]  locus=scaffold26909_8:9486:11525:- [Complete] codon-table.11
+d9539_asm_v1.2_47	MH0152_GL0007220	35.000	40	26	0	2	41	542	581	9.4	32.3	117	691	0	N/A	N/A	N/A	34	MH0152_GL0007220  [gene]  locus=scaffold10803_1:14395:16470:+ [Complete] codon-table.11
+d9539_asm_v1.2_52	763678604-stool2_revised_C1006716_1_gene31279	40.625	32	19	0	1	32	11	42	5.0	28.9	43	51	0	N/A	N/A	N/A	74	763678604-stool2_revised_C1006716_1_gene31279 strand:-  start:388 stop:543 length:156 start_codon:no stop_codon:yes gene_type:incomplete [Lack 5'-end] codon-table.11

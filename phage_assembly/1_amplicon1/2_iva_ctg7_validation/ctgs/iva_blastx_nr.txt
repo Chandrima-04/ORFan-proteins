@@ -1,0 +1,347 @@
+BLASTX 2.2.29+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+
+Database: All non-redundant GenBank CDS translations+PDB+SwissProt+PIR+PRF
+excluding environmental samples from WGS projects
+           53,512,115 sequences; 19,262,763,860 total letters
+
+
+
+Query= contig.00007
+
+Length=5746
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+gi|547312922|ref|WP_022044634.1|  putative replication initiation...  77.8    1e-11
+gi|609718275|emb|CDN73649.1|  conserved hypothetical protein [Eli...  63.5    3e-07
+gi|649555288|gb|KDS61825.1|  hypothetical protein M095_3808 [Para...  61.6    2e-06
+gi|492501778|ref|WP_005867316.1|  hypothetical protein [Parabacte...  60.8    4e-06
+gi|547312923|ref|WP_022044635.1|  putative uncharacterized protei...  61.2    4e-06
+gi|313766930|gb|ADR80656.1|  putative replication initiation prot...  60.8    7e-06
+gi|557745630|ref|YP_008798246.1|  replication initiator [Marine g...  60.1    8e-06
+gi|495507506|ref|WP_008232152.1|  hypothetical protein [Richelia ...  57.0    8e-05
+gi|575094374|emb|CDL65755.1|  unnamed protein product [uncultured...  57.4    9e-05
+gi|575094560|emb|CDL65924.1|  unnamed protein product [uncultured...  55.5    2e-04
+gi|530695361|gb|AGT39916.1|  replication initiator [Marine gokush...  54.3    5e-04
+
+
+>gi|547312922|ref|WP_022044634.1| putative replication initiation protein [Alistipes finegoldii 
+CAG:68]
+ gi|524208442|emb|CCZ76638.1| putative replication initiation protein [Alistipes finegoldii 
+CAG:68]
+Length=320
+
+ Score = 77.8 bits (190),  Expect = 1e-11, Method: Compositional matrix adjust.
+ Identities = 66/241 (27%), Positives = 110/241 (46%), Gaps = 36/241 (15%)
+ Frame = +3
+
+Query  4266  CLSPIWIRNRAYSSRTIGLTDRKVLLMNR-------PWDYFTQRLMVPCGRCEECLRQQR  4424
+             C  P  I NR Y++    +T+ +++   +       P DY    L VPCG C  C +   
+Sbjct  3     CEQPKVIVNRRYAN----MTNTEIVNYAKVYYGCFWPPDYI---LEVPCGYCHSCQKSYN  55
+
+Query  4425  NDWYVRLERETKYQKSLHRNSVFVTITIAPEYYDSALQNPSSFIRLWFERIRRRFGRSIK  4604
+             N + +RL  E +  K      +FVT+T   +  +   ++ +  +RL+ +R R+ +G+ I+
+Sbjct  56    NQYRIRLLYELR--KYPPGTCLFVTLTFNDDSLEKFSKDTNKAVRLFLDRFRKVYGKQIR  113
+
+Query  4605  HAVFQEFG-MHPNQGGEPRLHFHGVLWDVSCS-----------YNALREAVKDLGFVWIA  4748
+             H    EFG +H    G P  H+HG+L++V  +           ++ L  +    GFV++ 
+Sbjct  114   HWFVCEFGTLH----GRP--HYHGILFNVPQALIDGYDSDMPGHHPLLASCWKYGFVFVG  167
+
+Query  4749  SITDKRLRYVVKYVGKSVYMDERSAAFAKSLPITVGKLKTNLYDF--LQNSRYRRKFVSP  4922
+              ++D+   Y+ KYV KS+  D+       S  I    L T       L N RY+   V  
+Sbjct  168   YVSDETCSYITKYVTKSINGDKVRPRVISSFGIGSNYLNTEESSLHKLGNQRYQPFMVLN  227
+
+Query  4923  G  4925
+             G
+Sbjct  228   G  228
+
+
+>gi|609718275|emb|CDN73649.1| conserved hypothetical protein [Elizabethkingia anophelis]
+Length=265
+
+ Score = 63.5 bits (153),  Expect = 3e-07, Method: Compositional matrix adjust.
+ Identities = 50/184 (27%), Positives = 80/184 (43%), Gaps = 33/184 (18%)
+ Frame = +3
+
+Query  4263  MCLSPIWIRNRAYSSRTIGLTDRKVLLMNRPWDYFTQRLMVPCGRCEECLRQQRNDWYVR  4442
+             MCL+P+ ++    ++                  Y TQ    PCG+C EC + + N W+ R
+Sbjct  1     MCLTPVTLKKTGATTN----------------GYATQSF--PCGKCLECRKARTNSWFAR  42
+
+Query  4443  LERETKYQKSLHRNSVFVTITIAPEYYDSALQNPSSF----IRLWFERIRRRFGRSIKHA  4610
+             L  E K  KS H    FVT+T +  Y   +     S      +L+ +R R+     IK+ 
+Sbjct  43    LTEELKVSKSAH----FVTLTYSDVYLPYSDNGLISLDYRDFQLFMKRARKLQKSKIKYF  98
+
+Query  4611  VFQEFGMHPNQGGEPRLHFHGVLWDVSCSYNALREAVKDLGFVWIASITDKRLRYVVKYV  4790
+             +  E+G         R H+H +++ V      L E    +G V   ++T K + Y +KY 
+Sbjct  99    LVGEYGAQTY-----RPHYHAIVFGVENIDAFLGEW--RMGNVHAGTVTAKSIYYTLKYC  151
+
+Query  4791  GKSV  4802
+              KS+
+Sbjct  152   TKSI  155
+
+
+>gi|649555288|gb|KDS61825.1| hypothetical protein M095_3808 [Parabacteroides distasonis str. 
+3999B T(B) 4]
+ gi|649560564|gb|KDS66872.1| hypothetical protein M095_2449 [Parabacteroides distasonis str. 
+3999B T(B) 4]
+ gi|649561011|gb|KDS67298.1| hypothetical protein M095_2409 [Parabacteroides distasonis str. 
+3999B T(B) 4]
+Length=284
+
+ Score = 61.6 bits (148),  Expect = 2e-06, Method: Compositional matrix adjust.
+ Identities = 46/159 (29%), Positives = 79/159 (50%), Gaps = 26/159 (16%)
+ Frame = +3
+
+Query  4362  YFTQRLMVPCGRCEECLRQQRNDWYVRLERETKYQKSLHRNSVFVTITIAPEYYDSALQN  4541
+             +   R  VPCGRC  C + +R  W  RL+ E       +  S+FVT+T   E+  +A+  
+Sbjct  8     HLPDRGAVPCGRCVNCRKNKRQSWVYRLQAEA----DEYPFSLFVTLTYDDEHIPTAMIG  63
+
+Query  4542  PSSF-----------IRLWFERIRRRFGR-SIKHAVFQEFGMHPNQGGEPRLHFHGVLWD  4685
+                F           I+L+ +R+R+++ +  +++ +  E+G   +QGG P  H+H +L+ 
+Sbjct  64    EDLFKTTVGVVSKRDIQLFMKRLRKKYAQYRLRYFLTSEYG---SQGGRP--HYHMILFG  118
+
+Query  4686  VSCS----YNALREAVKDLGFVWIASITDKRLRYVVKYV  4790
+                +     + L E  K+ GFV    +T K + YV KY+
+Sbjct  119   FPFTGKHGGDLLAECWKN-GFVQAHPLTTKEISYVTKYM  156
+
+
+>gi|492501778|ref|WP_005867316.1| hypothetical protein [Parabacteroides distasonis]
+ gi|409230407|gb|EKN23271.1| hypothetical protein HMPREF1059_03256 [Parabacteroides distasonis 
+CL09T03C24]
+Length=284
+
+ Score = 60.8 bits (146),  Expect = 4e-06, Method: Compositional matrix adjust.
+ Identities = 46/159 (29%), Positives = 79/159 (50%), Gaps = 26/159 (16%)
+ Frame = +3
+
+Query  4362  YFTQRLMVPCGRCEECLRQQRNDWYVRLERETKYQKSLHRNSVFVTITIAPEYYDSALQN  4541
+             +   R  VPCGRC  C + +R  W  RL+ E       +  S+FVT+T   E+  +A+  
+Sbjct  8     HLPDRGAVPCGRCVNCRKNKRQSWVYRLQAEA----DEYPFSLFVTLTYDDEHMPTAMIG  63
+
+Query  4542  PSSF-----------IRLWFERIRRRFGR-SIKHAVFQEFGMHPNQGGEPRLHFHGVLWD  4685
+                F           I+L+ +R+R+++ +  +++ +  E+G   +QGG P  H+H +L+ 
+Sbjct  64    EDLFKSTVGVVSKRDIQLFMKRLRKKYDQYRLRYFLTSEYG---SQGGRP--HYHMILFG  118
+
+Query  4686  VSCS----YNALREAVKDLGFVWIASITDKRLRYVVKYV  4790
+                +     + L E  K+ GFV    +T K + YV KY+
+Sbjct  119   FPFTGKHGGDLLAECWKN-GFVQAHPLTTKEIAYVTKYM  156
+
+
+>gi|547312923|ref|WP_022044635.1| putative uncharacterized protein [Alistipes finegoldii CAG:68]
+ gi|524208404|emb|CCZ76639.1| putative uncharacterized protein [Alistipes finegoldii CAG:68]
+Length=338
+
+ Score = 61.2 bits (147),  Expect = 4e-06, Method: Compositional matrix adjust.
+ Identities = 58/190 (31%), Positives = 83/190 (44%), Gaps = 20/190 (11%)
+ Frame = +3
+
+Query  657   CPSSPDRFSRLMPPGDSNS---------DVDF-TGVKT-IPQLAVATRLQEYKDLIGASG  803
+              P SPD F  ++  G S +         D++  TG    +P+L + T++Q + D +  SG
+Sbjct  15    VPYSPDLFGNIIKQGSSPAVEIEVMNALDLNISTGFSVAVPELRLRTKIQNWMDRLFVSG  74
+
+Query  804   SRYSDWLYTFFASKIEHVDRPKLLFsssvmvnsqvvmnqAGQSGFAGGEAAALGQMGGSI  983
+              R  D   T + +K   +   K  F      +      +A  +G A GE A LGQ+   +
+Sbjct  75    GRVGDVFRTLWGTKSSAIYVNKPDFLGVWQASINPSNVRAMANGSASGEDANLGQLAACV  134
+
+Query  984   A----FNTVLGREQTYYFKEPG--YIFDMLTIRPVYFWTGIRPDYLEYRGPDYFNPIYND  1145
+                  F+   G +  YY KEPG   +  ML   P Y   G+ PD       D FNP  N 
+Sbjct  135   DRYCDFSGHSGID--YYAKEPGTFMLITMLVPEPAYS-QGLHPDLASISFGDDFNPELNG  191
+
+Query  1146  IGYQDVPLWR  1175
+             IG+Q VP  R
+Sbjct  192   IGFQLVPRHR  201
+
+
+>gi|313766930|gb|ADR80656.1| putative replication initiation protein [Uncultured Microviridae]
+Length=402
+
+ Score = 60.8 bits (146),  Expect = 7e-06, Method: Compositional matrix adjust.
+ Identities = 67/281 (24%), Positives = 121/281 (43%), Gaps = 53/281 (19%)
+ Frame = +3
+
+Query  4323  TDRKVLLMNRPWDYFTQRLMVPCGRCEECLRQQRNDWYVRLERETKYQKSLHRNSVFVTI  4502
+              D KV+  N+P+ Y  +   +PCG+C  C  Q   +W +R   E +    +H ++ F+T+
+Sbjct  110   CDGKVVF-NKPFAY-AKGFNLPCGQCWGCRLQHSREWAIRCMHEAQ----MHDHNCFITL  163
+
+Query  4503  TIAPEYYDSALQNPSSFIRLWFE----RIRRRFGRSIKHAVFQEFGMHPNQGGEPRLHFH  4670
+             TI PE  +   + P S  +  F+    R+RR+ G+ IK+    E+G         R H+H
+Sbjct  164   TINPETLERRPR-PWSLEKKEFQEFVHRLRRKIGKKIKYFHCGEYG-----DENKRPHYH  217
+
+Query  4671  GVLWDVSCSYNALRE-----------AVKDL---GFVWIASITDKRLRYVVKYVGKSVYM  4808
+              +++        L E            +++L   G+  I + T +   YV +YV K    
+Sbjct  218   AIIFGYDFPDKQLWERKLGNELYISPELENLWPHGYHRIGACTYESAHYVARYVMKRAKG  277
+
+Query  4809  DERSAAFAKSLPITVGKLKTNLYD-FLQNSRYRRKFVSPGVGDYFGDFEAPGVSSGLWSY  4985
+             +     +        G+++ +L + +   SR  +K    G+G+ +            W Y
+Sbjct  278   EGPPEQYINP---ETGEVEYDLDNQYATMSRGNKKQPQNGIGNQW-----------YWKY  323
+
+Query  4986  -------TDYKTGVVYRYRIPRYYDKYLSQ-DALFFRKIST  5084
+                     DY      + ++PRYYDK L + D  +F+++  
+Sbjct  324   GWTDAHCHDYIVHDGIKMKVPRYYDKELEKYDPEYFQELKA  364
+
+
+>gi|557745630|ref|YP_008798246.1| replication initiator [Marine gokushovirus]
+ gi|530695343|gb|AGT39900.1| replication initiator [Marine gokushovirus]
+Length=312
+
+ Score = 60.1 bits (144),  Expect = 8e-06, Method: Compositional matrix adjust.
+ Identities = 60/223 (27%), Positives = 100/223 (45%), Gaps = 36/223 (16%)
+ Frame = +3
+
+Query  4356  WDYFTQRLMVPCGRCEECLRQQRNDWYVRLERETKYQKSLHRNSVFVTITIAPEYYDSAL  4535
+             W      +  PCG C+ C  +++ +W VR   E +  ++  R+S F+T+T     YD+  
+Sbjct  24    WPEMYPPMTRPCGYCKGCRFKKQQEWTVRCLNEQQILETKGRSSSFITLT-----YDNKH  78
+
+Query  4536  QNPSSFIRL--WFERIR----RRFGRSIKHAVFQEFGMHPNQGGEPRLHFHGVLW-----  4682
+               P++ +    W + IR    R  G+SI++    E+G   N G   R HFH +L+     
+Sbjct  79    LPPNNSLDYTHWQKFIRSLKKRNNGKSIRYFGVGEYGE--NFG---RPHFHAILFGHTFN  133
+
+Query  4683  -------DVSCSYNALREAVKDL-----GFVWIASITDKRLRYVVKYVGKSVYMDERSAA  4826
+                    ++S S   L    + L     GFV +  +T + + YV  YV K ++  +  AA
+Sbjct  134   DLIPMHSNISKSQQLLSAWCEPLTQEPRGFVSVGDVTPESISYVCGYVQKKIF-GQGQAA  192
+
+Query  4827  FAKSLPITVGKLKTNLYDFLQNSRYRRKFVS--PGVGDYFGDF  4949
+               K +    G++ T      +  R  + F+S  PG+G  F D 
+Sbjct  193   HYKYIDKDSGEITTKKPTNGKIYRLLKSFMSRRPGIGSEFYDL  235
+
+
+>gi|495507506|ref|WP_008232152.1| hypothetical protein [Richelia intracellularis]
+ gi|471331139|emb|CCH66547.1| hypothetical protein RINTHH_3920 [Richelia intracellularis HH01]
+Length=306
+
+ Score = 57.0 bits (136),  Expect = 8e-05, Method: Compositional matrix adjust.
+ Identities = 70/275 (25%), Positives = 117/275 (43%), Gaps = 54/275 (20%)
+ Frame = +3
+
+Query  4323  TDRKVLLMNRPWDYFTQRLMVPCGRCEECLRQQRNDWYVRLERETKYQKSLHRNSVFVTI  4502
+             TD+  ++  R  D  T+   +PCG CE CL ++   W VR   E +    L   + FVT+
+Sbjct  12    TDKGEIVFWRRHDAETE-YKLPCGHCEGCLLERSRQWAVRCMHEAQ----LWERNCFVTL  66
+
+Query  4503  TIAPEYYDSALQNPSSFIRLWFERIRRRF-----------GRS---IKHAVFQEFGMHPN  4640
+             T       ++L++  S  + + +R+R+RF           G+S   I++ +  E+G H  
+Sbjct  67    TYEETPPWNSLRH--SDFQKFMKRLRKRFKGHKENIDVRTGKSSYPIRYYMAGEYGTH--  122
+
+Query  4641  QGGEPRLHFHGVLWD-----------VSCSYNALR----EAVKDLGFVWIASITDKRLRY  4775
+              GG P  H+H  L++            +   N  R    E++   GF  +  +T +   Y
+Sbjct  123   -GGRP--HYHACLFNFAFEDIEFLRRTNSGSNLYRSAQLESLWPHGFSSVGDVTFESAAY  179
+
+Query  4776  VVKYVGKSVYMDERSAAFAKSLPITVGKLKTNLYDFLQNSRYRRKFVSPGVGDYFGDFEA  4955
+             V +YV K   M++ +    + +    G++   L        Y +  + PG+G  F D   
+Sbjct  180   VARYVMKK--MNKEAIEKGQEINWETGEVMPRL------PEYNKMSLKPGIGANFIDKYQ  231
+
+Query  4956  PGVSSGLWSYTDYKTGVVYRYRIPRYYDKYLSQDA  5060
+               V        DY     ++ + PRYY K L Q A
+Sbjct  232   SDVFP-----NDYVIVNGHKAKPPRYYFKRLKQAA  261
+
+
+>gi|575094374|emb|CDL65755.1| unnamed protein product [uncultured bacterium]
+Length=487
+
+ Score = 57.4 bits (137),  Expect = 9e-05, Method: Compositional matrix adjust.
+ Identities = 50/201 (25%), Positives = 81/201 (40%), Gaps = 47/201 (23%)
+ Frame = +3
+
+Query  4263  MCLSPIWIRNRAYSSRTIGLTDRKVLLMNRPWDYFTQRLMVPCGRCEECLRQQRNDWYVR  4442
+             MC SPI IRN +    T                Y     +VPCG C +C   +  DW VR
+Sbjct  1     MCFSPIIIRNNSSYIHT---------------HYTYADYVVPCGHCYDCKSAKTTDWQVR  45
+
+Query  4443  LERETKYQKSLHRNSVFVTITIAPEYYDSALQNPSS---------FIRLWFERIRR---R  4586
+                E          S F T+T+ P + D+    P            I+L+ +R+R+   +
+Sbjct  46    CSEELNNNSQ----SYFYTLTLDPRFIDTYGTLPDGSPRYVFNKRHIQLFLKRLRKALSK  101
+
+Query  4587  FGRSIKHAVFQEFGMHPNQGGEPRLHFHGVLWDVSCSYNALREAVK-----DLGFVWIAS  4751
+             +  S+K+ +  E G         R H+H + + +S S N  +  +       LGF+    
+Sbjct  102   YNISLKYVIVGELG-----ETTHRPHYHAIFY-LSSSVNPFKFRIMVRNSWSLGFIKSGD  155
+
+Query  4752  -----ITDKRLRYVVKYVGKS  4799
+                  + +  + YV+KY+ K+
+Sbjct  156   NNGIILNNDAVSYVIKYMHKT  176
+
+
+>gi|575094560|emb|CDL65924.1| unnamed protein product [uncultured bacterium]
+Length=320
+
+ Score = 55.5 bits (132),  Expect = 2e-04, Method: Compositional matrix adjust.
+ Identities = 72/286 (25%), Positives = 124/286 (43%), Gaps = 54/286 (19%)
+ Frame = +3
+
+Query  4266  CLSPIWIRNRAYSSRTIG--LTDRKVLLMNRPWDYFTQRLMVPCGRCEECLRQQRNDWYV  4439
+             C  PI     AY SRT+   L    +       D       +PCG+C  C   +  D  V
+Sbjct  8     CYHPI----TAYWSRTLKTKLGTPAITFKYADADPELGEFQIPCGQCIGCRLDRSLDSAV  63
+
+Query  4440  RLERETKYQKSLHRNSVFVTITIAPEYYDSALQNPSSFIRLWFERIRRRFGRSIKHAVFQ  4619
+             R   E+     L+  + F+T+T +PE+           + L+++R+R+R G S+++    
+Sbjct  64    RAHHES----LLYDRNYFLTLTYSPEHLPPFGSLIPRDLTLFWKRLRKR-GVSLRYMACG  118
+
+Query  4620  EFGMHPNQGGEPRLHFHGVLWD--------VSCSYNALREAVKD-------LGFVWIASI  4754
+             E+G   +  G P  H+H ++++        +  +       + D       LGF  +  +
+Sbjct  119   EYG---STYGRP--HYHAIIFNLPPLELKQIGTTSTGFPTFISDVISECWSLGFHTLNPV  173
+
+Query  4755  TDKRLRYVVKYVGKSVYMDERSAAFAKSLPITVGKLKTNLYDFLQNSRYRRKFVSPGVG-  4931
+             + +   YV +YV K +  D +   + K  P+T G++   + +F   SR+  K   PG+G 
+Sbjct  174   SFQTCAYVARYVTKKILGDGKQV-YEKFDPVT-GEVDCRVKEF---SRWSTK---PGIGH  225
+
+Query  4932  DYFGDFEAPGVSSGLWSYTDYKTGVVY----RYRIPRYYDKYLSQD  5057
+             DYF  +         W    YK         +++IPRYYD+ L +D
+Sbjct  226   DYFMKY---------WR-DFYKIDCCLINNKKFKIPRYYDRLLLRD  261
+
+
+>gi|530695361|gb|AGT39916.1| replication initiator [Marine gokushovirus]
+Length=289
+
+ Score = 54.3 bits (129),  Expect = 5e-04, Method: Compositional matrix adjust.
+ Identities = 61/261 (23%), Positives = 107/261 (41%), Gaps = 36/261 (14%)
+ Frame = +3
+
+Query  4323  TDRKVLLMNRPWDYFTQRLMVPCGRCEECLRQQRNDWYVRLERETKYQKSLHRNSVFVTI  4502
+              D KV+  ++P+  F +   +PCG+C  C       W +R   E +     H ++ F+T+
+Sbjct  12    CDGKVVF-DKPFA-FARGFNLPCGQCIGCRLDYSRQWAIRCVHEAQ----THEDNCFITL  65
+
+Query  4503  TIAPEYYDSALQNPSSFIRLWFERIRRRFGRSIKHAV-FQEFGMHPNQGGEPRLHFHGVL  4679
+             T   E+  +  +NP S     F+R  +R  +   H + F   G + +Q   P  H+H +L
+Sbjct  66    TFDNEHI-AKRKNPESLDNTEFQRFMKRLRKKYPHKIRFFHCGEYGDQNKRP--HYHALL  122
+
+Query  4680  WDVSCSYNALREAVKDL--------------GFVWIASITDKRLRYVVKYVGKSVYMDER  4817
+             +        L     D               GF  I +++     Y  +YV K V  D  
+Sbjct  123   FGHDFKDKKLWSNKGDFKLFVSQELAELWPYGFHTIGAVSFDTAAYCARYVMKKVTGDA-  181
+
+Query  4818  SAAFAKSLPITVGKLKTNLY-DFLQNSRYRRKFVSPGVGDYFGDFEAPGVSSGLWSYTDY  4994
+             +A+  + + +  G++   +  ++   SR       PG+G  +  ++  G         DY
+Sbjct  182   AASHYREVDLETGEVINEIKPEYCTMSR------MPGIG--YEWYQKYGYHD--CHKHDY  231
+
+Query  4995  KTGVVYRYRIPRYYDKYLSQD  5057
+                  Y+ R PRYYDK   ++
+Sbjct  232   IVINGYKVRPPRYYDKLCDEE  252
+
+
+
+Lambda      K        H        a         alpha
+   0.318    0.134    0.401    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 18362346527000
+
+
+  Database: All non-redundant GenBank CDS translations+PDB+SwissProt+PIR+PRF
+excluding environmental samples from WGS projects
+    Posted date:  Dec 6, 2014  4:14 AM
+  Number of letters in database: 19,262,763,860
+  Number of sequences in database:  53,512,115
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 12
+Window for multiple hits: 40

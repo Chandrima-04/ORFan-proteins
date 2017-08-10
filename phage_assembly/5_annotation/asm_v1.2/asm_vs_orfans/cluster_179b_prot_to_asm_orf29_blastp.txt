@@ -1,0 +1,48 @@
+BLASTP 2.4.0+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro
+A. Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and
+David J. Lipman (1997), "Gapped BLAST and PSI-BLAST: a new
+generation of protein database search programs", Nucleic
+Acids Res. 25:3389-3402.
+
+
+Reference for compositional score matrix adjustment: Stephen
+F. Altschul, John C. Wootton, E. Michael Gertz, Richa
+Agarwala, Aleksandr Morgulis, Alejandro A. Schaffer, and
+Yi-Kuo Yu (2005) "Protein database searches using
+compositionally adjusted substitution matrices", FEBS J.
+272:5101-5109.
+
+
+RID: PRUJ1TFH114
+
+
+Query= GB3LKKR01C2BL0[13],GB3LKKR01CVNVS,GB3LKKR02HVZGF,GB3LKKR02F3WFH,
+GB3LKKR01C0TKF,GB3LKKR02J2NFP,GB3LKKR02ILNZ7,GB3LKKR02GQ6WW,
+GB3LKKR01AW46P,GB3LKKR01BTYUH,GB3LKKR02GJWB2,GB3LKKR01A7U1M,
+contig11005
+
+Length=77
+
+
+                                                                   Score     E
+Sequences producing significant alignments:                       (Bits)  Value
+
+Query_144673  d9539_asm_v1.2_29 [3429 - 5369]                      15.0    0.96 
+
+ALIGNMENTS
+>Query_144673 d9539_asm_v1.2_29 [3429 - 5369]
+Length=647
+
+ Score = 15.0 bits (27),  Expect = 0.96, Method: Composition-based stats.
+ Identities = 6/18 (33%), Positives = 7/18 (39%), Gaps = 0/18 (0%)
+
+Query  49   WKCSTMIKRHNLTEKCSN  66
+            WK  T+       E C N
+Sbjct  534  WKSDTVSNLSFAKEPCYN  551
+
+
+
+
+
+

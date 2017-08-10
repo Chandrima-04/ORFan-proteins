@@ -1,0 +1,10 @@
+
+
+Building a new DB, current time: 03/23/2017 09:35:34
+New DB name:   /home/maubar/results/sonnhammer_d9539/CRISPR_search/annot_poophage/crisprs_vs_phagedb/poophage_v1.2
+New DB title:  poophage_v1.2
+Sequence type: Nucleotide
+Keep Linkouts: T
+Keep MBits: T
+Maximum file size: 1000000000B
+Adding sequences from FASTA; added 1 sequences in 0.014631 seconds.
