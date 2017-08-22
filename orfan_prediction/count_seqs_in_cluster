@@ -1,0 +1,21 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+# usage: count_seqs_in_cluster cluster_membership_mapping_justclust+seq.tsv
+
+my %seqs_per_cluster;
+
+while (<>) {
+    chomp;
+    my ($seqid, $clusterid) = split;
+    die "problem!" unless $seqid && $clusterid;
+    $seqs_per_cluster{$clusterid}++;
+}
+
+foreach my $cluster (keys %seqs_per_cluster) {
+    next if $seqs_per_cluster{$cluster} <= 1;
+
+    print STDOUT $cluster, "\t", $seqs_per_cluster{$cluster}, "\n";
+}

@@ -1,0 +1,70 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+my $usage="
+mark_clusters - determine whether clusters have more than one source
+                (and what they are)
+
+mark_cluster id_cluster_source.tsv
+
+produces a tab-delmited output with
+";
+die $usage unless @ARGV;
+
+my %clusters;
+
+while (<>) {
+    chomp;
+    my ($seqid, $clusterid, $source) = split;
+
+    # create cluster entry if needed
+    if (!exists $clusters{$clusterid}) {
+	my %new_cluster = ('sources' => {'ncbi'    => '0',
+					 'gos'     => '0',
+					 'tigr'    => '0',
+					 'viral'   => '0',
+					 'unknown' => '0',
+				     },
+			   'seq_count' => '0',
+			   );
+	$clusters{$clusterid} = \%new_cluster;
+    }
+
+    # update cluster entry
+    $clusters{$clusterid}->{'sources'}->{$source}++;
+    $clusters{$clusterid}->{'seq_count'}++;
+}
+
+# report on each cluster's composition
+foreach my $clust (keys %clusters) {
+
+    # skip singleton clusters
+    next if $clusters{$clust}->{'seq_count'} <= 1;
+
+    my $source_count = 0;
+    my $last_source = '';
+    foreach my $source (keys %{$clusters{$clust}->{'sources'}}) {
+	if ($clusters{$clust}->{'sources'}->{$source} > 0) {
+	    $source_count++;
+	    $last_source = $source;
+	}
+    }
+
+    if ( $source_count > 1) {
+	if ($clusters{$clust}->{'sources'}->{'gos'}     > 0 &&
+	    $clusters{$clust}->{'sources'}->{'unknown'} > 0 &&
+	    $clusters{$clust}->{'sources'}->{'viral'}  == 0 &&
+	    $clusters{$clust}->{'sources'}->{'ncbi'}   == 0) {
+	 
+	    print "$clust\tgos+unknown\n";
+	}
+	else {
+	    print "$clust\tmixed\n";
+	}
+    }
+    else {
+	print "$clust\t$last_source\n";
+    }
+}

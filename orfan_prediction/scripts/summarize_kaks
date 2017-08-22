@@ -1,0 +1,115 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use File::Basename;
+use Statistics::Lite qw(:all);
+
+my $usage = "summarize_kaks - summarize Ka/Ks results
+
+Usage: summarize_kaks <KaKs_Calculator 1.2 output> [add'l output files]
+
+creates 2 output files:
+kaks_summary.txt - one-line summary of each cluster
+significant_pairs.txt - significant pairwise Ka/Ks values from all clusters
+
+";
+die $usage unless @ARGV;
+
+# save data for printing later
+my ( @significant_pairs, @averages );
+
+foreach my $file (@ARGV) {
+    open( my $fh, $file ) or die "couldn't open $file :$!\n";
+
+    my ( $base, $path, $suffix ) = fileparse( $file, '.kaks' );
+
+    # skip header line
+    my $header = <$fh>;
+
+    my ( @all_ratios, @all_pvals, @signif_ratios, @signif_pvals );
+
+    while (<$fh>) {
+        my $line = $_;
+        chomp $line;
+
+        # split line into fields
+        my ( $seq_ids, $method, $ka, $ks, $kaks, $pval, @rest ) =
+          split( "\t", $line );
+
+        # store data from each pair
+        # but skip pairs which are identical (have no substitutions between
+        # them: nan) or do not overlap (NA)
+        unless ( $ka =~ /NA/ or $ka =~ /nan/ ) {
+            push @all_ratios, $kaks;
+            push @all_pvals,  $pval;
+
+            if ( $pval !~ /NA/ && $pval <= 0.05 ) {
+                push @signif_ratios, $kaks;
+                push @signif_pvals,  $pval;
+                push @significant_pairs,
+                  join( "\t", $base, $seq_ids, $kaks, $pval, ), "\n";
+            }
+        }
+    }
+
+    my $mean_all_kaks  = mean(@all_ratios);
+    my $var_all_kaks   = variancep(@all_ratios);
+    my $mean_all_pvals = mean(@all_pvals);
+    my $var_all_pvals  = variancep(@all_pvals);
+    my (
+        $mean_signif_kaks,  $var_signif_kaks,
+        $mean_signif_pvals, $var_signif_pvals
+    );
+
+    # don't calc if we don't have any significant ones
+    if (@signif_ratios) {
+        $mean_signif_kaks  = mean(@signif_ratios);
+        $var_signif_kaks   = variancep(@signif_ratios);
+        $mean_signif_pvals = mean(@signif_pvals);
+        $var_signif_pvals  = variancep(@signif_pvals);
+    }
+    else {
+		$mean_signif_kaks  = 'na';
+		$var_signif_kaks   = 'na';
+		$mean_signif_pvals = 'na';
+		$var_signif_pvals  = 'na';
+    }
+
+    push @averages,
+      join( "\t",
+        $base,            $mean_all_kaks,     $var_all_kaks,
+        $mean_all_pvals,  $var_all_pvals,     $mean_signif_kaks,
+        $var_signif_kaks, $mean_signif_pvals, $var_signif_pvals,
+      ),
+      "\n";
+}
+
+# print out significant pairs
+open( PAIRS, ">significant_pairs.txt" )
+  or die "couldn't open significant_pairs.txt for writing: $!\n";
+print PAIRS join( "\t", 'Cluster', 'Seqs', 'Ka/Ks', 'P-val' ), "\n";
+foreach my $pair (@significant_pairs) {
+    print PAIRS $pair;
+}
+close PAIRS;
+
+# print out cluster averages. One line per cluster
+open( SUMMARY, ">kaks_summary.txt" )
+  or die "couldn't open kaks_summary.txt for writing: $!\n";
+print SUMMARY join( "\t",
+    'Cluster',
+    'Mean Ka/Ks (all pairs)',
+    'Ka/Ks Variance (all pairs)',
+    'Mean P-val (all pairs)',
+    'P-val variance (all pairs)',
+    'Mean Ka/Ks (signif pairs)',
+    'Ka/Ks Variance (signif pairs)',
+    'Mean P-val (signif pairs)',
+    'P-val variance (signif pairs)',
+  ),
+  "\n";
+foreach my $cluster_summary (@averages) {
+    print SUMMARY $cluster_summary;
+}
+close SUMMARY;

@@ -1,0 +1,79 @@
+#!/usr/bin/env perl
+# $Id$
+
+use strict;
+use warnings;
+
+`module add easy`;
+`module add heimdal`;
+
+my $bindir =
+  '/afs/pdc.kth.se/home/d/dmessina/src/clustering/bin';
+
+my @files;
+foreach my $dir (@ARGV) {
+    next unless ( -d $dir );    # skip any non-directories
+    next if $dir =~ /^\./;      # skip . .. and all other dirs beginning .
+
+    opendir( my $dirhandle, $dir ) or die "couldn't open $dir:$!\n";
+
+    while ( my $entry = readdir($dirhandle) ) {
+        if ( $entry =~ /\.fa$/ ) {
+            my $fullpath = $dir . '/' . $entry;
+            push @files, $fullpath;
+        }
+    }
+    closedir($dirhandle);
+}
+
+my @runlist  = ();
+my @seqslist = ();
+my $k        = 0;
+
+for ( my $i = 0 ; $i < @files ; $i = $i + 10 ) {
+
+    my $seqs = "$k ";
+
+    for ( my $j = $i ; $j < @files && $j < $i + 10 ; $j++ ) {
+        $seqs = $seqs . $files[$j] . " ";
+    }
+
+    chomp($seqs);
+
+    push( @seqslist, $seqs );
+
+    $k++;
+
+}
+
+foreach my $seqs (@seqslist) {
+
+    push( @runlist, "perl $bindir/runAPairPaml.pl $seqs" );
+
+}
+
+my $runTime = 239;
+
+my $submit_counter = 1;
+for ( my $i = 0 ; $i < @runlist ; $i = $i + 6 ) {
+
+    my $command = "echo test & ";
+
+    for ( my $j = $i ; $j < @runlist && $j - $i < 6 ; $j++ ) {
+
+        $command = $command . $runlist[$j] . " & ";
+
+    }
+
+    $command = $command . "echo test & ";
+
+    chomp($command);
+
+    my $retval = system(
+"esubmit -n 1 -v -t $runTime perl $bindir/runSeveralOnNode.pl \"$command\""
+    );
+    if ( $retval > 0 ) { print STDERR $retval, "\t$!\n"; }
+    else {
+        print STDERR ( "submitted job ", $submit_counter++, "\n" );
+    }
+}

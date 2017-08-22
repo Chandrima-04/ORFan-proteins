@@ -1,0 +1,73 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use Cluster;
+use ClusterGroup;
+use Bio::SeqIO;
+use Getopt::Long;
+use IPC::Open3;
+
+my $lower_bound = 10;
+my $upper_bound = 100;
+my ( $load, $outdir, $skip );
+GetOptions(
+    "lower=i"  => \$lower_bound,
+    "upper=i"  => \$upper_bound,
+    "load=s"   => \$load,
+    "skip=s"   => \$skip,
+    "outdir=s" => \$outdir,
+);
+my $usage = "
+dump_cluster_members - write a FASTA file of each cluster's sequences
+
+Usage: dump_cluster_members [options] --load <cluster_file> --outdir <dir>
+
+--load  <file> the saved cluster file
+--outdir <dir> the name of the directory in which to save the output files
+
+Options:
+--upper <n>    largest cluster to dump  (default 100)
+--lower <n>    smallest cluster to dump (default 10)
+--skip  <file> read in a list of clusters to exclude
+
+";
+die $usage if ( !$load or !$outdir );
+
+my %skiplist;
+if ($skip) {
+    open( SKIP, $skip ) or die "couldn't open $skip\n";
+    while (<SKIP>) {
+        chomp;
+        $skiplist{$_}++;
+    }
+}
+
+my $cluster_group = ClusterGroup->new( '-load' => $load );
+my @clusters = $cluster_group->get_all_clusters;
+
+foreach my $cluster (@clusters) {
+    if (   ( $cluster->size() < $lower_bound )
+        or ( $cluster->size() > $upper_bound ) )
+    {
+        next;
+    }
+    next if defined $skiplist{ $cluster->id() };
+
+    # setup output file
+    my $outbase = $outdir . '/cluster' . $cluster->id();
+    my $outfa   = $outbase . '.fa';
+    my $fa_fh   = Bio::SeqIO->new(
+        -file   => ">$outfa",
+        -format => 'fasta'
+    );
+
+    # write out seqs from the cluster
+    my %members = %{ $cluster->get_all_members };
+    print STDOUT ( "Cluster ", $cluster->id(), ': ', scalar keys %members,
+        " members\n" );
+
+    foreach my $member ( keys %members ) {
+        $fa_fh->write_seq($members{$member});
+    }
+}

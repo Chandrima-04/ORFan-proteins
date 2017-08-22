@@ -1,0 +1,164 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use Storable;
+use Histogram 0.0.5;
+use Getopt::Long;
+
+my ($load, $known, $verbose, $all);
+GetOptions("load=s"    => \$load,
+	   "known=s"   => \$known,
+	   "verbose"   => \$verbose,
+	   "all"       => \$all,);
+           
+my $usage="
+mark_known_clusters - identify which clusters have known seqs in them
+
+Usage: mark_known_cluster --load <my.clust> --known <my.known_hits>
+
+--load <file>   name of saved cluster data file (blasttab2cluster output)
+--known <file>  name of file containing list of seqIDs and their hits
+                This is a tab-delimited file, each line with one seqID and
+                its hit. (e.g. output from besthit)
+--verbose       show stats on each known cluster
+--all           show stats on all clusters (both known and unknown)
+";
+die $usage if (!defined $load or !defined $known);
+my (%g, %cluster_list, $member_count);
+$verbose = $verbose ? $verbose : 0;
+my %known_clusters;
+open (my $known_seq_file, '<', $known) or die "couldn't open $known\n";
+ 
+load_from_file($load);
+mark_known_clusters();
+count_known_clusters() unless $all;
+count_all_clusters()       if $all;
+
+sub load_from_file {
+    my ($file) = @_;
+
+    my $stored_ref = retrieve($file);
+    %g            = %{ $stored_ref->{'graph'} };
+    %cluster_list = %{ $stored_ref->{'cluster_list'} };
+    $member_count = $stored_ref->{'member_count'};
+    print STDERR "loaded stored data from $file\n";
+}
+
+sub mark_known_clusters {
+
+    my ($query, $hit);
+    my %seen; # to avoid duplicates in known file
+
+    while(<$known_seq_file>) {
+	chomp;
+	($query, $hit) = split;
+	next if (!defined $query and !defined $hit);
+	next if $seen{$query};
+	if (defined $g{$query}) {
+	    my $cluster_id = $g{$query};
+	    push @{ $known_clusters{$cluster_id} }, $hit;
+	    $seen{$query}++;
+	}
+    }
+}
+
+sub count_known_clusters {
+    print STDOUT scalar keys %known_clusters,
+        " clusters with >= 1 known member\n";
+    print STDOUT ("Unique means how many distinct known sequences match\n",
+		  "the sequences in the cluster. For example, if 10/10\n",
+		  "sequences in the cluster had a known hit, and there\n",
+		  "is only 1 unique sequence, then all of the sequences\n",
+		  "matched the same known hit.\n\n");
+
+    if ($verbose) {
+	printf("%s\t%s/%s\t%s\n", 'Cluster name', '# known hits', 'total',
+		'unique');
+	foreach my $cluster (sort { scalar @{ $cluster_list{$b}} <=>
+				    scalar @{ $cluster_list{$a}} }
+			     keys %known_clusters) {
+	    my $known_count = scalar @{ $known_clusters{$cluster} };
+	    my $total_count = scalar @{ $cluster_list{$cluster} };
+	    my $hits_ref    = $known_clusters{$cluster};
+	    my $unique_hits = scalar @{ find_uniq_elements($hits_ref) };
+	    if (!defined $known_count or !defined $total_count) {
+		die "couldn't find cluster $cluster\n";
+	    }
+	    printf("%12s\t%12d/%-6d\t%6d\n", $cluster, $known_count,
+		   $total_count, $unique_hits);
+	}
+    }
+}
+
+sub count_all_clusters {
+    # header
+    print STDOUT scalar keys %known_clusters,
+        " clusters with >= 1 known member\n";
+    print STDOUT ("Unique means how many distinct known sequences match\n",
+		  "the sequences in the cluster. For example, if 10/10\n",
+		  "sequences in the cluster had a known hit, and there\n",
+		  "is only 1 unique sequence, then all of the sequences\n",
+		  "matched the same known hit.\n\n");
+
+    printf("%s\t%s/%s\t%s\n", 'Cluster name', '# known hits', 'total',
+	   'unique');
+
+
+    # sort largest to smallest clusters then most to least known seqs
+    foreach my $cluster (sort by_clust_then_known keys %cluster_list) {
+	my $total_count = scalar @{ $cluster_list{$cluster} };
+
+	my ($known_count, $unique_hits);
+
+	# only if cluster is known
+	if (defined($known_clusters{$cluster})) {
+	    $known_count = scalar @{ $known_clusters{$cluster} };
+	    
+	    my $hits_ref    = $known_clusters{$cluster};
+	    $unique_hits = scalar @{ find_uniq_elements($hits_ref) };
+	}
+	else {
+	    $known_count = 0;
+	    $unique_hits = 0;
+	}
+
+	if (!defined $total_count) {
+	    die "couldn't find cluster $cluster\n";
+	}
+
+	printf("%12s\t%12d/%-6d\t%6d\n", $cluster, $known_count,
+	       $total_count, $unique_hits);
+    }
+}
+
+sub find_uniq_elements {
+    my ($list) = @_;
+    my %seen = ();
+    my @uniq;
+
+    foreach my $item (@$list) {
+	push(@uniq, $item) unless $seen{$item}++;
+    }
+    return \@uniq;
+}
+
+sub by_clust_then_known {
+
+    # unknown clusters (no hits) get a 0
+    my $known_count_a =  defined( $known_clusters{$a} ) ?
+	                scalar @{ $known_clusters{$a} } :
+			                              0 ;
+    my $known_count_b =  defined( $known_clusters{$b} ) ? 
+	                scalar @{ $known_clusters{$b} } :
+			                              0 ;
+
+    my $total_count_a =  scalar @{ $cluster_list{$a}   };
+    my $total_count_b =  scalar @{ $cluster_list{$b}   };
+
+    my $ret_val = ( ($total_count_b <=> $total_count_a)
+		    ||
+		    ($known_count_b <=> $known_count_a) );
+
+    return $ret_val;
+}

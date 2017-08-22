@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/repos/sonnh/!svn/ver/3112/dmessina/clustering/unfinished
+END
+extract_blocks.pl
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/sonnh/!svn/ver/3112/dmessina/clustering/unfinished/extract_blocks.pl
+END
+picklist2mcltab.pl
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/sonnh/!svn/ver/3112/dmessina/clustering/unfinished/picklist2mcltab.pl
+END
+alnblocks.pl
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/sonnh/!svn/ver/3112/dmessina/clustering/unfinished/alnblocks.pl
+END
+translate_msa.pl
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/sonnh/!svn/ver/3112/dmessina/clustering/unfinished/translate_msa.pl
+END

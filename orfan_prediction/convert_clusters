@@ -1,0 +1,162 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use Storable;
+use Cluster;
+use Bio::SeqIO;
+use Getopt::Long;
+use File::Temp qw(tempfile);
+
+my ($load, $seqdb, $save, $clone);
+GetOptions("load=s"  => \$load,
+	   "seqdb=s" => \$seqdb,
+	   "save=s"  => \$save,
+	   "clone"   => \$clone,
+	   );
+$save = $save ? $save : 'saved.cl';
+
+my $usage="
+convert_clusters - convert from old blasttab2cluster format to new
+                    Cluster.pm-based cluster format
+
+Usage: convert_clusters [options] --load <cluster_file> --seqdb <db>
+        OR
+       convert_clusters [options] --load <cluster_file> --clone
+
+where <cluster_file> is the old-format cluster file
+and <db> is a WUBLAST database containing all of the DNA seqs in the clusters
+
+Choose the --clone mode to update a cluster_file which is an early version of
+the new format (already containing Bio::Seq objects).
+
+Options:
+--save <file>  save new cluster data in <file> (default 'saved.cl')
+";
+die ("must specify either --load or --clone\n", $usage)
+    if (!$load and !$clone);
+die ("can't do both --clone and --seqdb", $usage) if ($clone and $seqdb);
+
+# Global variables
+my $stored_ref   = retrieve($load);
+my %g            = %{ $stored_ref->{'graph'} };
+my %new_cluster_list;
+my $tempnameroot = '/tmp/convert_clusters';
+my $cleanup      = 0;
+
+if (!$clone) {
+
+    my %cluster_list = %{ $stored_ref->{'cluster_list'} };
+
+  CLUSTER: foreach my $cluster_id (sort {$a <=> $b} keys %cluster_list) {
+
+	# check for the old cluster being empty
+	if (scalar @{ $cluster_list{$cluster_id} } == 0) {
+	    print STDERR ("Cluster $cluster_id is empty (most likely a bug\n",
+			  "in blasttab2cluster). Skipping it.\n");
+	    next CLUSTER;
+	}
+
+	# create the new Cluster object
+	my $new_obj = Cluster->new('id' => $cluster_id);
+	
+	# get seqs using xdget
+	my $cluster_size = scalar @{ $cluster_list{$cluster_id} };
+	my @args;
+	if ($cluster_size < 1000) {
+	    @args = ('xdget', '-n', $seqdb, @{ $cluster_list{$cluster_id} } );
+	}
+	else {
+	    # put seqids in tempfile for big clusters
+	    my $template = $tempnameroot . '.XXXXXX';
+	    my ( $tempfh, $tempfilename ) = tempfile( $template, UNLINK => 0 );
+	    print $tempfh join("\n", @{ $cluster_list{$cluster_id} }), "\n";
+	    @args = ('xdget', '-nf', $seqdb, $tempfilename);
+	    # set flag for cleanup
+	    $cleanup = 1;
+	}
+	my $pid = open(my $seqs, '-|', @args);
+	if (!defined($pid)) { die "can't xdget: $!"; }
+	
+	# grab seqs from the seqs filehandle and add them to the cluster
+	my $in = Bio::SeqIO->new(-fh     => $seqs,
+				 -format => 'fasta', );
+	
+	while ( my $seq = $in->next_seq() ) {
+	    $new_obj->add_member($seq);
+	    $g{ $seq->display_id() } = $cluster_id;
+	    if ($new_obj->size() == 0) {
+		die ($seq->display_id(), " didn't get added\n");
+	    }
+	}
+	
+	# check for an empty cluster before adding the new cluster
+	if ($new_obj->size() == 0) {
+	    die("You're trying to add an empty cluster: ",
+		$new_obj->id(), "\n");
+	}
+	# add cluster to new list
+	else { $new_cluster_list{$cluster_id} = $new_obj; }
+	print STDERR "Cluster $cluster_id\n" if ($cluster_id % 1000) == 0;
+    }
+}
+else {
+
+    my @cluster_list = @{ $stored_ref->{'cluster_list'} };
+
+    for(my $i=0; $i < @cluster_list; $i++) {
+
+	my $old_obj  = $cluster_list[$i];
+	my %old_seqs = %{ $old_obj->get_all_members };
+	my $new_obj = Cluster->new('id' => $old_obj->id() );
+
+	# add old seqs to new Cluster object
+	foreach my $seqid (keys %old_seqs) {
+	    my $seqobj = $old_seqs{$seqid};
+	    $new_obj->add_member($seqobj);
+
+	    if (defined($g{$seqid}) && ($g{$seqid} ne $old_obj->id())) {
+		warn("trying to redefine a seq's cluster id in graph!\n",
+		     "$seqid\tcurrent cluster id:", $g{$seqid},
+		     "\tnew:", $old_obj->id(), "\n");
+	    }
+	    elsif (!defined($g{$seqid})) {
+		warn "$seqid not in graph!\n";
+	    }
+	}
+
+	# check for id mismatch before adding the new cluster
+	if ($new_obj->id() ne $old_obj->id()) {
+	    die("You're redefining a cluster's id: ",
+		$old_obj->id(), ' to ', $new_obj->id(), "\n");
+	}
+	# check for an empty cluster before adding the new cluster
+	elsif ($new_obj->size == 0) {
+	    die("You're trying to add an empty cluster: ",
+		$new_obj->id(), "\n");
+	}
+	else { $new_cluster_list{ $old_obj->id() } = $new_obj; }
+	print STDERR "Cluster ", $new_obj->id(), "\n" if ($i%1000)==0;
+    }
+}
+
+# save new cluster data to a file
+my $new_stored_ref = {'graph'        => \%g,
+		      'cluster_list' => \%new_cluster_list, };
+
+save_to_file($new_stored_ref, $save);
+
+# print a message when we're finished
+print STDERR "Processed ", scalar keys %new_cluster_list, " clusters\n";
+
+# cleanup any tempfiles
+if ($cleanup) { unlink(<$tempnameroot*>) or die "couldn't delete tempfiles\n"; }
+
+
+sub save_to_file {
+    my ($ref, $file) = @_;
+
+    my $retval = store $ref, $file;
+    if ($retval) { print STDERR "saved data to file $file\n"; }
+    else { die "couldn't save to file $file: $!\n"; }
+}

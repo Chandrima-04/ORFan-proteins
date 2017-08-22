@@ -1,0 +1,104 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use Cluster;
+use ClusterGroup;
+use ClusterUtils;
+use File::Basename;
+use Getopt::Long;
+
+my ( $tabfile, $seqdb, $upper, $lower );
+GetOptions(
+    "mcl=s"   => \$tabfile,
+    "seqdb=s" => \$seqdb,
+    "upper=i" => \$upper,
+    "lower=i" => \$lower,
+);
+
+my $usage = "
+mcltab2cluster - convert MCL tab output into Cluster.pm format
+
+Usage: mcltab2cluster --mcl <my.mcltab> --seqdb <seqs>
+
+where
+my.mcltab is a file with one cluster per line and sequence IDs on each line
+          separated by whitespace
+          
+seqs      is the name of a formatdb database containing
+          the sequences that have been clustered.
+
+Note that the sequence IDs in the database must match the sequence IDs in
+the tab file.
+
+An output file will be written using the same basename as the input file.
+So 'my.mcltab' will produce a cluster file called 'my.cl'.
+
+Options:
+--upper <n>   skip clusters bigger than n
+--lower <n>   skip clusters smaller than n
+";
+die $usage unless ( $tabfile && $seqdb );
+
+# open tabfile
+open( my $tab_fh, $tabfile ) or die "couldn't open $tabfile:$!\n";
+
+# make output filename
+my ( $name, $path, $suffix ) = fileparse( $tabfile, qr/\.[^.]*/ );
+my $outfile = $path . $name . '.cl';
+
+# make ClusterGroup object
+my $cluster_group = ClusterGroup->new();
+
+# initialize $cluster_id. Since each line in the mcl tab format represents a
+# single cluster, the cluster_id will increment once for each non-blank line
+# in the file
+my $cluster_id = 0;
+my $prot_flag;
+
+while ( my $line = <$tab_fh> ) {
+    chomp $line;
+    next if $line =~ /^\s*$/;    # skip blank lines
+
+    # in MCL format, a cluster is a series of IDs on a single line
+    # separated by whitespace
+    my @seq_ids = split( /\s+/, $line );
+
+    # skip clusters bigger or smaller than we asked for
+    next if ($upper && scalar @seq_ids > $upper);
+    next if ($lower && scalar @seq_ids < $lower);
+
+    # create the new Cluster object
+    my $new_obj = Cluster->new( 'id' => $cluster_id );
+
+    # fetch the seqs and add them to the Cluster object
+    my $seqfh = sfetch( $seqdb, \@seq_ids );
+    $new_obj->add_members_from_fh( '-fh'        => $seqfh,
+                                   '-normalize' => 1);
+
+    # make sure everything got added
+    if ($new_obj->size() != scalar @seq_ids) {
+        die "Cluster $cluster_id wasn't made properly. See line $. of input file:\n$line\n";
+    }
+
+    # warn about adding a protein seq
+    my $first_seq = $new_obj->get_member($seq_ids[0]);
+    if (!$first_seq) {
+        die "undefined first_seq. line $.\n$line\n";
+    }
+    if ($first_seq->alphabet eq 'protein') {
+        $prot_flag = 1;
+    }
+
+    # add the Cluster object to the ClusterGroup
+    $cluster_group->add_cluster($new_obj);
+
+    $cluster_id++;
+}
+
+if ($prot_flag) {
+    warn "WARNING: Your first seq was protein. Is that what you intended?\n";
+}
+
+# save cluster group to file
+$cluster_group->save($outfile);

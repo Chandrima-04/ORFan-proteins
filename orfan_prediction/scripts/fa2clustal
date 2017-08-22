@@ -1,0 +1,40 @@
+#!/usr/bin/perl
+# $Id: fa2clustal 3128 2011-09-26 08:50:06Z dmessina $
+
+use strict;
+use warnings;
+use Bio::AlignIO;
+use File::Basename;
+
+my $usage = 'fa2clustal - convert multiple alignments in fasta format to
+             multiple alignments in clustalw format
+
+usage: fa2clustal <foo.fasta> [bar.fasta]
+
+output file foo.aln will be automatically created
+';
+@ARGV or die $usage;
+
+foreach my $infile (@ARGV) {
+    my $informat = 'fasta';
+    my $in       = Bio::AlignIO->new(
+        -file   => $infile,
+        -format => $informat,
+    );
+
+    # make output filename based on input filename
+    my ( $base, $path, $suffix ) = fileparse( $infile, ".$informat" );
+    my $outformat = 'clustalw';
+    my $outfile   = $path . $base . qq{.} . 'aln';
+
+    my $out = Bio::AlignIO->new(
+        -file   => ">$outfile",
+        -format => $outformat,
+        -interleaved => 0,
+        -idlength    => 256,
+    );
+
+	while (my $aln = $in->next_aln()) {
+		$out->write_aln($aln);
+	}
+}

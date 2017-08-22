@@ -1,0 +1,16 @@
+% mark_known_clusters --verbose --load RUN1_all_v_all.clust --known ~/dave1/virus/RUN1_uniref50/RUN1.besthits >| RUN1_all_v_all.known_clusters2
+
+
+For the GOS data, I have the list of the GOS-only clusters and their
+seqs in the file ~/dave2/GOS/quickload_run/gos_only_clusters+seqs.ids.
+
+I created a file of just the seqids:
+$ cut -f2 gos_only_clusters+seqs.ids > gos_only_seqs.ids
+
+And fed that to xdget to obtain the FASTA seqs:
+$ xdget -nf ../pred_prot_gos_orf_dna gos_only_seqs.ids -o gos_only.fa
+
+And then wrote tab2clusterfa, which takes the gos_only_clusters+seqs.ids
+file and the gos_only.fa file, and creates and individual FASTA file
+for each cluster.
+

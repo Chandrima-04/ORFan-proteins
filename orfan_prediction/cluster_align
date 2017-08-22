@@ -1,0 +1,294 @@
+#!/usr/bin/perl
+# $Id: cluster_align 1825 2010-05-05 17:08:03Z dmessina $
+
+use strict;
+use warnings;
+use ClusterGroup;
+use Cluster;
+use Bio::SeqIO;
+use Bio::AlignIO;
+use Bio::Align::Utilities qw(aa_to_dna_aln);
+use Getopt::Long;
+use IPC::Open2;
+
+my $lower_bound = 10;
+my $upper_bound = 100;
+my ( $load, $skip, $only, $outdir, $trim, $matrix, $debug );
+GetOptions(
+    "lower=i"  => \$lower_bound,
+    "upper=i"  => \$upper_bound,
+    "load=s"   => \$load,
+    "skip=s"   => \$skip,
+    "only=s"   => \$only,
+    "outdir=s" => \$outdir,
+    "trim"     => \$trim,
+    "matrix=s" => \$matrix,
+    "debug"    => \$debug,
+);
+my $usage = "
+cluster_align - for each cluster in the file:
+                multiply align sequences in protein space,
+                optionally trim the alignment, and backtranslate to DNA.
+                Both DNA and protein alignments are written out.
+
+Usage: cluster_align [options] --load <cluster_file> --outdir <dir>
+
+--load  <file> the saved cluster file
+--outdir <dir> the name of the directory in which to save the output files
+
+Options:
+--upper <n>    	     largest cluster to consider  (default 100)
+--lower <n>    	     smallest cluster to consider (default 10) 
+--skip  <file> 	     read in a list of clusters to exclude     
+--only  <cluster_id> use just this cluster (overrides --upper and --lower)
+--trim               use trimAl to trim the the alignments before calculating Ka/Ks
+--matrix <file>      specify a similarity matrix for trimAl (default: BLOSUM62)
+--debug              more verbose feedback about what's going on
+";
+die $usage if ( !$load or !$outdir );
+
+my %skiplist;
+if ($skip) {
+    open( SKIP, $skip ) or die "couldn't open $skip\n";
+    while (<SKIP>) {
+        chomp;
+        $skiplist{$_}++;
+    }
+}
+
+my $cluster_group = ClusterGroup->new( '-load' => $load );
+my @clusters = $cluster_group->get_all_clusters;
+
+CLUSTER: foreach my $cluster (@clusters) {
+    unless ($only) {
+
+        # filtering by size
+        next
+          if ( ( $cluster->size() < $lower_bound )
+            or ( $cluster->size() > $upper_bound ) );
+    }
+    next if ( $skip && ( defined $skiplist{ $cluster->id() } ) );
+    next if ( $only && $cluster->id() ne $only );
+
+    # extract seqs from the cluster
+    my %members = %{ $cluster->get_all_members };
+    print STDOUT ( "Cluster ", $cluster->id(), ': ', scalar keys %members,
+        " members\n" );
+
+    # setup
+    my ( $dna_aln, $aa_aln );
+    my $format = 'fasta';
+    my $outbase =
+      $outdir . '/cluster' . $cluster->id();    # define output file root
+
+    # set up kalign in and out
+    my ( $child_out, $child_in );
+    my @args = ( 'kalign', '-format', 'fasta', '-sort', 'tree' );
+    my $pid = open2( $child_out, $child_in, @args );
+
+    # write seqs from the cluster to kalign's input fh
+    my $out = Bio::SeqIO->new(
+        -fh     => $child_in,
+        -format => 'fasta',
+    );
+
+    foreach my $member ( keys %members ) {
+        # confirm we're dealing with DNA here
+        if ( $members{$member}->alphabet eq 'protein' ) {
+            die("Uh oh! ", $members{$member}->display_id,
+                " is a protein sequence, and we need a cluster file of",
+                " DNA seqs.\n");
+        }
+        
+        my $prot_obj = $members{$member}->translate();
+
+        # check for stops to keep PAML from choking
+        my $pseq = $prot_obj->seq();
+        $pseq =~ s/\*//g;
+        if ( $pseq =~ /\*/ ) {
+            warn(   "provided a cDNA ("
+                  . $prot_obj->display_id
+                  . ") sequence with a stop codon, PAML will choke!" );
+            exit(0);
+        }
+
+        $prot_obj->seq($pseq);
+        $out->write_seq($prot_obj);
+    }
+    close($child_in);
+
+    # get results from kalign as an AlignIO stream
+    my $kalign_stream = Bio::AlignIO->new(
+        -fh     => $child_out,
+        -format => 'fasta',
+    );
+
+    # Get kalign output into a Bio::Align::AlignI object
+    $aa_aln = $kalign_stream->next_aln();
+
+    # clean up the kalign process
+    waitpid( $pid, 0 );
+
+    # write out the aligned prot sequences
+    my $prot_file = $outbase . '_aa.' . $format;
+    my $prot_out  = Bio::AlignIO->new(
+        -file        => ">$prot_file",
+        -format      => $format,
+        -interleaved => 0,
+        -idlength    => 25,
+    );
+    $prot_out->write_aln($aa_aln);
+
+    # trim the alignments (if asked)
+    my ( $trim_start, $trim_end, %trimmed_members, $untrimmed_aa_aln );
+    if ($trim) {
+        my $trimmed_prot_file = $outbase . '_aatrim.' . $format;
+        my $html_file = $outbase . '.html';
+        my $trim_columns;
+        
+        if ($matrix) {
+            open(
+                $trim_columns,
+    "trimal -in $prot_file -automated1 -matrix $matrix -colnumbering -out $trimmed_prot_file -htmlout $html_file |"
+            ) or die "couldn't run trimal: $! $?\n";
+        }
+        else {
+            open(
+                $trim_columns,
+    "trimal -in $prot_file -automated1 -colnumbering -out $trimmed_prot_file -htmlout $html_file |"
+            ) or die "couldn't run trimal: $! $?\n";
+        }
+        
+        # $trim_columns is a filehandle containing
+        # a comma-separated list of columns from the pre-trimmed
+        # alignment that are part of the trimmed alignment.
+        # This is generated by trimal with -colnumbering.
+        my @trim_coord_lines = <$trim_columns>;
+        chomp @trim_coord_lines;
+
+        # @trim_coords should be 3 elements, the middle one containing the
+        # comma-separated list of columns we want
+        # actually, it's comma + a space separated, hence the following split
+        my @trim_coords = split( q{, }, $trim_coord_lines[1] );
+
+        # where to trim the aa sequence in alignment coordinates
+        ( $trim_start, $trim_end ) =
+          ( $trim_coords[0] + 1, $trim_coords[-1] + 1 );
+
+        # read into an alignment object
+        my $trimal_stream = Bio::AlignIO->new(
+            -file   => $trimmed_prot_file,
+            -format => $format,
+        );
+
+        # save untrimmed alignment so we can use its coordinates below
+        $untrimmed_aa_aln = $aa_aln;
+
+        # save trimmed alignment as the aa_aln
+        $aa_aln = $trimal_stream->next_aln();
+
+        # check for empty after trimming
+        if ( !$aa_aln ) {
+            warn 'cluster'
+              . $cluster->id()
+              . " is empty after trimming and no DNA alignment will be made.\n";
+            next CLUSTER;
+        }
+    }
+
+    # convert prot alignment into a DNA alignment
+    if ($trim) {
+
+        # take subsequences of the DNA that correspond
+        # to the now-trimmed protein seqs so that aa_to_dna_aln will have the
+        # right DNA sequence to backtranslate into from the trimmed aa seq
+      SEQ: while ( my ( $id, $seq ) = each %members ) {
+            print STDERR $id, "\t", $seq->length(), "\n" if $debug;
+
+            # skip any seqs that are all-gap after trimming
+            my @trimmed_aa_seqs = $aa_aln->each_seq_with_id($id);
+            if ( @trimmed_aa_seqs > 1 ) { die "multiple seqs with id $id\n"; }
+            my $trimmed_aa = $trimmed_aa_seqs[0];
+            unless ( $trimmed_aa->seq() =~ /[^-]/ ) {
+                warn 'cluster'
+                  . $cluster->id()
+                  . ': seq '
+                  . $seq->id()
+                  . " is empty after trimming and will be omitted from the DNA alignment.\n";
+
+          # delete from the aa alignment so that aa_to_dna_aln won't look for it
+                $aa_aln->remove_seq($trimmed_aa);
+                next SEQ;
+            }
+
+            # where to trim the aa sequence in sequence coordinates
+            my ( $seq_trim_start, $seq_trim_end );
+
+            # get the untrimmed aa seq from the alignment
+            my @untrimmed_aa_seqs = $untrimmed_aa_aln->each_seq_with_id($id);
+            if ( @untrimmed_aa_seqs > 1 ) { die "multiple seqs with id $id\n"; }
+            my $untrimmed_aa = $untrimmed_aa_seqs[0];
+
+            # ask the alignment where the sequence starts and ends
+            my $untrimmed_aa_seq_start_column =
+              $untrimmed_aa_aln->column_from_residue_number( $id, 1 );
+            my $untrimmed_aa_seq_end_column =
+              $untrimmed_aa_aln->column_from_residue_number( $id,
+                $untrimmed_aa->end );
+
+            # determine where to trim the AA seq at the beginning (left side)
+            # no trim if the first aa of the seq is after the trim point
+            if ( $untrimmed_aa_seq_start_column > $trim_start ) {
+                $seq_trim_start = 1;
+            }
+            else {
+
+                # trim_start_loc is a Bio::Location::Simple. For the beginning
+                # we want to keep the sequence after the trim point, so that's
+                # why we choose $trim_start_loc->end
+                my $trim_start_loc =
+                  $untrimmed_aa->location_from_column($trim_start);
+                $seq_trim_start = $trim_start_loc->end;
+            }
+
+            # determine where to trim the AA seq on the end (right side)
+            # no trim if the last aa of the seq is before the trim point
+            if ( $untrimmed_aa_seq_end_column < $trim_end ) {
+                $seq_trim_end = $untrimmed_aa->end();
+            }
+            else {
+
+                # trim_end_loc is a Bio::Location::Simple. For the end
+                # we want to keep the sequence before the trim point, so that's
+                # why we choose $trim_start_loc->start
+                my $trim_end_loc =
+                  $untrimmed_aa->location_from_column($trim_end);
+                $seq_trim_end = $trim_end_loc->start;
+            }
+
+            # $seq_trim_start and _end are in AA coords, so *3 to get DNA coords
+            # -2 from $_seq_trim_start*3 because the $seq_trim_start'th codon
+            # *ends* on position $seq_trim_start*3. To get the base position
+            # where that codon starts, we must subtract 2
+            my $trimmed_dna_seq =
+              $seq->trunc( ( $seq_trim_start * 3 ) - 2, $seq_trim_end * 3 );
+            $trimmed_members{$id} = $trimmed_dna_seq;
+        }
+
+        $dna_aln = aa_to_dna_aln( $aa_aln, \%trimmed_members );
+    }
+    else {
+        $dna_aln = aa_to_dna_aln( $aa_aln, \%members );
+    }
+
+    # write out the aligned DNA sequences
+    my $suffix   = $trim ? '_dnatrim.' : '_dna.';
+    my $dna_file = $outbase . $suffix . $format;
+    my $dna_out  = Bio::AlignIO->new(
+        -file        => ">$dna_file",
+        -format      => $format,
+        -interleaved => 0,
+        -idlength    => 25,
+    );
+    $dna_out->write_aln($dna_aln);
+}

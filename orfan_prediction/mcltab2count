@@ -1,0 +1,27 @@
+#!/usr/bin/perl
+# $Id: mcltab2count 1610 2010-02-18 10:19:54Z dmessina $
+
+use strict;
+use warnings;
+use Histogram;
+
+my $usage=
+"mcltab2count - make a histogram from an MCL tabfile
+
+Usage: mcltab2count my.mci.I50.tab > my.mci.I50.count
+";
+die $usage unless @ARGV;
+
+my $counts;
+
+# collect data
+while (<>) {
+    my @fields = split;
+    my $count  = scalar @fields;
+    push @$counts, $count;
+}
+
+# make a histogram
+my $histo = Histogram::histogram(0, 0, 1, $counts);
+Histogram::print_histogram('histogram' => $histo,
+			   'style'     => 'standard');

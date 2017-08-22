@@ -1,0 +1,43 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+my $ids_with_sources  = shift @ARGV;
+my $ids_with_clusters = shift @ARGV;
+
+my $usage ="
+source_to_cluster <ids_with_sources> <ids_with_clusters>
+
+e.g. source_to_cluster combined.source cluster_membership_mapping_justclust+seq.tsv
+
+";
+
+open(SOURCES,  $ids_with_sources)  or die $usage;
+open(CLUSTERS, $ids_with_clusters) or die $usage;
+
+my %sources;
+while(<SOURCES>) {
+    chomp;
+    my ($id, $source) = split;
+    die "bad line" unless ($id && $source);
+
+    if (exists $sources{$id}) {
+	die "$id already exists! new: $source old: ", $sources{$id}, "\n";
+    }
+    $sources{$id} = $source;
+}
+close SOURCES;
+
+while(<CLUSTERS>) {
+    chomp;
+    
+    my $source = 'unknown';
+
+    my ($id, $cluster) = split;
+    die "bad line" unless ($id && $cluster);
+
+    if ($sources{$id}) { $source = $sources{$id}; }
+
+    print STDOUT join("\t", $id, $cluster, $source), "\n";
+}

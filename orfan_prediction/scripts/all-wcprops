@@ -1,0 +1,533 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/repos/sonnh/!svn/ver/3128/dmessina/clustering/bin
+END
+kalign2clustalw.pl
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/sonnh/!svn/ver/1891/dmessina/clustering/bin/kalign2clustalw.pl
+END
+clustal2fasta.pl
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/sonnh/!svn/ver/2998/dmessina/clustering/bin/clustal2fasta.pl
+END
+rnacodeOnCluster.pl
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/sonnh/!svn/ver/2000/dmessina/clustering/bin/rnacodeOnCluster.pl
+END
+fastgrep.pl
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/repos/sonnh/!svn/ver/2837/dmessina/clustering/bin/fastgrep.pl
+END
+cluster_compare_exact.pl
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/sonnh/!svn/ver/2947/dmessina/clustering/bin/cluster_compare_exact.pl
+END
+batch_rnacode.sh
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/sonnh/!svn/ver/3111/dmessina/clustering/bin/batch_rnacode.sh
+END
+tabulate_fasta_metadata.pl
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/sonnh/!svn/ver/3082/dmessina/clustering/bin/tabulate_fasta_metadata.pl
+END
+mark_known_clusters
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/sonnh/!svn/ver/1373/dmessina/clustering/bin/mark_known_clusters
+END
+cluster_kaks
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/sonnh/!svn/ver/2914/dmessina/clustering/bin/cluster_kaks
+END
+phylip2fa
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/repos/sonnh/!svn/ver/1512/dmessina/clustering/bin/phylip2fa
+END
+batch_raxml.pl
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/sonnh/!svn/ver/1694/dmessina/clustering/bin/batch_raxml.pl
+END
+tab2clusterfa
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/sonnh/!svn/ver/1646/dmessina/clustering/bin/tab2clusterfa
+END
+mark_known_seqs
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/repos/sonnh/!svn/ver/1373/dmessina/clustering/bin/mark_known_seqs
+END
+source_to_cluster
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/sonnh/!svn/ver/1373/dmessina/clustering/bin/source_to_cluster
+END
+m8filter.pl
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/repos/sonnh/!svn/ver/1608/dmessina/clustering/bin/m8filter.pl
+END
+phylip2axt
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/repos/sonnh/!svn/ver/1386/dmessina/clustering/bin/phylip2axt
+END
+assign_source
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/sonnh/!svn/ver/2914/dmessina/clustering/bin/assign_source
+END
+convert_clusters
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/sonnh/!svn/ver/1373/dmessina/clustering/bin/convert_clusters
+END
+make_slaves.pl
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/sonnh/!svn/ver/2968/dmessina/clustering/bin/make_slaves.pl
+END
+count_seqs_in_cluster
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/sonnh/!svn/ver/1373/dmessina/clustering/bin/count_seqs_in_cluster
+END
+parsed_paml_split.pl
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/sonnh/!svn/ver/1595/dmessina/clustering/bin/parsed_paml_split.pl
+END
+cluster_stat
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/sonnh/!svn/ver/2933/dmessina/clustering/bin/cluster_stat
+END
+phylip2phylip
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/sonnh/!svn/ver/1677/dmessina/clustering/bin/phylip2phylip
+END
+alns2dist.pl
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/sonnh/!svn/ver/2952/dmessina/clustering/bin/alns2dist.pl
+END
+parse_rnacode.pl
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/sonnh/!svn/ver/3117/dmessina/clustering/bin/parse_rnacode.pl
+END
+dump_cluster_members
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/sonnh/!svn/ver/1510/dmessina/clustering/bin/dump_cluster_members
+END
+strip_nse.pl
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/sonnh/!svn/ver/3068/dmessina/clustering/bin/strip_nse.pl
+END
+parse_multi_codeml.pl
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/sonnh/!svn/ver/1831/dmessina/clustering/bin/parse_multi_codeml.pl
+END
+kaks_stats.pl
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/sonnh/!svn/ver/1833/dmessina/clustering/bin/kaks_stats.pl
+END
+filter_masked.pl
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/sonnh/!svn/ver/2876/dmessina/clustering/bin/filter_masked.pl
+END
+parse_pairwise_codeml_quickie.pl
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/sonnh/!svn/ver/1827/dmessina/clustering/bin/parse_pairwise_codeml_quickie.pl
+END
+compare_clusters.pl
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/sonnh/!svn/ver/2969/dmessina/clustering/bin/compare_clusters.pl
+END
+mcltab2cluster
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/sonnh/!svn/ver/2963/dmessina/clustering/bin/mcltab2cluster
+END
+parse_gblocks.pl
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/sonnh/!svn/ver/3054/dmessina/clustering/bin/parse_gblocks.pl
+END
+remap_codeml_data.pl
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/sonnh/!svn/ver/1666/dmessina/clustering/bin/remap_codeml_data.pl
+END
+mcltab2count
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/sonnh/!svn/ver/1610/dmessina/clustering/bin/mcltab2count
+END
+assess_svm_accuracy
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/sonnh/!svn/ver/2914/dmessina/clustering/bin/assess_svm_accuracy
+END
+NCBIblastOnCluster
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/sonnh/!svn/ver/2692/dmessina/clustering/bin/NCBIblastOnCluster
+END
+besthit
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/repos/sonnh/!svn/ver/1747/dmessina/clustering/bin/besthit
+END
+cl2clstr.pl
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/repos/sonnh/!svn/ver/2914/dmessina/clustering/bin/cl2clstr.pl
+END
+runSeveralOnNode.pl
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/sonnh/!svn/ver/1686/dmessina/clustering/bin/runSeveralOnNode.pl
+END
+x2dash.pl
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/repos/sonnh/!svn/ver/3086/dmessina/clustering/bin/x2dash.pl
+END
+longest_as_ref.pl
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/sonnh/!svn/ver/2052/dmessina/clustering/bin/longest_as_ref.pl
+END
+runAPairPaml.pl
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/repos/sonnh/!svn/ver/1650/dmessina/clustering/bin/runAPairPaml.pl
+END
+mcltab2clstr.pl
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/repos/sonnh/!svn/ver/2910/dmessina/clustering/bin/mcltab2clstr.pl
+END
+codons2phylip.pl
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/sonnh/!svn/ver/1678/dmessina/clustering/bin/codons2phylip.pl
+END
+rnacode2protein.pl
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/sonnh/!svn/ver/3115/dmessina/clustering/bin/rnacode2protein.pl
+END
+mcltab2id.pl
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/sonnh/!svn/ver/2910/dmessina/clustering/bin/mcltab2id.pl
+END
+codemlOnCluster.pl
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/sonnh/!svn/ver/1702/dmessina/clustering/bin/codemlOnCluster.pl
+END
+blasttab2cluster
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/sonnh/!svn/ver/1439/dmessina/clustering/bin/blasttab2cluster
+END
+GOSquickload
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/sonnh/!svn/ver/1373/dmessina/clustering/bin/GOSquickload
+END
+multiNCBIblast.sh
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/sonnh/!svn/ver/1812/dmessina/clustering/bin/multiNCBIblast.sh
+END
+summarize_kaks
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/sonnh/!svn/ver/1376/dmessina/clustering/bin/summarize_kaks
+END
+clustal_dumpfasta.pl
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/sonnh/!svn/ver/3070/dmessina/clustering/bin/clustal_dumpfasta.pl
+END
+aln2tree.pl
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/repos/sonnh/!svn/ver/1607/dmessina/clustering/bin/aln2tree.pl
+END
+pairseqs
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/repos/sonnh/!svn/ver/1645/dmessina/clustering/bin/pairseqs
+END
+paircodemlOnCluster.pl
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/sonnh/!svn/ver/1681/dmessina/clustering/bin/paircodemlOnCluster.pl
+END
+clustal2phylip.pl
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/sonnh/!svn/ver/1893/dmessina/clustering/bin/clustal2phylip.pl
+END
+compare_rnacode.pl
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/sonnh/!svn/ver/3106/dmessina/clustering/bin/compare_rnacode.pl
+END
+parse_codeml
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/sonnh/!svn/ver/1537/dmessina/clustering/bin/parse_codeml
+END
+cluster_string_summary.pl
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/sonnh/!svn/ver/2942/dmessina/clustering/bin/cluster_string_summary.pl
+END
+alnsplit.pl
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/repos/sonnh/!svn/ver/1999/dmessina/clustering/bin/alnsplit.pl
+END
+get_cluster_origin.pl
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/sonnh/!svn/ver/3086/dmessina/clustering/bin/get_cluster_origin.pl
+END
+seqcount_to_cluster
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/sonnh/!svn/ver/1373/dmessina/clustering/bin/seqcount_to_cluster
+END
+sort_alisizes.pl
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/sonnh/!svn/ver/3004/dmessina/clustering/bin/sort_alisizes.pl
+END
+filter_avgid.pl
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/repos/sonnh/!svn/ver/3108/dmessina/clustering/bin/filter_avgid.pl
+END
+rose_fasta_split.pl
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/sonnh/!svn/ver/1676/dmessina/clustering/bin/rose_fasta_split.pl
+END
+add_seg_stats.pl
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/sonnh/!svn/ver/3123/dmessina/clustering/bin/add_seg_stats.pl
+END
+acc2date.pl
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/repos/sonnh/!svn/ver/1752/dmessina/clustering/bin/acc2date.pl
+END
+GOS2db
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/repos/sonnh/!svn/ver/1373/dmessina/clustering/bin/GOS2db
+END
+summarize_rnacode.pl
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/sonnh/!svn/ver/2695/dmessina/clustering/bin/summarize_rnacode.pl
+END
+cluster_string2stats.pl
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/sonnh/!svn/ver/2940/dmessina/clustering/bin/cluster_string2stats.pl
+END
+rnacode.sh
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/repos/sonnh/!svn/ver/3109/dmessina/clustering/bin/rnacode.sh
+END
+clstr2cluster.pl
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/sonnh/!svn/ver/2912/dmessina/clustering/bin/clstr2cluster.pl
+END
+batch_compare_clusters.pl
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/sonnh/!svn/ver/2935/dmessina/clustering/bin/batch_compare_clusters.pl
+END
+cluster_align
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/sonnh/!svn/ver/1825/dmessina/clustering/bin/cluster_align
+END
+batch_evolver.pl
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/sonnh/!svn/ver/1766/dmessina/clustering/bin/batch_evolver.pl
+END
+fa2phylip
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/repos/sonnh/!svn/ver/1834/dmessina/clustering/bin/fa2phylip
+END
+fa2clustal
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/repos/sonnh/!svn/ver/3128/dmessina/clustering/bin/fa2clustal
+END
+remove_seqs.pl
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/sonnh/!svn/ver/2844/dmessina/clustering/bin/remove_seqs.pl
+END
+evolver2clustal.pl
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/sonnh/!svn/ver/1916/dmessina/clustering/bin/evolver2clustal.pl
+END
+runAnAlignmentPaml.pl
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/sonnh/!svn/ver/1702/dmessina/clustering/bin/runAnAlignmentPaml.pl
+END
+remove_identicals.pl
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/sonnh/!svn/ver/1637/dmessina/clustering/bin/remove_identicals.pl
+END
+maftrim.pl
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/repos/sonnh/!svn/ver/1984/dmessina/clustering/bin/maftrim.pl
+END
+blastoff.sh
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/repos/sonnh/!svn/ver/2060/dmessina/clustering/bin/blastoff.sh
+END
+GOS2cluster
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/repos/sonnh/!svn/ver/1373/dmessina/clustering/bin/GOS2cluster
+END
+nohits.pl
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/repos/sonnh/!svn/ver/1819/dmessina/clustering/bin/nohits.pl
+END
+mark_clusters
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/sonnh/!svn/ver/1373/dmessina/clustering/bin/mark_clusters
+END

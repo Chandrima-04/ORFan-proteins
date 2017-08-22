@@ -1,0 +1,80 @@
+#!/usr/bin/perl
+# $Id: pairseqs 1645 2010-03-02 08:39:56Z dmessina $
+
+use strict;
+use warnings;
+use Bio::SeqIO;
+use File::Basename;
+
+my $usage = "
+pairseqs - given multiFASTA files, make new files of all possible pairs in
+           the file, and make a fake tree file for each pair. All the new
+           files derived from the same multiFASTA file will be placed together
+           in a new directory.
+
+Usage: pairseqs <seqs.fa> [seqs2.fa] ...
+
+";
+die $usage unless @ARGV > 0;
+
+foreach my $file (@ARGV) {
+    my $infh = Bio::SeqIO->newFh(
+        -file   => $file,
+        -format => 'fasta',
+    );
+    
+    print STDERR "processing $file...\n";
+    
+    my ( $base, $path, $suffix ) = fileparse( $file, qr/\.[^.]*/ );
+    my $outdir = $path . '/' . $base;
+    if (! -e $outdir) {
+        mkdir $outdir or die "couldn't create directory $outdir: $!\n";
+    }
+
+    # grab all the seqs from the file
+    my @seqobjs = <$infh>;
+
+    # make all pairs
+    for ( my $i = 0 ; $i < @seqobjs ; $i++ ) {
+        for ( my $j = 0 ; $j <= $i ; $j++ ) {
+            next if $j == $i;    # don't pair a seq with itself
+            my $iseqobj = $seqobjs[$i];
+            my $jseqobj = $seqobjs[$j];
+
+            my $iname = $iseqobj->display_id;
+            my $jname = $jseqobj->display_id;
+            ($iname, $jname) = clean($iname, $jname);
+            my $outbase = $iname . '_' . $jname;
+            my $outfa   = $outdir . '/' . $outbase . '.fa';
+            my $outtree = $outdir . '/' . $outbase . '.tre';
+
+            # write two seqs into a FASTA file
+            my $out = Bio::SeqIO->new(
+                -file   => ">$outfa",
+                -format => 'fasta'
+            );
+            $out->write_seq($iseqobj);
+            $out->write_seq($jseqobj);
+            $out->close();
+
+            # write a tree file
+            open( my $tree, ">$outtree" ) or die "couldn't open $outtree:$!\n";
+            print $tree "($iname, $jname);\n";
+            close $tree or die "couldn't close $outtree:$!\n";
+        }
+    }
+}
+
+sub clean {
+    my @names = @_;
+    my @newnames;
+    foreach my $name (@names) {
+        if ($name =~ /(.+?)\/\d+-\d+$/) {
+            push @newnames, $1;
+        }
+        else {
+            push @newnames, $name;
+        }
+    }
+    return @newnames;
+}

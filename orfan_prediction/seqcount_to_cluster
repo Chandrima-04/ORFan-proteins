@@ -1,0 +1,45 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+my $clusters_with_seqcounts  = shift @ARGV;
+my $ids_with_clusters        = shift @ARGV;
+
+my $usage ="
+seqcount_to_cluster <clusters_with_seqcounts> <ids_with_clusters>
+
+e.g. seqcount_to_cluster cluster_seqcounts.tsv cluster_composition.tsv
+
+";
+
+open(SEQCOUNTS, $clusters_with_seqcounts)  or die $usage;
+open(CLUSTERS,  $ids_with_clusters) or die $usage;
+
+my %seqcounts;
+while(<SEQCOUNTS>) {
+    chomp;
+    my ($cluster, $seqcount) = split;
+    die "bad line" unless ($cluster && $seqcount);
+
+    if (exists $seqcounts{$cluster}) {
+	die "$cluster already exists! new: $seqcount old: ",
+	$seqcounts{$cluster}, "\n";
+    }
+    $seqcounts{$cluster} = $seqcount;
+}
+close SEQCOUNTS;
+
+while(<CLUSTERS>) {
+    chomp;
+
+    my $seqcount;
+
+    my ($cluster, $source) = split;
+    die "bad line" unless ($cluster && $source);
+
+    if ($seqcounts{$cluster}) { $seqcount = $seqcounts{$cluster}; }
+    else { die "no seqcount for $cluster!\n"; }
+
+    print STDOUT join("\t", $cluster, $source, $seqcount), "\n";
+}

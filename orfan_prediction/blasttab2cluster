@@ -1,0 +1,228 @@
+#!/usr/bin/perl
+# $Id: blasttab2cluster 1439 2009-10-02 13:03:17Z dmessina $
+
+use strict;
+use warnings;
+use Histogram 0.0.5;
+use Storable;
+use Getopt::Long;
+use Cluster;
+
+my %g;
+my $in;
+my $DEBUG = 0;
+my $member_count = 0; # total number of members of all clusters
+my $current_query = '';
+my %seen;
+my ($cutoff, $load, $save, $print, $histogram, $help, $ncbi);
+my %cluster_list;
+
+GetOptions("cutoff=f"  => \$cutoff,
+	   "load=s"    => \$load,
+	   "save=s"    => \$save,
+	   "print"     => \$print,
+	   "histogram" => \$histogram,
+	   "help"      => \$help,
+	   "debug"     => \$DEBUG,
+	   "ncbi"      => \$ncbi,
+    );
+$cutoff = $cutoff ? $cutoff : '1e-4';
+$save   = $save ? $save : 'saved.clust';
+my $input = @ARGV ? $ARGV[0] : \*STDIN;
+
+my $usage = "
+blasttab2cluster - read tabular BLAST output and create clusters of sequences
+
+blasttab2cluster [options] <BLAST tabular output>
+   OR
+cat <BLAST tabular output> | blasttab2cluster [options]
+
+Options:                 
+--cutoff
+--ncbi             NCBI BLAST tabular input (default: WU-BLAST)
+--print            print the list of clusters and their members
+--histogram        print a histogram of the cluster sizes
+--save <filename>  save cluster data as <filename> (default saved.clust)
+                   NOTE: data is always saved, just the filename can be changed.
+--load <filename>  load saved cluster data from a file <filename>
+--help             print this usage message
+--debug            turn on debugging output messages
+";
+die $usage if $help;
+
+if ($load) { load_from_file($load); }
+else {
+    if (@ARGV) { open($in, $input) or die "can't read from $input: $!\n$usage"; }
+    else { $in = $input; }
+    create_clusters($in);
+    save_to_file($save);
+}
+
+print_cluster_stats(\%cluster_list, $histogram);
+prettyprint_clusters(\%cluster_list) if $print;
+
+
+
+sub prettyprint_clusters {
+    my ($cc_ref) = @_;
+
+    my $i=1;
+    foreach my $cluster (keys %$cc_ref) {
+	if (!defined($$cc_ref{$cluster})) {
+	    print STDERR "Cluster $i undefined!\n";
+	}
+	else {
+	    print STDOUT 'Cluster ', $i++, "\n";
+	    foreach my $member (sort {$a cmp $b} @{ $$cc_ref{$cluster} }) {
+		print STDOUT "\t", $member, "\n";
+	    }
+	    print "\n";
+	}
+    }
+}
+
+sub print_cluster_stats {
+    my ($cc_ref, $verbose) = @_;
+
+    # if verbose is true, print histogram of how many clusters
+    # have a given number of members
+    $verbose = $verbose ? $verbose : 0;
+
+    print STDOUT scalar keys %$cc_ref, " clusters with $member_count members in total\n";
+
+    if ($verbose) {
+	# array of # of members in each cluster (to hand to histogram)
+	my @cluster_count;
+	foreach my $cluster (keys %cluster_list) {
+	    push @cluster_count, scalar @{ $cluster_list{$cluster} };
+	}
+	my $hist_ref = Histogram::histogram(0, 0, 1, \@cluster_count);
+	Histogram::print_histogram('histogram' => $hist_ref,
+				   'style'     => 'cumulative',
+				   'header'    => '1');
+    }
+}
+
+sub save_to_file {
+    my ($file) = @_;
+    my $store_ref = {'graph'        => \%g,
+		     'cluster_list' => \%cluster_list,
+		     'member_count' => $member_count,
+		     };
+    my $retval = store $store_ref, $file;
+    if ($retval) { print STDERR "saved data to file $file\n"; }
+    else { die "couldn't save to file $file: $!\n"; }
+}
+
+sub load_from_file {
+    my ($file) = @_;
+
+    my $stored_ref = retrieve($file);
+    %g            = %{ $stored_ref->{'graph'} };
+    %cluster_list = %{ $stored_ref->{'cluster_list'} };
+    $member_count = $stored_ref->{'member_count'};
+    print STDERR "loaded stored data from $load\n";
+}
+
+ sub create_clusters {
+    my ($fh) = @_;
+    my $cluster_index = 0;
+
+LINE: while (<$fh>) {
+	next if $_ =~ /^#/;               # skip comment lines
+
+	my ($query, $hit, $evalue, @rest);
+	if ($ncbi) {
+	    ($query, $hit, @rest) = split;
+	    $evalue = $rest[8];
+	}
+	else {
+	    ($query, $hit, $evalue, @rest) = split;
+	}
+
+	die "no query!\n$_"  unless defined $query;
+	die "no hit!\n$_"    unless defined $hit;
+	die "no evalue!\n$_" unless defined $evalue;
+	
+	next if $evalue >= $cutoff; # skip low-significance hits
+	
+	
+#	print STDERR join ("\t", 'maybe ', $query, $hit, $evalue), "\n" if $DEBUG; 
+	
+	# alias to avoid having to look them up in %g multiple times
+	my $querys_clust = $g{$query};
+	my $hits_clust   = $g{$hit};
+
+	if (defined($querys_clust) and defined($hits_clust) and ($hits_clust == $querys_clust)) {
+	    print STDERR "hit $hit already a member of query $query cluster $querys_clust\n"
+		if $DEBUG;
+	    next;
+	}
+
+	# we've hit a new query
+	# reset the seen list and give it a new cluster number (if needed)
+	if ($query ne $current_query) {
+	    undef %seen;
+	    $current_query = $query;
+
+	    # make a new cluster if the query doesn't belong to one
+	    unless (defined $querys_clust) {
+		$querys_clust = $cluster_index++;
+		$g{$query} = $querys_clust;
+		if (!defined $cluster_list{$querys_clust}) {
+		    push @{ $cluster_list{$querys_clust} }, $query;
+		}
+		else {
+		    die("attempting to recreate cluster $querys_clust, founded by ",
+			$cluster_list{$querys_clust}->[0], " with $query.\n");
+		}
+
+		# add the query to the list of members
+		print STDERR "ADDED\t$query\t$querys_clust\n" if $DEBUG;
+		$member_count++;
+	    }
+	}
+	# optimization: don't bother adding an edge between
+	# the query and a given hit if we've already done so
+	if ($seen{$hit}) { next; }
+	else             { $seen{$hit} = 1; }
+	
+	# cluster updating
+	if (defined $querys_clust) {
+
+	    # self-hit
+	    if ($hit eq $query) {
+		#next LINE;
+		# do nothing
+	    }
+	    # the hit has been seen before
+	    elsif (defined($hits_clust) and defined($cluster_list{$hits_clust}) ) {
+		# move the hit and all other members of hit's cluster to query's cluster
+		# in the main %g list
+		foreach my $member (@{ $cluster_list{$hits_clust} }) {
+		    $g{$member} = $querys_clust;
+		}		
+
+		# move the hit and all members of hit's cluster to query's cluster
+		# in the cluster lookup list
+		push(@{ $cluster_list{$querys_clust} }, @{ $cluster_list{$hits_clust} });
+
+		# remove the hit's old cluster list
+		delete $cluster_list{$hits_clust};
+	    }
+	    # the hit has not been seen before
+	    else {
+		# just add the hit to the query's cluster in the main %g list
+		$g{$hit} = $querys_clust;
+
+		# ...and to the query's cluster in the cluster lookup list
+		push @{ $cluster_list{$querys_clust} }, $hit;
+
+		# add the hit to the list of members
+		$member_count++;
+		print STDERR join ("\t", 'ADDED', $hit, $querys_clust, $evalue,), "\n" if $DEBUG; 
+	    }
+	}
+	else { die "query $query should already belong to a cluster.\n"; }
+    }
+}

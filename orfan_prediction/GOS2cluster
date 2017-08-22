@@ -1,0 +1,197 @@
+#!/usr/bin/perl
+# $Id$
+
+use warnings;
+use strict;
+use Getopt::Long;
+use Storable;
+use Cluster;
+use Bio::SeqIO;
+
+my ( $exclude, $tsv, $save, $seqdb );
+GetOptions(
+    "tsv=s"     => \$tsv,
+    "exclude=s" => \$exclude,
+    "seqdb=s"   => \$seqdb,
+    "noseqdb"   => sub { $seqdb = '' },
+    "save=s"    => \$save,
+);
+$save = $save ? $save : 'saved.cl';
+
+my $usage = "
+GOS2cluster - extract GOS-only clusters from cluster_membership file and
+              create Cluster objects for them
+
+Usage: GOS2cluster --exclude <tgi_orf_pep.ids>
+                   --tsv <cluster_membership_mapping_tsv.gz>
+                   --seqdb <pred_prot_gos_orf_dna>
+
+
+Parameters:
+--exclude <tgi_orf_pep.ids>                the file containing the seq ids of
+                                           TIGR ORFs to be excluded
+--tsv <cluster_membership_mapping_tsv.gz   the cluster membership file
+                                           downloaded from CAMera
+--seqdb <pred_prot_gos_orf_dna>            a WU-BLAST database of GOS DNA ORFs 
+  OR
+--noseqdb                                  build clusters with just seq ids and
+                                           don't bother fetching the actual seqs
+
+Options:
+--save <file>                              save new cluster data in <file>
+                                           (default 'saved.cl')
+";
+die $usage unless ( $exclude && $tsv );
+
+
+# check for WU-BLAST db (specifically the index file, needed by xdget)
+if ($seqdb) {
+    my $index_file = $seqdb . '.xni';
+    if ( !-f $index_file ) {
+        die("couldn't find $index_file. Either the WU-BLAST db doesn't exist,\n",
+            "or it's not indexed (xdformat -n -I)\n"
+        );
+    }
+}
+
+# create lookup of TIGR seq IDs (which aren't GOS-only) to exclude
+my %exclude;
+open( EXCLUDE, $exclude ) or die "couldn't open $exclude\n";
+while (<EXCLUDE>) {
+    chomp;
+    $exclude{$_} = 1;
+}
+print STDERR "finished reading in exclude file $exclude\n";
+
+# create LOG file for IDs that we couldn't find the seq
+if ($seqdb) {
+    open( LOG, ">no_seq.GOS2cluster" ) or die "couldn't open logfile\n";
+}
+
+# initialize the data structures where we'll store the cluster info
+my %cluster_list;    # cluster objects go here, indexed by cluster ID
+my %sequences;       # key: seq ID, value: cluster ID
+
+# initialize counts of found or missing seqs
+my $found   = 0;
+my $missing = 0;
+
+# read in and parse tsv cluster membership file
+#
+# format of the file (tab-delimited fields):
+# 0       Peptide Sequence ID
+# 1       Final Cluster ID ("-1" indicates sequence was not in any cluster)
+# 2       Final Cluster Status ("0" indicates cluster is marked as spurious)
+# 3       Nonredundany Information ("-1" if the sequence is marked as being
+#         nonredundant at the 98% similarity threshold; otherwise, contains the
+#         Peptide Sequence ID of the sequence that represents it.)
+# 4       Core Cluster ID
+# 5       Original Membership (in core cluster: 1 implies yes, 0 implies that
+#         sequence was recruited by BLAST/PSI-BLAST)
+#
+
+if ( $tsv =~ /\.gz$/ ) {
+    open( TSV, '-|', "gzip -dc $tsv" ) or die "couldn't open $tsv\n";
+}
+else { open( TSV, $tsv ) or die "couldn't open $tsv\n"; }
+
+print STDERR "Processing $tsv";
+LINE: while (<TSV>) {
+    chomp;
+    my @fields = split( "\t", $_ );
+
+    # skip blank lines
+    next LINE if /^(\s)*$/;
+
+    # skip non-JCVI seqs (GOS-only must have JCVI_PEP_ prefix)
+    next LINE unless $fields[0] =~ /^JCVI_PEP_/;
+
+    # skip JCVI seqs that are TIGR seqs
+    next LINE if $exclude{ $fields[0] };
+
+    # skip singleton clusters (-1 in 2nd column)
+    next LINE if $fields[1] eq '-1';
+
+    # skip clusters marked as spurious
+    next LINE if $fields[2] == 0;
+
+    # count only non-redundant sequences (-1 in 4th column)
+    next LINE unless $fields[3] eq '-1';
+
+    ### if we've passed all of those hurdles, the sequence and the ###
+    ### cluster are GOS-only and will be saved.                    ###
+
+    # JCVI orf id is the pep id - 1
+    my $orf_id = 'JCVI_ORF_';
+    if ( $fields[0] =~ /JCVI_PEP_(\d+)/ ) {
+        my $num = $1 - 1;
+        $orf_id .= $num;
+    }
+
+    # get the sequence from a previously-created WU-BLAST db
+    my $seq;
+    if ($seqdb) {
+        my @args = ( 'xdget', '-n', $seqdb, $orf_id );
+        my $pid = open( my $seqs, '-|', @args );
+        if ( !defined($pid) ) { die "can't xdget: $!"; }
+        my $in = Bio::SeqIO->new(
+            -fh     => $seqs,
+            -format => 'fasta',
+        );
+        $seq = $in->next_seq();
+        if ( !$seq ) {
+            print LOG "$_\n";
+            $missing++;
+            next LINE;
+        }
+        else { $found++; }
+    }
+
+    # or make a seq object with just the seq id
+    else {
+        $seq = Bio::Seq->new( -display_id => $orf_id );
+    }
+
+    # create the cluster object if it doesn't exist
+    my $cluster_obj;
+    if ( defined $cluster_list{ $fields[1] } ) {
+        $cluster_obj = $cluster_list{ $fields[1] };
+    }
+    else {
+        $cluster_obj = Cluster->new( 'id' => $fields[1] );
+        $cluster_list{ $fields[1] } = $cluster_obj;
+    }
+    my $before_size = $cluster_obj->size();
+
+    # add the sequence to the cluster and the seq lookup
+    $cluster_obj->add_member($seq);
+    $sequences{ $seq->display_id() } = $fields[1];
+
+    # check that seq actually got added to the cluster
+    if ( $cluster_obj->size() != ( $before_size + 1 ) ) {
+        die( "Seq ", $seq->display_id(), " didn't get added to cluster ",
+            $cluster_obj->id(), "\n" );
+    }
+    print STDERR '.' if ( $. % 10000 ) == 0;
+}
+
+# save new cluster data to a file
+my $new_stored_ref = {
+    'graph'        => \%sequences,
+    'cluster_list' => \%cluster_list,
+};
+
+save_to_file( $new_stored_ref, $save );
+
+# print a message when we're finished
+print STDERR "Processed ", scalar keys %cluster_list, " clusters\n";
+print STDERR "$found seqs found, $missing seqs missing\n" if $seqdb;
+
+
+sub save_to_file {
+    my ( $ref, $file ) = @_;
+
+    my $retval = store $ref, $file;
+    if   ($retval) { print STDERR "saved data to file $file\n"; }
+    else           { die "couldn't save to file $file: $!\n"; }
+}

@@ -1,0 +1,20 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+open(IDFILE, $ARGV[0]) or die "couldn't open $ARGV[0]\n"; 
+open(ORFFILE, $ARGV[1]) or die "couldn't open $ARGV[1]\n"; 
+
+my @idlist = <IDFILE>;
+chomp @idlist;
+my %matchlist = map { $_, 1 } @idlist;
+
+while (<ORFFILE>) {
+    chomp;
+
+    if ($matchlist{$_}) {
+	print $_, "\n";
+    }
+}
+

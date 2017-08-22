@@ -1,0 +1,18 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use Bio::Tools::Phylo::PAML;
+use File::Basename;
+
+my $infile = $ARGV[0];
+my ( $name, $path, $suffix ) = fileparse( $infile, qr/\.[^.]*/ );
+
+my $parser = Bio::Tools::Phylo::PAML->new(-file => $infile,
+                                          -dir  => $path,);
+                                          
+my $result   = $parser->next_result;
+my $MLmatrix = $result->get_MLmatrix();
+
+my @otus = $result->get_seqs();
+1;

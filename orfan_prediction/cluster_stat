@@ -1,0 +1,58 @@
+#!/usr/bin/perl
+# $Id$
+
+use strict;
+use warnings;
+use Cluster;
+use ClusterGroup;
+use Getopt::Long;
+use Histogram;
+
+my $verbose = 0;
+GetOptions("verbose" => \$verbose,);
+
+my $usage="
+cluster_stat - print info on a cluster file
+
+Usage: cluster_stat [options] <cluster_file>
+
+Options:
+--verbose    print histogram of cluster sizes
+
+";
+die $usage unless @ARGV;
+
+my $cluster_group = ClusterGroup->new('-load' => $ARGV[0]);
+my @cluster_list  = $cluster_group->get_all_clusters;
+print STDERR "loaded cluster file $ARGV[0]\n" if $verbose;
+
+my $total_clusters = scalar @cluster_list;;
+my $one_percent    = $total_clusters / 100;
+my $total_seqs     = 0;
+my $seen_clusters  = 0;
+my @cluster_counts;
+
+foreach my $cluster (@cluster_list) {
+    # give a little feedback to the user
+    if ($total_clusters > 10000) {
+	$seen_clusters++;
+	print STDERR '.' if ( $verbose && ($seen_clusters % $one_percent) == 0);
+    }
+
+    $total_seqs += $cluster->size();
+
+    if ($verbose) {
+	push @cluster_counts, $cluster->size();
+    }
+}
+print STDERR "\n" if $verbose;
+print STDOUT $ARGV[0], ': ', $total_clusters, ' clusters, ', $total_seqs,
+    " sequences.\n";
+
+if ($verbose) {
+    print STDOUT "\n";
+    my $hist_ref = Histogram::histogram(0, 0, 1, \@cluster_counts);
+    Histogram::print_histogram('histogram' => $hist_ref,
+			       'style'     => 'cumulative',
+			       'header'    => '1');
+}

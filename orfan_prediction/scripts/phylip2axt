@@ -1,0 +1,55 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use Bio::SearchIO;
+use Bio::AlignIO;
+use File::Basename;
+
+my $usage = 'phylip2axt - convert a multiple alignment in phylip format to
+             pairwise alignments in axt format
+
+usage: phylip2axt <foo.phylip> ... [bar.phylip]
+
+output file foo.axt will be automatically created
+';
+@ARGV or die $usage;
+
+foreach my $infile (@ARGV) {
+	# grab input filename
+	my $informat = 'phylip';
+
+	print STDERR 'processing ', $infile, "\n";
+
+	# make output filename based on input filename
+	my ($base, $path, $suffix) = fileparse($infile, ".$informat");
+	my $outformat = 'axt';
+	my $outfile = $path . $base . qq{.} . $outformat;
+
+	my $in = Bio::AlignIO->new(
+	    -format       => $informat,
+	    -file         => $infile,
+	);
+
+	open (OUT, '>', $outfile) or die "couldn't open $outfile: $!";
+
+	while ( my $aln = $in->next_aln() ) {
+	    my $seqcount = $aln->num_sequences;
+
+	    # make pairs of sequences, each pair only once
+	    for ( my $i = 1 ; $i <= $seqcount ; $i++ ) {
+	        for ( my $j = 1 ; $j <= $i ; $j++ ) {
+	            next if $j == $i;    # don't pair a seq with itself
+	            my $iseq = $aln->get_seq_by_pos($i);
+	            my $jseq = $aln->get_seq_by_pos($j);
+
+	            print OUT $iseq->id(), qq{ }, $jseq->id(), "\n";    # header line
+	            print OUT $iseq->seq(), "\n";                       # first seq
+	            print OUT $jseq->seq(), "\n";                       # second seq
+	            print OUT "\n";                                     # blank line
+	        }
+	    }
+	}
+	close OUT;
+
+}

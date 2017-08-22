@@ -1,0 +1,106 @@
+#!/usr/bin/env perl
+# $Id$
+
+use strict;
+use warnings;
+use Getopt::Long;
+use File::Spec;
+
+my ($outdirpath, $datasets, $debug);
+GetOptions( 'outdir:s'   => \$outdirpath,
+            'datasets:i' => \$datasets,
+            'debug'      => \$debug);
+
+my $usage = "
+codemlOnCluster.pl - run codeml on alignments (runmode=-2) on the cluster
+
+Usage: codemlOnCluster.pl --outdir <dirpath> dir_of_seqs1 ... dir_of_seqsN
+
+where dir_of_seqs is a directory with multiple alignment sequence files in it.
+NOTE! sequence files must be in fasta or phylip format and end in .fa, .fasta,
+.phy, or .phylip.
+
+--outdir   where output data should be written
+--datasets how many alignments in each input file. Corresponds to
+           codeml's ndata parameter.
+--debug    have the cluster send mail
+
+";
+die $usage unless defined @ARGV;
+die "no outdirpath!: $!\n" unless defined $outdirpath;
+$outdirpath = File::Spec->rel2abs($outdirpath);
+
+my $bindir = '/afs/pdc.kth.se/home/d/dmessina/src/clustering/bin';
+
+my @files;
+foreach my $dir (@ARGV) {
+    next unless ( -d $dir );    # skip any non-directories
+    next if $dir =~ /^\./;      # skip . .. and all other dirs beginning .
+
+    opendir( my $dirhandle, $dir ) or die "couldn't open $dir:$!\n";
+
+    while ( my $entry = readdir($dirhandle) ) {
+        if ( $entry =~ /\.fa(sta)?$/ or $entry =~ /\.phy(lip)?$/ ) {
+            my $path     = $dir . '/' . $entry;
+            my $fullpath = File::Spec->rel2abs($path);
+            push @files, $fullpath;
+        }
+    }
+    closedir($dirhandle);
+}
+
+my @runlist  = ();
+my @argslist = ();
+my $k        = 0;
+
+for ( my $i = 0 ; $i < @files ; $i = $i + 10 ) {
+
+    my $args = "--outdir $outdirpath --rid $k ";
+    if ( defined($datasets) ) {
+        $args .= "--datasets $datasets ";
+    }
+
+    for ( my $j = $i ; $j < @files && $j < $i + 10 ; $j++ ) {
+        $args = $args . $files[$j] . " ";
+    }
+
+    chomp($args);
+    push( @argslist, $args );
+    $k++;
+}
+
+foreach my $args (@argslist) {
+    push( @runlist, "perl $bindir/runAnAlignmentPaml.pl $args" );
+}
+
+my $runTime = 239;
+
+my $submit_counter = 1;
+for ( my $i = 0 ; $i < @runlist ; $i = $i + 6 ) {
+
+    my $command = "echo test & ";
+
+    for ( my $j = $i ; $j < @runlist && $j - $i < 6 ; $j++ ) {
+        $command = $command . $runlist[$j] . " & ";
+    }
+
+    $command = $command . "echo test & ";
+    chomp($command);
+
+    # submit the command
+    my $retval;
+    if ($debug) {
+        my $command = "esubmit -v -n 1 -t $runTime perl $bindir/runSeveralOnNode.pl \"$command\"";
+        print STDERR $command, "\n";
+        $retval = system($command);
+    }
+    else {
+        $retval = system(
+    "esubmit -v -n 1 -m -t $runTime perl $bindir/runSeveralOnNode.pl \"$command\""
+        );
+    }
+    if ( $retval > 0 ) { print STDERR $retval, "\t$!\n"; }
+    else {
+        print STDERR ( "submitted job ", $submit_counter++, "\n" );
+    }
+}

@@ -1,0 +1,306 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use Cluster;
+use ClusterGroup;
+use Bio::SeqIO;
+use Bio::AlignIO;
+use Bio::Align::Utilities qw(aa_to_dna_aln);
+use Bio::Tools::Run::Phylo::PAML::Codeml;
+use Getopt::Long;
+use IPC::Open2;
+
+my $lower_bound = 10;
+my $upper_bound = 100;
+my $model       = 0;
+my ( $load, $skip, $only, $outdir, $seqs, $trim, $oldalign );
+GetOptions(
+    "lower=i"   => \$lower_bound,
+    "upper=i"   => \$upper_bound,
+    "load=s"    => \$load,
+    "skip=s"    => \$skip,
+    "only=s"    => \$only,
+    "outdir=s"  => \$outdir,
+    "seqs"      => \$seqs,
+    "trim"      => \$trim,
+    "model=i"   => \$model,
+    "oldalign!" => \$oldalign,
+);
+my $usage = "
+cluster_kaks - calculate pairwise Ka/Ks of a cluster's sequences
+
+Usage: cluster_kaks [options] --load <cluster_file> --outdir <dir>
+
+--load  <file> the saved cluster file
+--outdir <dir> the name of the directory in which to save the output files
+
+Options:
+--upper <n>    largest cluster to consider  (default 100)
+--lower <n>    smallest cluster to consider (default 10)
+--skip  <file> read in a list of clusters to exclude
+--only  <file> read in a list of clusters to use (overrides --upper and --lower)
+--seqs         write out the aligned DNA and protein sequences to files
+--trim         use trimAl to trim the the alignments before calculating Ka/Ks (implies --seqs)
+--model <n>    codeml model to use (default:0)
+--oldalign     use existing alignments from the --outdir (overrides --trim and --seqs)
+
+";
+die $usage if ( !$load or !$outdir );
+
+# --trim implies --seqs
+if ($trim) { $seqs = 1; }
+
+# --oldalign implies --noseqs and --notrim
+if ($oldalign) {
+    print STDERR "WARNING! Using old alignments from $outdir\n";
+    $seqs = 0;
+    $trim = 0;
+}
+
+my %skiplist;
+if ($skip) {
+    open( SKIP, $skip ) or die "couldn't open $skip\n";
+    while (<SKIP>) {
+        chomp;
+        $skiplist{$_}++;
+    }
+}
+
+my %onlylist;
+if ($only) {
+    open( ONLY, $only ) or die "couldn't open $only\n";
+    while (<ONLY>) {
+        chomp;
+        $onlylist{$_}++;
+    }
+}
+
+my $cluster_group = ClusterGroup->new( '-load' => $load );
+my @clusters = $cluster_group->get_all_clusters;
+
+CLUSTER: foreach my $cluster ( @clusters ) {
+    # filtering by size, skip, or only
+    next if (( $cluster->size() < $lower_bound )
+        or   ( $cluster->size() > $upper_bound ));
+    next if ($skip && ( defined $skiplist{ $cluster->id() }));
+    next if ($only && (!defined $onlylist{ $cluster->id() }));
+
+    # extract seqs from the cluster
+    my %members = %{ $cluster->get_all_members };
+    print STDOUT ( "Cluster ", $cluster->id(), ': ', scalar keys %members,
+        " members\n" );
+
+    # setup
+    my ( $dna_aln, $aa_aln );
+    my $format = 'phylip';
+    my $outbase =
+      $outdir . '/cluster' . $cluster->id();    # define output file root
+
+    # read existing alignments from file
+    if ($oldalign) {
+
+        my $dnaalign_file = $outbase . '_dnatrim.' . $format;
+        if ( !-e $dnaalign_file ) { die "couldn't open $dnaalign_file: $!\n"; }
+        my $dnaalign_fh = Bio::AlignIO->new(
+            -file   => $dnaalign_file,
+            -format => $format,
+        );
+
+        $dna_aln = $dnaalign_fh->next_aln();
+
+        my $aaalign_file = $outbase . '_aatrim.' . $format;
+        if ( !-e $aaalign_file ) { die "couldn't open $aaalign_file: $!\n"; }
+        my $aaalign_fh = Bio::AlignIO->new(
+            -file   => $aaalign_file,
+            -format => $format,
+        );
+
+        $aa_aln = $aaalign_fh->next_aln();
+    }
+    else {
+
+        # set up kalign in and out
+        my ( $child_out, $child_in );
+        my @args = ( 'kalign', '-format', 'fasta', );
+        my $pid = open2( $child_out, $child_in, @args );
+        my $out = Bio::SeqIO->new(
+            -fh     => $child_in,
+            -format => 'fasta',
+        );
+
+        # write seqs from the cluster to kalign's input fh
+        foreach my $member ( keys %members ) {
+            my $prot_obj = $members{$member}->translate();
+
+            # check for stops to keep PAML from choking
+            my $pseq = $prot_obj->seq();
+            $pseq =~ s/\*//g;
+            if ( $pseq =~ /\*/ ) {
+                warn(   "provided a cDNA ("
+                      . $prot_obj->display_id
+                      . ") sequence with a stop codon, PAML will choke!" );
+                exit(0);
+            }
+
+            $prot_obj->seq($pseq);
+            $out->write_seq($prot_obj);
+        }
+        close($child_in);
+
+        # get results from kalign as an AlignIO stream
+        my $kalign_stream = Bio::AlignIO->new(
+            -fh     => $child_out,
+            -format => 'fasta',
+        );
+
+        # Get kalign output into a Bio::Align::AlignI object
+        $aa_aln = $kalign_stream->next_aln();
+
+        # clean up the kalign process
+        waitpid( $pid, 0 );
+
+        # write out the aligned prot sequences if asked
+        if ($seqs) {
+            my $prot_file = $outbase . '_aa.' . $format;
+            my $prot_out  = Bio::AlignIO->new(
+                -file        => ">$prot_file",
+                -format      => $format,
+                -interleaved => 0,
+                -idlength    => 25,
+            );
+            $prot_out->write_aln($aa_aln);
+
+            # trim the alignments (if asked)
+            if ($trim) {
+                open( my $trimmed_alignment,
+                    "trimal -in $prot_file -automated1 |" )
+                  or die "couldn't run trimal: $! $?\n";
+
+                # read into an alignment object
+                my $trimal_stream = Bio::AlignIO->new(
+                    -fh     => $trimmed_alignment,
+                    -format => $format,
+                );
+                $aa_aln = $trimal_stream->next_aln();
+
+                if ($aa_aln) {
+
+                    # write out the trimmed alignments
+                    my $trimmed_prot_file = $outbase . '_aatrim.' . $format;
+                    my $trimmed_prot_out  = Bio::AlignIO->new(
+                        -file        => ">$trimmed_prot_file",
+                        -format      => $format,
+                        -interleaved => 0,
+                        -idlength    => 25,
+                    );
+                    $trimmed_prot_out->write_aln($aa_aln);
+                }
+                else { next CLUSTER; }
+            }
+        }
+
+        # convert prot alignment into a DNA alignment
+        $dna_aln = aa_to_dna_aln( $aa_aln, \%members );
+    }
+
+    # write out the aligned DNA sequences if asked
+    if ($seqs) {
+        my $format   = 'phylip';
+        my $dna_file = $outbase . '_dna.' . $format;
+        my $dna_out  = Bio::AlignIO->new(
+            -file        => ">$dna_file",
+            -format      => $format,
+            -interleaved => 0,
+            -idlength    => 25,
+        );
+        $dna_out->write_aln($dna_aln);
+    }
+
+    # extract the constituent seqs
+    my @each = $dna_aln->each_seq();
+
+    # create the codeml run object
+    my $kaks_factory = Bio::Tools::Run::Phylo::PAML::Codeml->new(
+        -verbose => 1,
+        -params  => {
+            'runmode' => -2,
+            'seqtype' => 1,
+            'verbose' => 1,
+        },
+        -save_tempfiles => 1,
+    );
+
+    # set the alignment object
+    $kaks_factory->alignment($dna_aln);
+
+    # set up the KaKs output file
+    my $outfile = $outbase . '.kaks_m' . $model;
+    open( my $out_fh, '>', $outfile ) or die "couldn't open $outfile\n";
+
+    # run the KaKs analysis
+    print STDERR "Starting codeml with model $model on cluster ",
+      $cluster->id(), "...\n";
+    my ( $rc, $parser ) = $kaks_factory->run();
+    if ( !$rc ) {
+        print STDERR "no result for cluster "
+          . $cluster->id()
+          . ". Going to next cluster.\n";
+        next;
+    }
+    my $result   = $parser->next_result;
+    my $MLmatrix = $result->get_MLmatrix();
+
+    my @otus = $result->get_seqs();
+
+    # this gives us a mapping from the PAML order of sequences back to
+    # the input order (since names get truncated)
+    my @pos = map {
+        my $c = 1;
+        foreach my $s (@each) {
+            last if ( $s->display_id eq $_->display_id );
+            $c++;
+        }
+        $c;
+    } @otus;
+
+    print $out_fh
+      join( "\t", qw(SEQ1 SEQ2 Ka Ks Ka/Ks PROT_PERCENTID CDNA_PERCENTID) ),
+      "\n";
+
+    my ( $sum_kaks, $sum_ka, $sum_ks );
+    my $count = 0;
+
+    for ( my $i = 0 ; $i < ( scalar @otus - 1 ) ; $i++ ) {
+        for ( my $j = $i + 1 ; $j < ( scalar @otus ) ; $j++ ) {
+            my $sub_aa_aln = $aa_aln->select_noncont( $pos[$i], $pos[$j] );
+            my $sub_dna_aln = $dna_aln->select_noncont( $pos[$i], $pos[$j] );
+
+            print $out_fh join( "\t",
+                $otus[$i]->display_id,
+                $otus[$j]->display_id,
+                $MLmatrix->[$i]->[$j]->{'dN'},
+                $MLmatrix->[$i]->[$j]->{'dS'},
+                $MLmatrix->[$i]->[$j]->{'omega'},
+                sprintf( "%.2f", $sub_aa_aln->percentage_identity ),
+                sprintf( "%.2f", $sub_dna_aln->percentage_identity ),
+              ),
+              "\n";
+
+            # for determining averages
+            $count++;
+            $sum_ka   += $MLmatrix->[$i]->[$j]->{'dN'};
+            $sum_ks   += $MLmatrix->[$i]->[$j]->{'dS'};
+            $sum_kaks += $MLmatrix->[$i]->[$j]->{'omega'};
+        }
+    }
+    print $out_fh join( "\t",
+        "Average Ka: ",
+        sprintf( "%.6f", $sum_ka / $count ),
+        "Ks: ",
+        sprintf( "%.6f", $sum_ks / $count ),
+        "Ka/Ks: ",
+        sprintf( "%.6f", $sum_kaks / $count ),
+      ),
+      "\n";
+}

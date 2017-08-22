@@ -1,0 +1,37 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use Bio::AlignIO;
+use File::Basename;
+
+my $usage = 'phylip2fa - convert multiple alignments in phylip format to
+             multiple alignments in fasta format
+
+usage: phylip2fa <foo.phylip> [bar.phylip]
+
+output file foo.fa will be automatically created
+';
+@ARGV or die $usage;
+
+foreach my $infile (@ARGV) {
+    my $informat = 'phylip';
+    my $in       = Bio::AlignIO->new(
+        -file   => $infile,
+        -format => $informat,
+    );
+
+    # make output filename based on input filename
+    my ( $base, $path, $suffix ) = fileparse( $infile, ".$informat" );
+    my $outformat = 'fasta';
+    my $outfile   = $path . $base . qq{.} . $outformat;
+
+    my $out = Bio::AlignIO->new(
+        -file   => ">$outfile",
+        -format => $outformat,
+    );
+
+	while (my $aln = $in->next_aln()) {
+		$out->write_aln($aln);
+	}
+}

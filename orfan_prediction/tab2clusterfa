@@ -1,0 +1,81 @@
+#!/usr/bin/perl
+# $Id: tab2clusterfa 1646 2010-03-02 08:46:07Z dmessina $
+
+use strict;
+use warnings;
+use Getopt::Long;
+use Bio::SeqIO;
+use File::Spec;
+
+my ($tabfile, $fastafile, $outdir);
+GetOptions("tab=s"    => \$tabfile,
+	   "fasta=s"    => \$fastafile,
+	   "outdir=s" => \$outdir,
+	   );
+
+my $usage ="
+tab2clusterfa - make an individual FASTA file for each
+cluster from a tab-delimited file of cluster and seq ids
+and a FASTA file of all of the sequences.
+
+Usage: tab2cluster --tab    <gos_only_clusters+seqs.ids>
+                   --fasta  <gos_only.fa>
+                   --outdir <dir_to_write_to>
+
+Required paramters:
+--tab     a tab-delimited file of cluster and seq ids
+--fasta   a FASTA file containing all of the sequences
+--outdir  the directory to write all of the cluster files to
+
+NOTE: Subdirectories will be created within outdir to avoid
+      too many files in a single directory.
+";
+die $usage if (!$tabfile or !$fastafile or !$outdir);
+
+# create outdir if necessary
+if (! -e $outdir && ! -d $outdir) {
+    mkdir $outdir or die "couldn't create $outdir: $!\n";
+}
+
+my %seq_in_cluster; # lookup which cluster a seq is in
+
+open (TAB, $tabfile) or die "couldn't open $tabfile\n";
+while (<TAB>) {
+    chomp;
+    my ($clusterid, $seqid) = split;
+
+    # check input file is okay
+    die "bad line in $tabfile:\n$_\n" if (!$clusterid or !$seqid);
+
+    # check for redundancy in input file
+    die "$seqid already exists!\n" if exists($seq_in_cluster{$seqid});
+
+    $seq_in_cluster{$seqid} = $clusterid;
+}
+close TAB;
+
+my $in = Bio::SeqIO->new(-file   => $fastafile,
+			 -format => 'fasta',);
+
+while (my $seq = $in->next_seq) {
+    my $seqid = $seq->display_id();
+    my $clusterid;
+
+    if (exists $seq_in_cluster{$seqid}) {
+	$clusterid = $seq_in_cluster{$seqid};
+    }
+
+    # determine directory to write into, creating it if necessary
+    my (undef, $number) = split(/CAM_CL_/, $clusterid);
+    die "Bad Cluster ID!\n" unless $number;
+    my $dir = substr($number, 0, 4); # take first four digits
+    my $clust_dir = File::Spec->catdir($outdir, $dir);
+    if (! -e $clust_dir && ! -d $clust_dir) {
+	mkdir $clust_dir or die "couldn't create $clust_dir: $!\n";
+    }
+    my $clust_filename = File::Spec->catfile($outdir, $dir, $clusterid);
+
+    my $out = Bio::SeqIO->new(-file   => ">>$clust_filename",
+			      -format => 'fasta',);
+    $out->write_seq($seq);
+}

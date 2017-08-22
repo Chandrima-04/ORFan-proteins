@@ -1,0 +1,193 @@
+#!/usr/local/bin/perl
+# $Id: GOS2db 1373 2009-08-11 12:48:58Z dmessina $
+
+use warnings;
+use strict;
+use Cluster;
+use Getopt::Long;
+use Bio::SeqIO;
+use DBI;
+use Log::Log4perl;
+
+# setup logging
+my $log = Log::Log4perl->get_logger("default");
+my $log_conf = q(
+    log4perl.category.default          = DEBUG, Logfile, Screen
+    log4perl.appender.Logfile          = Log::Log4perl::Appender::File
+    log4perl.appender.Logfile.mode     = append
+    log4perl.appender.Logfile.filename = GOS2db.log
+    log4perl.appender.Logfile.layout   = Log::Log4perl::Layout::PatternLayout
+    log4perl.appender.Logfile.layout.ConversionPattern = %d %F{1}:%L [%p] %m %n
+    log4perl.appender.Screen           = Log::Log4perl::Appender::Screen
+    log4perl.appender.Screen.stderr    = 0
+    log4perl.appender.Screen.layout    = Log::Log4perl::Layout::SimpleLayout
+    );    
+Log::Log4perl::init(\$log_conf);
+
+# options
+my ( $exclude, $tsv, $save, $seqdb, $reset );
+GetOptions(
+    "tsv=s"     => \$tsv,
+    "exclude=s" => \$exclude,
+    "seqdb=s"   => \$seqdb,
+    "noseqdb"   => sub { $seqdb = '' },
+    "save=s"    => \$save,
+    "reset"     => \$reset,
+);
+$save = $save ? $save : 'saved.db';
+
+my $usage = "
+GOS2cluster - extract GOS-only clusters from cluster_membership file and
+              create SQLite database of them
+
+Usage: GOS2db --exclude <tgi_orf_pep.ids>
+                   --tsv <cluster_membership_mapping_tsv.gz>
+                   --seqdb <pred_prot_gos_orf_dna>
+
+
+Parameters:
+--exclude <tgi_orf_pep.ids>                the file containing the seq ids of
+                                           TIGR ORFs to be excluded
+--tsv <cluster_membership_mapping_tsv.gz   the cluster membership file
+                                           downloaded from CAMera
+--seqdb <pred_prot_gos_orf_dna>            a WU-BLAST database of GOS DNA ORFs 
+  OR
+--noseqdb                                  build clusters with just seq ids and
+                                           don't bother fetching the actual seqs
+
+Options:
+--save <file>                              save new cluster data in <file>
+                                           (default 'saved.db')
+--reset                                    clear out database and start over
+";
+die $usage unless ( $exclude && $tsv );
+
+
+# check for WU-BLAST db (specifically the index file, needed by xdget)
+if ($seqdb) {
+    my $index_file = $seqdb . '.xni';
+    if ( !-f $index_file ) {
+        die("couldn't find $index_file. Either the WU-BLAST db doesn't exist,\n",
+            "or it's not indexed (xdformat -n -I)\n"
+        );
+    }
+}
+
+# create lookup of TIGR seq IDs (which aren't GOS-only) to exclude
+my %exclude;
+open( EXCLUDE, $exclude ) or die "couldn't open $exclude\n";
+while (<EXCLUDE>) {
+    chomp;
+    $exclude{$_} = 1;
+}
+$log->info("finished reading in exclude file $exclude");
+
+# connect to db
+my $dbh = DBI->connect(
+    "dbi:SQLite:$save",    # <db type>:<db name>=<db file>
+    '',                    # username not needed for SQLite
+    '',                    # ditto for password
+    { RaiseError => 1, AutoCommit => 0 }
+);
+
+# set up tables
+if ($reset) {
+    if ( -s $save ) { $dbh->do("DROP TABLE SeqCluster"); }
+    $dbh->do(
+        "CREATE TABLE SeqCluster (seqid VARCHAR(30) PRIMARY KEY, clusterid VARCHAR(30))"
+    );
+    $dbh->commit;
+}
+
+# prepare insert statement to be used below in LINE loop
+my $load_sth
+    = $dbh->prepare("INSERT INTO SeqCluster (seqid,clusterid) VALUES (?,?)");
+
+# initialize counts of GOS-only IDs and found or missing seqs for those IDs
+my $GOS_only_IDs = 0;
+my $found_seqs   = 0;
+my $missing_seqs = 0;
+
+# read in and parse tsv cluster membership file
+#
+# format of the file (tab-delimited fields):
+# 0       Peptide Sequence ID
+# 1       Final Cluster ID ("-1" indicates sequence was not in any cluster)
+# 2       Final Cluster Status ("0" indicates cluster is marked as spurious)
+# 3       Nonredundany Information ("-1" if the sequence is marked as being
+#         nonredundant at the 98% similarity threshold; otherwise, contains the
+#         Peptide Sequence ID of the sequence that represents it.)
+# 4       Core Cluster ID
+# 5       Original Membership (in core cluster: 1 implies yes, 0 implies that
+#         sequence was recruited by BLAST/PSI-BLAST)
+#
+
+if ( $tsv =~ /\.gz$/ ) {
+    open( TSV, '-|', "gzip -dc $tsv" ) or $log->die("couldn't open $tsv");
+}
+else { open( TSV, $tsv ) or $log->die("couldn't open $tsv"); }
+
+print STDERR "Processing $tsv";
+LINE: while (<TSV>) {
+    chomp;
+    my @fields = split( "\t", $_ );
+
+    # skip blank lines
+    next LINE if /^(\s)*$/;
+
+    # skip non-JCVI seqs (GOS-only must have JCVI_PEP_ prefix)
+    next LINE unless $fields[0] =~ /^JCVI_PEP_/;
+
+    # skip JCVI seqs that are TIGR seqs
+    next LINE if $exclude{ $fields[0] };
+
+    # skip singleton clusters (-1 in 2nd column)
+    next LINE if $fields[1] eq '-1';
+
+    # skip clusters marked as spurious
+    next LINE if $fields[2] == 0;
+
+    # count only non-redundant sequences (-1 in 4th column)
+    next LINE unless $fields[3] eq '-1';
+
+    ### if we've passed all of those hurdles, the sequence and the ###
+    ### cluster are GOS-only and will be saved.                    ###
+    $GOS_only_IDs++;
+
+    # here's our cluster id
+    my $cluster_id = $fields[1];
+
+    # JCVI orf id is the pep id - 1
+    my $orf_id = 'JCVI_ORF_';
+    if ( $fields[0] =~ /JCVI_PEP_(\d+)/ ) {
+        my $num = $1 - 1;
+        $orf_id .= $num;
+    }
+
+    # record the seq id and cluster id in the database
+    # note we're just making the transaction, not committing yet
+    $load_sth->execute( $orf_id, $cluster_id );
+
+    # every 10000 transactions, commit to db
+    if ( ( $GOS_only_IDs % 10000 ) == 0 ) {
+	$log->debug("$GOS_only_IDs transactions committed");
+        $dbh->commit;
+    }
+
+    # every 10000 lines processed, give a little user feedback
+    if ( ( $. % 10000 ) == 0 ) {
+	$log->info("$. lines processed");
+    }
+}
+
+# commit any remaining (or files with < 10000 lines)
+$dbh->commit;
+
+# print a message when we're finished
+$log->info("Processed ", $., " lines of $tsv");
+$log->info("Committed ", $GOS_only_IDs, " sequences");
+$log->info("$found_seqs seqs found, $missing_seqs seqs missing") if $seqdb;
+
+# cleanup
+$load_sth->finish();
+$dbh->disconnect();

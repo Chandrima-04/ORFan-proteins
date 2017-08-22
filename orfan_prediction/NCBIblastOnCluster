@@ -1,0 +1,112 @@
+#!/usr/bin/perl
+# runOnCluster.pl
+#
+# wrapper for scripts to do blast
+# on a set of sequences
+
+# this is the script you actually run
+# it calls multiNCBIBlast.sh
+
+# all the paths should be set here
+#
+# use dbshatter to divide the base fasta files
+# into smaller files of perhaps 50-100 sequences each (these finish
+# easily in four hours node time, you could probably go up
+# to more sequences per node) of name
+#
+# eventually, there will be results files in the results directory
+# (check that these files are all there and are all the right size,
+#  rerun with higher $nodeTime) until all are done.
+#
+# cat together all the files into a single result file, and
+# then use parseHmmerOutput.pl to parse that into an architecture list file
+
+use strict;
+use warnings;
+use File::Basename;
+use File::Glob ':glob';
+use Getopt::Long;
+
+my ($num_to_run, $help);
+my $start_index = 0;
+GetOptions("num=i"   => \$num_to_run,
+	   "start=i" => \$start_index,
+           "help"    => \$help, );
+
+if ($help) { usage(); }
+
+sub usage {
+    die "NCBIblastOnCluster - run multiple blast jobs on cluster
+
+Usage: NCBIblastOnCluster [options]
+
+Options:
+--num   <n> number of jobs to submit (default: all)
+--start <n> index of job to start with (default: 0)\n";
+}
+
+# absolute afs path to wherever your source files are - change this!
+#my $queryDirectory = '/afs/pdc.kth.se/home/d/dmessina/dave1/db';
+#my $queryDirectory = '/afs/pdc.kth.se/home/d/dmessina/dave3/virus/20091006/shatter';
+my $queryDirectory = '~/dave1/virus/data/cluster_dna';
+
+# input files should be names $filePrefix_number where number = 0...$numFiles
+# e.g. Pfam_fs_0 Pfam_fs_1
+my $filePrefix = 'cluster';
+#my $filePrefix = 'test.fa';
+
+# or however many input files you have
+my @filelist = bsd_glob("$queryDirectory/$filePrefix?*");
+my $numFiles = scalar @filelist;
+die "Couldn't count files in your query directory $queryDirectory.\n" unless $numFiles;
+
+# absolute afs path to where you want the output files - change this!
+#my $resultsDirectory = '/afs/pdc.kth.se/home/d/dmessina/dave1/virus/2010/vs_uniref50/';
+my $resultsDirectory = '/afs/pdc.kth.se/home/d/dmessina/dave1/CAMERA/Antarctic/vs_nr';
+
+# where the other scripts are, probably wherever this script is - change this!
+#my $scriptDirectory = '/afs/pdc.kth.se/home/d/dmessina/dave3/virus/bin';
+my $scriptDirectory = '/afs/pdc.kth.se/home/d/dmessina/src/clustering/bin';
+
+# node time in minutes - four-hour jobs go fastest through the queue, 
+# so this is preferred
+my $nodeTime = 950;
+
+# absolute path to directory where database files are - change this!
+#my $dbDir = "/afs/pdc.kth.se/home/d/dmessina/dave3/virus/20091006";
+my $dbDir = "/afs/pdc.kth.se/home/d/dmessina/dave2/db";
+
+# short name of database files (e.g. nr) - change this!
+#my $dbFile = "r4_remain_orfs";
+my $dbFile = "nr";
+
+# absolute path to blast executable
+#my $exec = "/afs/pdc.kth.se/home/d/dmessina/bin/blastall";
+my $exec = "/afs/pdc.kth.se/home/d/dmessina/bin/ncbi-blast-2.2.23+_x64/bin/blastx";
+
+# cluster
+my $cluster = 'ferlin.pdc.kth.se';
+
+if (!$num_to_run) { $num_to_run = scalar @filelist;}
+if ($start_index) {
+    unless ($num_to_run == 0) {
+	$num_to_run = $num_to_run + $start_index;
+    }
+
+    if ($num_to_run > scalar @filelist) {
+	$num_to_run = scalar @filelist;
+    }
+}
+
+for (my $i = $start_index; $i < $num_to_run; $i++) {
+
+    my $file = $filelist[$i];
+    my $basename = basename($file);
+
+    # if a previous run already did this file, do not rerun it
+    if (! (-s "$resultsDirectory/$basename.result")) {
+ 
+	print STDOUT "Starting blast run on $cluster for $file\n";
+	system ("rsh -e -F $cluster \"esubmit -n 1 -F $$ -t $nodeTime bash $scriptDirectory/multiNCBIblast.sh $basename $queryDirectory $resultsDirectory $dbFile $exec $dbDir\"");
+    }
+}

@@ -1,0 +1,114 @@
+#!/usr/bin/perl
+# $Id: besthit 1747 2010-04-21 07:49:57Z dmessina $
+
+use strict;
+use warnings;
+use Getopt::Long;
+use File::Basename;
+
+my $DEBUG = 0;
+my ( $cutoff, $help, $pfam, $full, $byfile, $showall );
+GetOptions(
+    "cutoff=f" => \$cutoff,
+    "byfile"   => \$byfile,
+    "pfam"     => \$pfam,
+    "full"     => \$full,
+    "showall"  => \$showall,
+    "help"     => \$help,
+    "debug"    => \$DEBUG
+);
+$cutoff = $cutoff ? $cutoff : '1e-4';
+my ( %best_hit, %seen );
+my $previous_query;
+
+my $usage = "
+besthit - extract just the best hit per query or per file of blast reports
+
+Usage: besthit [options] <tabular blast report(s)>
+
+Options:
+--cutoff  specify an e-value cutoff (default 1e-4)
+--byfile  save the best hit for the file basename, not for each query
+          Basename is the filename without the preceding path or the
+          following suffix. e.g. for /Users/dave/foo.txt the basename is 'foo'
+
+          So if you have foo.nr and foo.pri and foo.env, there will be one
+          best hit across all of those databases (as specified by the suffix)
+
+--pfam    Pfam hmmsearch format (NOTE: e-value cutoff is turned off)
+--full    output complete BLAST result line for that best hit
+          (default: just query and hit name)
+--showall print lines for every file even if no hits for it (requires --byfile)
+
+--help    print this message
+--debug   turn on debugging output
+";
+die $usage if $help;
+die $usage unless @ARGV;
+die $usage, "\nERROR! --showall only works with --byfile!\n"
+  if ( $showall && !$byfile );
+
+while ( my $file = shift @ARGV ) {
+    open( my $fh, $file ) or die "couldn't open $file: $!\n";
+    my ( $base, $path, $suffix ) = fileparse( $file, qr/\.[^.]*/ );
+    die "no filename base found in $file!\n" unless defined $base;
+
+    # add dummy value so all units are printed
+    if ( $showall && $byfile && !exists($best_hit{$base}) ) {
+        $best_hit{$base} = '- none -';
+    }
+
+    while ( my $line = <$fh> ) {
+        next if ( $line =~ /^\#/ || $line =~ /^\s+/ );    # skip comment lines
+        chomp $line;
+
+        my ( $query, $hit, @rest ) = split( "\t", $line );
+        my $evalue = $rest[8];
+        if ($pfam) {
+            my $desc;
+            ( $hit, $desc, $query, @rest ) = split( "\t", $line );
+
+            # fake e-value since all Pfam hits are significant
+            $evalue = '1e-99';
+        }
+        die "no query!\n$_"  unless defined $query;
+        die "no hit!\n$_"    unless defined $hit;
+        die "no evalue!\n$_" unless defined $evalue;
+
+        next if $hit eq $query;    # self-hit isn't interesting
+        next if $evalue >= $cutoff;    # skip low-significance hits
+
+        # unit of analysis we're tracking best hit for, query or file
+        my $unit = $byfile ? $base : $query;
+
+        if ( exists $seen{$unit} ) {
+            if ( $seen{$unit} > $evalue ) {
+                $seen{$unit} = $evalue;
+
+                if   ($full) { $best_hit{$unit} = $line; }
+                else         { $best_hit{$unit} = $hit; }
+            }
+        }
+        else {
+            $seen{$unit} = $evalue;
+
+            if ($full) {
+                $best_hit{$unit} = $line;
+            }
+            else { $best_hit{$unit} = $hit; }
+        }
+    }
+}
+
+foreach my $item ( sort by_num keys %best_hit ) {
+    if ( $full && !$byfile ) {
+        print STDOUT $best_hit{$item}, "\n";
+    }
+    else {
+        print STDOUT $item, "\t", $best_hit{$item}, "\n";
+    }
+}
+
+sub by_num {
+    ( $a =~ /(\d+)/ )[0] <=> ( $b =~ /(\d+)/ )[0]
+}

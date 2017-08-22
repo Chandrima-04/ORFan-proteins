@@ -1,0 +1,78 @@
+#!/usr/bin/env perl
+# $Id: runAnAlignmentPaml.pl 1702 2010-04-01 16:28:48Z dmessina $
+
+use strict;
+use warnings;
+use File::Basename;
+use Getopt::Long;
+
+my ( $outdirpath, $rid, $datasets );
+GetOptions(
+    'outdir:s'   => \$outdirpath,
+    'rid:s'      => \$rid,
+    'datasets:i' => \$datasets,
+);
+
+# The optional parameter 'datasets' corresponds to the ndata codeml parameter,
+# for when you have multiple alignments in each input file, such as what you
+# get as output from evolver
+
+
+die "no outdirpath!: $!\n" unless defined $outdirpath;
+die "no rid: $!\n"         unless defined $rid;
+
+my $dir    = "/scratch/davepaml$rid";
+my $bindir = '/afs/pdc.kth.se/home/d/dmessina/bin/paml44_clust/bin';
+
+mkdir($dir) or die "couldn't mkdir $dir: $!\n";
+
+foreach my $file (@ARGV) {
+
+    my ( $base, $path, $suffix ) = fileparse( $file, qr/\.[^.]*/ );
+    my $seqfile  = $file;
+    my $treefile = $path . '/' . $base . '.tre';
+    my $outfile = "$dir/$base.mlc";
+    
+    my $seqonclust  = $dir . '/' . $base . $suffix;
+    #my $treeonclust = $dir . '/' . $base . '.tre';
+
+    # extract cluster id from path to create outdir for that cluster
+    my $outdir;
+    if ( $path =~ /(cluster\d+)/ ) {
+        $outdir = $outdirpath . '/' . $1;
+        if ( !-e $outdir ) {
+            mkdir($outdir) or die "couldn't make $outdir: $!\n";
+        }
+    }
+    else { $outdir = $outdirpath; }
+
+
+
+    system("cp $seqfile $dir") && die "couldn't cp $seqfile $dir: $!\n";
+
+    # run codeml
+    open( FH, ">$dir/codeml.ctl" );
+    print FH "seqfile = $seqonclust\n",
+      "outfile = $outfile\n",
+      "treefile = foo\n",
+      "runmode = -2\n",
+      "verbose = 9\n",
+      "seqtype = 1\n",
+      "CodonFreq = 2\n",
+      "model = 0\n",
+      "clock = 1\n",
+      "cleandata = 1\n",
+      "NSsites = 0\n";
+            
+    if ( defined($datasets) ) {
+        print FH "ndata = $datasets\n";
+    }
+    close(FH);
+    system("cd $dir; $bindir/codeml");
+
+    # copy file back to my disk
+    system("cp $outfile $outdir")
+      && die "couldn't cp $outfile to $outdir: $!\n";
+}
+
+system("rm -rf $dir") && die "couldn't rm $dir: $!\n";

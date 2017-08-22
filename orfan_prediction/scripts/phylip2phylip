@@ -1,0 +1,39 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use Bio::AlignIO;
+use File::Basename;
+
+my $usage = 'phylip2phylip - convert phylip interleaved format to
+                phylip non-interleaved format
+
+usage: phylip2phylip <foo.phylip> [bar.phylip]
+
+output file foo.phy will be automatically created
+';
+@ARGV or die $usage;
+
+foreach my $infile (@ARGV) {
+    my $informat = 'phylip';
+    my $in       = Bio::AlignIO->new(
+        -file   => $infile,
+        -format => $informat,
+    );
+
+    # make output filename based on input filename
+    my ( $base, $path, $suffix ) = fileparse( $infile, ".$informat" );
+    my $outformat = 'phylip';
+    my $outfile   = $path . $base . '.phy';
+
+    my $out = Bio::AlignIO->new(
+        -file        => ">$outfile",
+        -format      => $outformat,
+        -interleaved => 0,
+        -idlength    => 30,
+    );
+
+    while ( my $aln = $in->next_aln() ) {
+        $out->write_aln($aln);
+    }
+}
