@@ -1,0 +1,17 @@
+#                                                               --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name        accession  query name           accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#------------------- ---------- -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+VOG00579             -          GB3LKKR02F2QYO       -                3.5    7.7   8.0       6.2    6.9   7.8   1.5   1   1   0   1   1   1   0 -
+VOG00579             -          GB3LKKR01DXOMK       -                3.4    7.7  13.4       6.7    6.8  13.4   1.4   1   1   0   1   1   1   0 -
+VOG00579             -          GB3LKKR01CVT88       -                6.1    6.9  12.4       7.2    6.6  12.4   1.1   1   0   0   1   1   1   0 -
+VOG00579             -          GB3LKKR01DUZSW       -                2.1    8.4   4.8       2.2    8.3   4.8   1.0   1   0   0   1   1   1   0 -
+#
+# Program:         hmmscan
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SCAN
+# Query file:      454_seqs_phage.fa
+# Target file:     /labcommon/db/hmmerdb/vogdb/vogdb_Aug2017.hmm
+# Option settings: hmmscan -o 454_seqs_phage_vogdb.out --tblout 454_seqs_phage_vogdb.tbl --domtblout 454_seqs_phage_vogdb.domtbl --noali --cpu 16 /labcommon/db/hmmerdb/vogdb/vogdb_Aug2017.hmm 454_seqs_phage.fa 
+# Current dir:     /home/maubar/results/sonnhammer_d9539/2017.07_scireports_rev1/1_find_phage/2_hmmer
+# Date:            Mon Aug  7 11:04:22 2017
+# [ok]

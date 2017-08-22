@@ -1,0 +1,19 @@
+  0.00	8	0	D	10239	  Viruses
+  0.00	4	0	-	29258	    ssDNA viruses
+  0.00	3	0	F	10780	      Parvoviridae
+  0.00	3	0	-	40119	        Parvovirinae
+  0.00	3	0	-	207678	          unclassified Parvovirinae
+  0.00	3	3	S	1341019	            Parvovirus NIH-CQV
+  0.00	1	0	F	687329	      Anelloviridae
+  0.00	1	0	-	363628	        unclassified Anelloviridae
+  0.00	1	1	S	93678	          TTV-like mini virus
+  0.00	2	0	-	12333	    unclassified phages
+  0.00	2	0	-	156614	      environmental samples
+  0.00	2	2	S	1211417	        uncultured phage crAssphage
+  0.00	2	0	-	35237	    dsDNA viruses, no RNA stage
+  0.00	2	0	O	28883	      Caudovirales
+  0.00	1	0	F	10662	        Myoviridae
+  0.00	1	0	-	196896	          unclassified Myoviridae
+  0.00	1	1	S	948870	            Enterobacteria phage phi92
+  0.00	1	0	F	10699	        Siphoviridae
+  0.00	1	1	-	196894	          unclassified Siphoviridae

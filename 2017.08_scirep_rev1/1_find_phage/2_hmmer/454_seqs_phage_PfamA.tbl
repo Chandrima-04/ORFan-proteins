@@ -1,0 +1,14 @@
+#                                                               --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name        accession  query name           accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#------------------- ---------- -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+Collagen             PF01391.17 GB3LKKR01BUZSB       -               0.84    9.4   0.1      0.84    9.4   0.1   3.7   3   2   0   3   3   3   0 Collagen triple helix repeat (20 copies)
+#
+# Program:         hmmscan
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SCAN
+# Query file:      454_seqs_phage.fa
+# Target file:     /labcommon/db/hmmerdb/Pfam-A_r31/Pfam-A.hmm
+# Option settings: hmmscan -o 454_seqs_phage_PfamA.out --tblout 454_seqs_phage_PfamA.tbl --domtblout 454_seqs_phage_PfamA.domtbl --noali --cpu 16 /labcommon/db/hmmerdb/Pfam-A_r31/Pfam-A.hmm 454_seqs_phage.fa 
+# Current dir:     /home/maubar/results/sonnhammer_d9539/2017.07_scireports_revision1/1_find_phage/2_hmmer
+# Date:            Wed Aug  2 18:17:26 2017
+# [ok]

@@ -1,0 +1,13 @@
+#                                                               --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name        accession  query name           accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#------------------- ---------- -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+#
+# Program:         hmmscan
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SCAN
+# Query file:      454_seqs_phage.fa
+# Target file:     /labcommon/db/hmmerdb/pVOG_Aug2017/pVOG_Aug2017.hmm
+# Option settings: hmmscan -o 454_seqs_phage_pVOG.out --tblout 454_seqs_phage_pVOG.tbl --domtblout 454_seqs_phage_pVOG.domtbl --noali --cpu 16 /labcommon/db/hmmerdb/pVOG_Aug2017/pVOG_Aug2017.hmm 454_seqs_phage.fa 
+# Current dir:     /home/maubar/results/sonnhammer_d9539/2017.07_scireports_revision1/1_find_phage/2_pvog
+# Date:            Wed Aug  2 17:57:24 2017
+# [ok]

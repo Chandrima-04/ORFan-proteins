@@ -1,0 +1,26 @@
+clade	abundance	tool
+Parvovirus NIH-CQV	100.0	metaphlan2
+Parvovirus NIH-CQV	3.0	kraken
+TTV-like mini virus	1.0	kraken
+uncultured crAssphage	2.0	kraken
+Enterobacteria phage phi92	1.0	kraken
+unclassified Siphoviridae	1.0	kraken
+Enterobacteria phage phi92	52.0	kaiju
+uncultured crAssphage	34.0	kaiju
+Parabacteroides phage YZ-2015b;Parabacteroides phage YZ-2015a	24.0	kaiju
+Parvovirus NIH-CQV	18.0	kaiju
+Phytophthora parasitica virus	18.0	kaiju
+Gokushovirinae Fen672_31;Gokushovirinae Fen7875_21;Gokushovirinae Bog1183_53;Gokushovirinae Bog5712_52;Gokushovirinae GNX3R	10.0	kaiju
+Sewage-associated gemycircularvirus 11;Sewage-associated gemycircularvirus 1;Sewage-associated circular DNA virus-27	5.0	kaiju
+Chimpanzee faeces associated microphage 2;Chimpanzee faeces associated microphage 1	4.0	kaiju
+Salmonella virus SP31	4.0	kaiju
+unclassified NA	4.0	kaiju
+Pseudomonas virus NP1	3.0	kaiju
+Rhizobium phage RHEph10;Rhizobium phage vB_RglS_P106B	3.0	kaiju
+Croceibacter phage P2559Y	2.0	kaiju
+Pseudomonas phage PAJU2;Pseudomonas phage phiPsa374	2.0	kaiju
+TTV-like mini virus	2.0	kaiju
+unclassified Siphoviridae	2.0	kaiju
+TTV-like mini virus	1.0	ORFan
+Phytophthora parasitica virus	1.0	ORFan
+uncultured POOphage	1.0	ORFan

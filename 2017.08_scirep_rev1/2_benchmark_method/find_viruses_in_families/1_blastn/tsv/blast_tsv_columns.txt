@@ -1,0 +1,1 @@
+qseqid sseqid pident qcovs qcovhsp score length mismatch gapopen qlen qstart qend slen sstart send 

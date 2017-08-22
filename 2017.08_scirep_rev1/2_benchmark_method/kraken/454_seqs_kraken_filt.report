@@ -1,0 +1,104 @@
+ 99.95	402094	402094	U	0	unclassified
+  0.05	194	24	-	1	root
+  0.04	162	0	-	131567	  cellular organisms
+  0.04	162	16	D	2	    Bacteria
+  0.03	123	0	P	1224	      Proteobacteria
+  0.03	117	0	C	1236	        Gammaproteobacteria
+  0.03	114	0	O	72274	          Pseudomonadales
+  0.03	108	0	F	135621	            Pseudomonadaceae
+  0.03	108	0	G	286	              Pseudomonas
+  0.03	106	106	S	1415630	                Pseudomonas sp. TKP
+  0.00	1	1	S	69328	                Pseudomonas sp. VLB120
+  0.00	1	0	-	136845	                Pseudomonas putida group
+  0.00	1	0	S	303	                  Pseudomonas putida
+  0.00	1	1	-	1331671	                    Pseudomonas putida H8234
+  0.00	6	0	F	468	            Moraxellaceae
+  0.00	5	0	G	475	              Moraxella
+  0.00	5	0	-	46226	                Branhamella
+  0.00	5	0	S	480	                  Moraxella catarrhalis
+  0.00	5	5	-	749219	                    Moraxella catarrhalis RH4
+  0.00	1	1	G	469	              Acinetobacter
+  0.00	3	0	O	91347	          Enterobacteriales
+  0.00	3	3	F	543	            Enterobacteriaceae
+  0.00	5	0	C	28216	        Betaproteobacteria
+  0.00	5	1	O	80840	          Burkholderiales
+  0.00	4	1	F	80864	            Comamonadaceae
+  0.00	1	0	G	283	              Comamonas
+  0.00	1	0	S	285	                Comamonas testosteroni
+  0.00	1	0	-	543891	                  Comamonas testosteroni CNB-1
+  0.00	1	1	-	688245	                    Comamonas testosteroni CNB-2
+  0.00	1	0	G	80865	              Delftia
+  0.00	1	1	S	742013	                Delftia sp. Cs1-4
+  0.00	1	0	G	201096	              Alicycliphilus
+  0.00	1	0	S	179636	                Alicycliphilus denitrificans
+  0.00	1	1	-	596154	                  Alicycliphilus denitrificans K601
+  0.00	1	0	C	28211	        Alphaproteobacteria
+  0.00	1	0	O	356	          Rhizobiales
+  0.00	1	0	F	82115	            Rhizobiaceae
+  0.00	1	0	-	227290	              Rhizobium/Agrobacterium group
+  0.00	1	0	G	379	                Rhizobium
+  0.00	1	1	S	424182	                  Rhizobium sp. IRBG74
+  0.00	12	0	-	68336	      Bacteroidetes/Chlorobi group
+  0.00	12	7	P	976	        Bacteroidetes
+  0.00	5	0	C	200643	          Bacteroidia
+  0.00	5	4	O	171549	            Bacteroidales
+  0.00	1	0	F	815	              Bacteroidaceae
+  0.00	1	0	G	816	                Bacteroides
+  0.00	1	0	S	290053	                  Bacteroides helcogenes
+  0.00	1	1	-	693979	                    Bacteroides helcogenes P 36-108
+  0.00	6	1	P	1117	      Cyanobacteria
+  0.00	2	0	O	52604	        Pleurocapsales
+  0.00	2	0	G	54298	          Chroococcidiopsis
+  0.00	2	0	S	54299	            Chroococcidiopsis thermalis
+  0.00	2	2	-	251229	              Chroococcidiopsis thermalis PCC 7203
+  0.00	2	0	-	1301283	        Oscillatoriophycideae
+  0.00	2	0	O	1118	          Chroococcales
+  0.00	2	0	G	1125	            Microcystis
+  0.00	2	0	S	1126	              Microcystis aeruginosa
+  0.00	2	2	-	449447	                Microcystis aeruginosa NIES-843
+  0.00	1	0	O	1161	        Nostocales
+  0.00	1	0	F	1162	          Nostocaceae
+  0.00	1	0	G	56106	            Cylindrospermum
+  0.00	1	0	S	142864	              Cylindrospermum stagnale
+  0.00	1	1	-	56107	                Cylindrospermum stagnale PCC 7417
+  0.00	4	0	P	1239	      Firmicutes
+  0.00	2	0	C	91061	        Bacilli
+  0.00	1	0	O	1385	          Bacillales
+  0.00	1	0	F	90964	            Staphylococcaceae
+  0.00	1	0	G	1279	              Staphylococcus
+  0.00	1	1	S	1282	                Staphylococcus epidermidis
+  0.00	1	0	O	186826	          Lactobacillales
+  0.00	1	0	F	33958	            Lactobacillaceae
+  0.00	1	0	G	1578	              Lactobacillus
+  0.00	1	1	S	1613	                Lactobacillus fermentum
+  0.00	2	0	C	186801	        Clostridia
+  0.00	2	0	O	186802	          Clostridiales
+  0.00	2	0	F	541000	            Ruminococcaceae
+  0.00	2	0	G	216851	              Faecalibacterium
+  0.00	2	1	S	853	                Faecalibacterium prausnitzii
+  0.00	1	1	-	718252	                  Faecalibacterium prausnitzii L2-6
+  0.00	1	0	P	32066	      Fusobacteria
+  0.00	1	0	C	203490	        Fusobacteriia
+  0.00	1	0	O	203491	          Fusobacteriales
+  0.00	1	0	F	203492	            Fusobacteriaceae
+  0.00	1	0	G	848	              Fusobacterium
+  0.00	1	1	S	851	                Fusobacterium nucleatum
+  0.00	8	0	D	10239	  Viruses
+  0.00	4	0	-	29258	    ssDNA viruses
+  0.00	3	0	F	10780	      Parvoviridae
+  0.00	3	0	-	40119	        Parvovirinae
+  0.00	3	0	-	207678	          unclassified Parvovirinae
+  0.00	3	3	S	1341019	            Parvovirus NIH-CQV
+  0.00	1	0	F	687329	      Anelloviridae
+  0.00	1	0	-	363628	        unclassified Anelloviridae
+  0.00	1	1	S	93678	          TTV-like mini virus
+  0.00	2	0	-	12333	    unclassified phages
+  0.00	2	0	-	156614	      environmental samples
+  0.00	2	2	S	1211417	        uncultured phage crAssphage
+  0.00	2	0	-	35237	    dsDNA viruses, no RNA stage
+  0.00	2	0	O	28883	      Caudovirales
+  0.00	1	0	F	10662	        Myoviridae
+  0.00	1	0	-	196896	          unclassified Myoviridae
+  0.00	1	1	S	948870	            Enterobacteria phage phi92
+  0.00	1	0	F	10699	        Siphoviridae
+  0.00	1	1	-	196894	          unclassified Siphoviridae

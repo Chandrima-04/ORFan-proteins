@@ -1,0 +1,9 @@
+#SampleID	454_reads_mpa2
+k__Viruses	100.0
+k__Viruses|p__Viruses_noname	100.0
+k__Viruses|p__Viruses_noname|c__Viruses_noname	100.0
+k__Viruses|p__Viruses_noname|c__Viruses_noname|o__Viruses_noname	100.0
+k__Viruses|p__Viruses_noname|c__Viruses_noname|o__Viruses_noname|f__Parvoviridae	100.0
+k__Viruses|p__Viruses_noname|c__Viruses_noname|o__Viruses_noname|f__Parvoviridae|g__Parvoviridae_noname	100.0
+k__Viruses|p__Viruses_noname|c__Viruses_noname|o__Viruses_noname|f__Parvoviridae|g__Parvoviridae_noname|s__Parvovirus_NIH_CQV	100.0
+k__Viruses|p__Viruses_noname|c__Viruses_noname|o__Viruses_noname|f__Parvoviridae|g__Parvoviridae_noname|s__Parvovirus_NIH_CQV|t__PRJNA215356	100.0
